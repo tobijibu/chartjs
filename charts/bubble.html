@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>バブルチャート(Bubble) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../chartjs.html">Chart.js</a></li>
+            <li><a href="../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../configuration/legend.html">凡例</a></li>
+                <li><a href="../configuration/title.html">タイトル</a></li>
+                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../charts.html">Charts</a>
+              <ul id="navi_charts">
+                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a class="active" href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>バブルチャート(Bubble)</h1>
+          <p>
+            バブルチャート(BubbleChart)は、3次元のデータを同時に表示するために使用されます。
+            バブルの位置は、最初の2つの値と対応するX軸とY軸によって決定します。
+            3つ目の値はバブルのサイズによって表現します。
+          </p>
+          <canvas id="myChart1"></canvas>
+          <h2>使用例</h2>
+          <pre><code class="js">var myBubbleChart = new Chart(ctx,{
+    type: 'bubble',
+    data: data,
+    options: options
+});</code></pre>
+          <h2>データセットプロパティ</h2>
+          <p>
+            折れ線グラフは、各データセットに対して、いくつかのプロパティを設定することができます。
+            これらは特定のデータセットの表示プロパティを設定するために使用されます。
+            例えば、バブルの色は通常このように設定することができます。
+          </p>
+          <pre><code class="js">new Chart(ctx, {
+  type: "bubble",
+  data: {
+    datasets: [{
+      backgroundColor: "rgb(255, 99, 132)"
+    }]
+  }
+});</code></pre><br>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th><a class="link" href="../general/options.html#scriptable-options">scriptable</a></th>
+              <th><a class="link" href="../general/options.html#indexable-options">indexable</a></th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><a href="#styling"><code>backgroundColor</code></a></td>
+              <td><a href="../general/colors.html"><code>color</code></a></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>rgba(0,0,0,0.1)</code></td>
+            </tr>
+            <tr>
+              <td><a href="#styling"><code>borderColor</code></a></td>
+              <td><a href="../general/colors.html"><code>color</code></a></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>rgba(0,0,0,0.1)</code></td>
+            </tr>
+            <tr>
+              <td><a href="#styling"><code>borderWidth</code></a></td>
+              <td><code>number</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>3</code></td>
+            </tr>
+            <tr>
+              <td><a href="#data-structure"><code>data</code></a></td>
+              <td><code>object[]</code></td>
+              <td class="center">-</td>
+              <td class="center">-</td>
+              <td><b>必須</b></td>
+            </tr>
+            <tr>
+              <td><a href="#interactions"><code>hoverBackgroundColor</code></a></td>
+              <td><a href="../general/colors.html"><code>color</code></a></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>undefined</code></td>
+            </tr>
+            <tr>
+              <td><a href="#interactions"><code>hoverBorderColor</code></a></td>
+              <td><a href="../general/colors.html"><code>color</code></a></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>undefined</code></td>
+            </tr>
+            <tr>
+              <td><a href="#interactions"><code>hoverBorderWidth</code></a></td>
+              <td><code>number</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>1</code></td>
+            </tr>
+            <tr>
+              <td><a href="#interactions"><code>hoverRadius</code></a></td>
+              <td><code>number</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>4</code></td>
+            </tr>
+            <tr>
+              <td><a href="#interactions"><code>hitRadius</code></a></td>
+              <td><code>number</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>1</code></td>
+            </tr>
+            <tr>
+              <td><a href="#labeling"><code>label</code></a></td>
+              <td><code>string</code></td>
+              <td class="center">-</td>
+              <td class="center">-</td>
+              <td><code>undefined</code></td>
+            </tr>
+            <tr>
+              <td><a href="#styling"><code>pointStyle</code></a></td>
+              <td><code>string</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>circle</code></td>
+            </tr>
+            <tr>
+              <td><a href="#styling"><code>radius</code></a></td>
+              <td><code>number</code></td>
+              <td class="center">○</td>
+              <td class="center">○</td>
+              <td><code>3</code></td>
+            </tr>
+          </table><br>
+          <h3 id="labeling">ラベル</h3>
+          <p><code>label</code>は、データセットに関連付けられたテキストを定義し、
+            凡例とツールチップに表示します。
+          </p>
+          <h3 id="styling">スタイル</h3>
+          <p>各バブルのスタイルは、以下のプロパティで設定することができます。</p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>backgroundColor</code></td>
+              <td>バブルの背景色。</td>
+            </tr>
+            <tr>
+              <td><code>borderColor</code></td>
+              <td>バブルの枠線の色。</td>
+            </tr>
+            <tr>
+              <td><code>borderWidth</code></td>
+              <td>バブルの枠線の太さ(px)。</td>
+            </tr>
+            <tr>
+              <td><code>pointStyle</code></td>
+              <td>
+                バブルのスタイル。
+                詳しくは<a href="../configuration/elements.html#point-styles">pointスタイル</a>を参照してください。
+              </td>
+            </tr>
+            <tr>
+              <td><code>radius</code></td>
+              <td>バブルの半径(px)。</td>
+            </tr>
+          </table>
+          <p>これらの値が<code>undefined</code>の場合、
+            関連する<a href="../configuration/elements.html#point-configuration"><code>elements.point.*</code></a>オプションにフォールバックします。
+          </p>
+          <h3 id="interactions">インタラクション</h3>
+          <p>各バブルのインタラクションは、以下のプロパティで設定することができます。</p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>hoverBackgroundColor</code></td>
+              <td>ホバーした時のバブルの背景色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderColor</code></td>
+              <td>ホバーした時のバブルの枠線の色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderWidth</code></td>
+              <td>ホバーした時のバブルの枠線の太さ(px)。</td>
+            </tr>
+            <tr>
+              <td><code>hoverRadius</code></td>
+              <td>ホバーした時のバブルの半径(px)。</td>
+            </tr>
+            <tr>
+              <td><code>hitRadius</code></td>
+              <td>マウスイベントを発生させるバブルのサイズ(px)。</td>
+            </tr>
+          </table>
+          <p>これらの値が<code>undefined</code>の場合、<a href="../configuration/elements.html#point-configuration"><code>elements.point.*</code></a>オプションにフォールバックします。</p>
+          <h2 id="default-options">デフォルトオプション</h2>
+          <p>
+            バブルチャートはデフォルト値を変更することができます。
+            そうすることで、デフォルト値の変更以降、
+            バブルチャートは新しいデフォルト値で生成されます。
+            バブルチャートのデフォルト値は<code>Chart.defaults.bubble</code>でアクセスすることができます。
+          </p>
+          <h2 id="data-structure">データ構造</h2>
+          <p>バブルチャートでは、データセットに<code>data</code>の配列が含まれている必要があり、
+            各値は以下のプロパティを含んだオブジェクトでなければなりません。
+          </p>
+          <pre><code class="js">{
+    // X値
+    x: Number,
+ 
+    // Y値
+    y: Number,
+ 
+    // バブルの半径(px)。スケールされません。
+    r: Number
+}</code></pre>
+          <p><b>重要</b>: 半径プロパティ(<code>r</code>)は、<b>スケールされません</b>。
+            バブルは指定した半径(px)のサイズで表示されます。
+          </p>
+          <script class="load">
+            createObj = function() {
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              new Chart(ctx, {
+                type: "bubble",
+                data: {
+                  datasets: [{
+                    label: "First Dataset",
+                    data: [
+                      {x:20, y:30, r:15},
+                      {x:40, y:10, r:10}
+                    ],
+                    backgroundColor: "rgb(255, 99, 132)"
+                  }]
+                }
+              });
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>

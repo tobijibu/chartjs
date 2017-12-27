@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Chart.js | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="./css/fx.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="./js/highlight.pack.js"></script>
+    <script src="./js/barba.min.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="./img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a class="active" href="./chartjs.html">Chart.js</a></li>
+            <li><a href="./gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="./gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="./gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="./gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="./general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="./general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="./general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="./general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="./general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="./general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="./general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="./general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="./general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="./configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="./configuration/animations.html">アニメーション</a></li>
+                <li><a href="./configuration/layout.html">レイアウト</a></li>
+                <li><a href="./configuration/legend.html">凡例</a></li>
+                <li><a href="./configuration/title.html">タイトル</a></li>
+                <li><a href="./configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="./configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="./charts.html">Charts</a>
+              <ul class="hidden" id="navi_charts">
+                <li><a href="./charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="./charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="./charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="./charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="./charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="./charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="./charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="./charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="./charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="./axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="./axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="./axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="./axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="./axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="./axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="./axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="./axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="./axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="./axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="./developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="./developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="./developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="./developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="./developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="./developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="./developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="./additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="./additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="./additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>Chart.js</h1>
+          <h2>Slack Group</h2>
+          <p><a href="https://chart-js-automation.herokuapp.com/" target="_blank">こちら</a></p>
+          <h2>インストール</h2>
+          <p>最新バージョンは<a href="https://github.com/chartjs/Chart.js/releases/latest" target="_blank">Github</a>からダウンロードするか、<a href="https://cdnjs.com/libraries/Chart.js">Chart.js CDN</a>から使うことができます。
+            詳しいインストール方法は<a href="./gettingStarted/installation.html">インストール</a>を参照してください。
+          </p>
+          <h2>チャート生成</h2>
+          <p>
+            Chart.jsは簡単です。
+            必要なものは、ページに埋め込まれたスクリプトと、
+            チャートを表示する<code>canvas</code>要素だけです。
+          </p>
+          <p>
+            この例では、1つのデータセットを使って棒グラフ(BarChart)を生成してページに表示します。
+            Chart.jsの使用法は<a href="./gettingStarted/usage.html">Usage</a>で全て確認することができます。
+          </p>
+          <pre><code class="js">&#x3C;canvas id=&#x22;myChart&#x22; width=&#x22;400&#x22; height=&#x22;400&#x22;&#x3E;&#x3C;/canvas&#x3E;
+&#x3C;script&#x3E;
+var ctx = document.getElementById(&#x22;myChart&#x22;).getContext(&#x27;2d&#x27;);
+var myChart = new Chart(ctx, {
+    type: &#x27;bar&#x27;,
+    data: {
+        labels: [&#x22;Red&#x22;, &#x22;Blue&#x22;, &#x22;Yellow&#x22;, &#x22;Green&#x22;, &#x22;Purple&#x22;, &#x22;Orange&#x22;],
+        datasets: [{
+            label: &#x27;# of Votes&#x27;,
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                &#x27;rgba(255, 99, 132, 0.2)&#x27;,
+                &#x27;rgba(54, 162, 235, 0.2)&#x27;,
+                &#x27;rgba(255, 206, 86, 0.2)&#x27;,
+                &#x27;rgba(75, 192, 192, 0.2)&#x27;,
+                &#x27;rgba(153, 102, 255, 0.2)&#x27;,
+                &#x27;rgba(255, 159, 64, 0.2)&#x27;
+            ],
+            borderColor: [
+                &#x27;rgba(255,99,132,1)&#x27;,
+                &#x27;rgba(54, 162, 235, 1)&#x27;,
+                &#x27;rgba(255, 206, 86, 1)&#x27;,
+                &#x27;rgba(75, 192, 192, 1)&#x27;,
+                &#x27;rgba(153, 102, 255, 1)&#x27;,
+                &#x27;rgba(255, 159, 64, 1)&#x27;
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+&#x3C;/script&#x3E;</code></pre><br>
+          <canvas id="myChart"></canvas>
+          <h2>Contribution</h2>
+          <p>
+            issueやプルリクエストを送信する前に、
+            まず<a href="https://github.com/chartjs/Chart.js/blob/master/docs/developers/contributing.md" target="_blank">ガイドライン</a>を読んでください。
+          </p>
+          <p>Chart.jsのサポートについては、<a href="https://stackoverflow.com/questions/tagged/chart.js" target="_blank">Stack Overflow</a>で、<code>chartjs</code>タグを付けて投稿して下さい。</p>
+          <h2>ライセンス</h2>
+          <p>Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+          <script class="load">
+            createObj = function() {
+              var ctx = document.getElementById("myChart").getContext('2d');
+              var myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                      datasets: [{
+                          label: '# of Votes',
+                          data: [12, 19, 3, 5, 2, 3],
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(255, 159, 64, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgba(255,99,132,1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero:true
+                              }
+                          }]
+                      }
+                  }
+              });
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="./js/main.js"></script>
+  <script src="./js/barba_common.js"></script>
+</body>

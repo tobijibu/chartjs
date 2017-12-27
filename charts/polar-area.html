@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>鶏頭図(PolarArea) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../chartjs.html">Chart.js</a></li>
+            <li><a href="../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../configuration/legend.html">凡例</a></li>
+                <li><a href="../configuration/title.html">タイトル</a></li>
+                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../charts.html">Charts</a>
+              <ul id="navi_charts">
+                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a class="active" href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>鶏頭図(PolarArea)</h1>
+          <p>
+            鶏頭図(PolarAreaChart)は円グラフと似ていますが、セグメントの角度は同じです。
+            代わりにセグメントの半径が値によって異なります。
+          </p>
+          <p>
+            このチャートは円グラフのようなデータ比較や、
+            値のスケールを表示したい場合に便利です。
+          </p>
+          <canvas id="myChart1"></canvas>
+          <h2>使用例</h2>
+          <pre><code class="js">new Chart(ctx, {
+    data: data,
+    type: 'polarArea',
+    options: options
+});</code></pre>
+          <h2>データセットプロパティ</h2>
+          <p>
+            鶏頭図のデータセットには特定データセットのオプションを設定するために、
+            以下のオプションを含めることができます。
+            例えば、孤の色は通常このように設定することができます。
+          </p>
+          <pre><code class="js">new Chart(ctx, {
+  type: "polarArea",
+  data: {
+    datasets: [{
+      backgroundColor: [
+        "rgb(255, 99, 132)",
+        "rgb(75, 192, 192)",
+        "rgb(255, 205, 86)",
+        "rgb(201, 203, 207)",
+        "rgb(54, 162, 235)"
+      ]
+    }]
+  }
+});</code></pre><br>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>label</code></td>
+              <td><code>string</code></td>
+              <td>凡例とツールチップに表示するデータセットのラベル。</td>
+            </tr>
+            <tr>
+              <td><code>backgroundColor</code></td>
+              <td><code>color[]</code></td>
+              <td>孤を塗りつぶす色。<a href="../general/colors.html">カラー</a>を参照してください。</td>
+            </tr>
+            <tr>
+              <td><code>borderColor</code></td>
+              <td><code>color[]</code></td>
+              <td>枠線の色。<a href="../general/colors.html">カラー</a>を参照してください。</td>
+            </tr>
+            <tr>
+              <td><code>borderWidth</code></td>
+              <td><code>number[]</code></td>
+              <td>枠線の太さ(px)。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBackgroundColor</code></td>
+              <td><code>color[]</code></td>
+              <td>ホバー時の塗りつぶしの色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderColor</code></td>
+              <td><code>color[]</code></td>
+              <td>ホバー時の枠線の色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderWidth</code></td>
+              <td><code>number[]</code></td>
+              <td>ホバー時の枠線の太さ。</td>
+            </tr>
+          </table><br>
+          <h2>設定オプション</h2>
+          <p>
+            鶏頭図特有のカスタマイズオプションです。
+            これらのオプションは、グローバルのオプション<code>Chart.defaults.global</code>とマージされ、
+            チャートのオプションを生成します。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>startAngle</code></td>
+              <td><code>number</code></td>
+              <td><code>-0.5 * Math.PI</code></td>
+              <td>孤を表示する際にどの角度から表示するか。</td>
+            </tr>
+            <tr>
+              <td><code>animation.animateRotate</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td><code>true</code>の場合、チャートを回転アニメーションで表示します。
+                このプロパティは<code>options.animation</code>オブジェクトに含まれています。
+              </td>
+            </tr>
+            <tr>
+              <td><code>animation.animateScale</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td><code>true</code>の場合、チャートを中心から外側に拡大するアニメーションで表示します。</td>
+            </tr>
+          </table><br>
+          <h2 id="default-options">デフォルトオプション</h2>
+          <p>
+            作成された各鶏頭図はデフォルト値を変更することができ、
+            このオブジェクトは<code>Chart.defaults.polarArea</code>を使用することができます。
+            グローバルオプションを変更すると、変更後に生成されたチャートにのみ反映され、
+            すでに生成済みのチャートは変更されません。
+          </p>
+          <p>例えば、全ての新しい鶏頭図で <code>animateScale = false</code>を設定するには、
+            以下のように指定します。
+          </p>
+          <pre><code class="js">Chart.defaults.polarArea.animation.animateScale = false;</code></pre><br>
+          <h2>データ構造</h2>
+          <p>
+            鶏頭図では、データセットにデータポイントの配列が含まれている必要があります。
+            データポイントは数値でなければならず、
+            Chart.jsが全ての値を合計し、各データの割合を計算します。
+          </p>
+          <p>また、ツールチップが正しく表示されるように、ラベル配列の設定も必要です。</p>
+          <pre><code class="js">data = {
+    datasets: [{
+        data: [10, 20, 30]
+    }],
+ 
+    // 他の孤をホバーした時に、凡例とツールチップに以下のラベルを表示する。
+    labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+    ]
+};</code></pre>
+          <script class="load">
+            createObj = function() {
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              new Chart(ctx, {
+                type: "polarArea",
+                data: {
+                  labels: ["Red", "Green", "Yellow", "Grey", "Blue"],
+                  datasets: [{
+                    label: "My First Dataset",
+                    data: [11,16,7,3,14],
+                    backgroundColor: [
+                      "rgb(255, 99, 132)",
+                      "rgb(75, 192, 192)",
+                      "rgb(255, 205, 86)",
+                      "rgb(201, 203, 207)",
+                      "rgb(54, 162, 235)"
+                    ]
+                  }]
+                }
+              });
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>

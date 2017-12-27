@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>時間軸(time) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/fx.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script src="../../js/barba.min.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../chartjs.html">Chart.js</a></li>
+            <li><a href="../../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../../configuration/legend.html">凡例</a></li>
+                <li><a href="../../configuration/title.html">タイトル</a></li>
+                <li><a href="../../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../../charts.html">Charts</a>
+              <ul class="hidden" id="navi_charts">
+                <li><a href="../../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../../axis.html">Axis</a>
+              <ul id="navi_axis">
+                <li class="cartesian"><a href="../../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a class="active" href="../../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>時間軸(time)</h1>
+          <p>
+            タイムスケールは、時間や日付を表示するために使用されます。
+            目盛線の生成時には、スケールのサイズにもっとも相応しい単位ベースで自動計算します。
+          </p>
+          <h2>データセット</h2>
+          <h3>入力データ</h3>
+          <p>タイムスケールを使用する場合には、X軸のデータポイントを<code>t</code>属性で指定することができます。</p>
+          <pre><code class="js">data: [{
+    x: new Date(),
+    y: 1
+}, {
+    t: new Date(),
+    y: 10
+}]</code></pre>
+          <h3 id="date-format">Dateフォーマット</h3>
+          <p>
+            タイムスケールを使用する際に、Chart.jsではMoment.jsで使用可能な全ての形式をサポートしています。
+            詳しくは<a href="http://momentjs.com/docs/#/parsing/" target="_blank">Moment.jsドキュメント</a>を参照してください。
+          </p>
+          <h2>設定オプション</h2>
+          <p>
+            タイムスケールには、以下のオプションがあります。
+            これらのオプションは<a href="../cartesian.html#tick-configuration">目盛線設定</a>で設定することもできます。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>distribution</code></td>
+              <td><code>string</code></td>
+              <td><code>linear</code></td>
+              <td>
+                データをどのようにプロットするか。
+                <a href="#ticks-source">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>bounds</code></td>
+              <td><code>string</code></td>
+              <td><code>data</code></td>
+              <td>
+                スケールの範囲を決めます。
+                <a href="#scale-bounds">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>ticks.source</code></td>
+              <td><code>string</code></td>
+              <td><code>auto</code></td>
+              <td>
+                目盛線をどのように生成するか。
+                <a href="#ticks-source">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>time.displayFormats</code></td>
+              <td><code>Object</code></td>
+              <td></td>
+              <td>
+                異なる時間単位の表示方法を指定します。
+                <a href="#display-formats">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>time.isoWeekday</code></td>
+              <td><code>boolean</code></td>
+              <td><code>false</code></td>
+              <td><code>true</code>で、<code>time.unit</code>が<code>week</code>の場合、
+                週の開始曜日はMonday(月曜日)になります。
+                それ以外はSunday(日曜日)になります。
+              </td>
+            </tr>
+            <tr>
+              <td><code>time.max</code></td>
+              <td><a href="#date-format"><code>time</code></a></td>
+              <td></td>
+              <td>定義されている場合は、データの最大値を上書きします。</td>
+            </tr>
+            <tr>
+              <td><code>time.min</code></td>
+              <td><a href="#date-format"><code>time</code></a></td>
+              <td></td>
+              <td>定義されている場合は、データの最小値を上書きします。</td>
+            </tr>
+            <tr>
+              <td><code>time.parser</code></td>
+              <td><code>string/function</code></td>
+              <td></td>
+              <td>
+                日付のカスタムパーサ。
+                <a href="#parser">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>time.round</code></td>
+              <td><code>string</code></td>
+              <td><code>false</code></td>
+              <td>
+                定義されている場合は、日付は定義した単位に丸められます。
+                許可されている単位は、<a href="#time-units">時間単位</a>を参照してください。
+              </td>
+            </tr>
+            <tr>
+              <td><code>time.tooltipFormat</code></td>
+              <td><code>string</code></td>
+              <td></td>
+              <td>ツールチップに表示するmoment.js形式の文字列を指定します。</td>
+            </tr>
+            <tr>
+              <td><code>time.unit</code></td>
+              <td><code>string</code></td>
+              <td><code>false</code></td>
+              <td>定義されている場合は、時間単位を強制的に定義した単位に変更します。</td>
+            </tr>
+            <tr>
+              <td><code>time.stepSize</code></td>
+              <td><code>number</code></td>
+              <td><code>1</code></td>
+              <td>グリッドライン間の単位の数。</td>
+            </tr>
+            <tr>
+              <td><code>time.minUnit</code></td>
+              <td><code>string</code></td>
+              <td><code>millisecond</code></td>
+              <td>時間単位で表示する最低単位。</td>
+            </tr>
+          </table><br>
+          <h3 id="time-units">時間単位</h3>
+          <p>
+            時間単位は、以下の単位がサポートされています。
+            <code>time.unit</code>に文字列を渡すことで、
+            強制的に特定の単位を使用することができます。
+          </p>
+          <ul>
+            <li><code>millisecond</code></li>
+            <li><code>second</code></li>
+            <li><code>minute</code></li>
+            <li><code>hour</code></li>
+            <li><code>day</code></li>
+            <li><code>week</code></li>
+            <li><code>month</code></li>
+            <li><code>quarter</code></li>
+            <li><code>year</code></li>
+          </ul>
+          <p>
+            例えば、月毎のタイムスケールのチャートを生成するには、
+            以下の設定で実現可能です。
+          </p>
+          <pre><code class="js">var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                }
+            }]
+        }
+    }
+})</code></pre><br>
+          <h3 id="display-formats">時間表示形式</h3>
+          <p>
+            以下の表示形式は、異なる時間単位が軸の目盛り線上にどのような文字列に変換されるかを示してします。
+            使用可能なフォーマットは<a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">moment.js</a>を参照してください。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>初期値</th>
+              <th>例</th>
+            </tr>
+            <tr>
+              <td><code>millisecond</code></td>
+              <td><code>h:mm:ss.SSS a</code></td>
+              <td>11:20:01.123 AM</td>
+            </tr>
+            <tr>
+              <td><code>second</code></td>
+              <td><code>h:mm:ss a</code></td>
+              <td>11:20:01 AM</td>
+            </tr>
+            <tr>
+              <td><code>minute</code></td>
+              <td><code>h:mm a</code></td>
+              <td>11:20 AM</td>
+            </tr>
+            <tr>
+              <td><code>hour</code></td>
+              <td><code>hA</code></td>
+              <td>11AM</td>
+            </tr>
+            <tr>
+              <td><code>day</code></td>
+              <td><code>MMM D</code></td>
+              <td>Sep 4</td>
+            </tr>
+            <tr>
+              <td><code>week</code></td>
+              <td><code>ll</code></td>
+              <td>Sep 4 2015</td>
+            </tr>
+            <tr>
+              <td><code>month</code></td>
+              <td><code>MMM YYYY</code></td>
+              <td>Sep 2015</td>
+            </tr>
+            <tr>
+              <td><code>quarter</code></td>
+              <td><code>[Q]Q - YYYY]</code></td>
+              <td>Q3 - 2015</td>
+            </tr>
+            <tr>
+              <td><code>year</code></td>
+              <td><code>YYYY</code></td>
+              <td>2015</td>
+            </tr>
+          </table><br>
+          <p>例えば、<code>quarter</code>単位の表示形式を年、月で表示するには、
+            以下の設定をチャートのコンストラクタに渡します。
+          </p>
+          <pre><code class="js">var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        quarter: 'MMM YYYY'
+                    }
+                }
+            }]
+        }
+    }
+})</code></pre><br>
+          <h3 id="scale-bounds">bounds</h3>
+          <p><code>bounds</code>プロパティはスケールの範囲を制御します。
+            (最小/最大時間オプションをバイパスします。)
+          </p>
+          <ul>
+            <li><code>data</code>：全てのデータが表示され、外側のラベルは削除されます。</li>
+            <li><code>ticks</code>：全ての目盛線が表示され、外側のデータは切り捨てられます。</li>
+          </ul>
+          <h3 id="ticks-source">ticks.source</h3>
+          <p><code>ticks.source</code>プロパティは、目盛線の生成を制御します。</p>
+          <ul>
+            <li><code>auto</code>：スケールのサイズと時間オプションに基いて、"最適な"目盛線を生成します。</li>
+            <li><code>data</code>：データから目盛線を生成します。(データオブジェクト<code>{t|x|y}</code>からのラベルを含みます。)</li>
+            <li><code>labels</code>：<code>data.labels</code>の値のみで目盛線を生成します。</li>
+          </ul>
+          <h3 id="parser">パーサ</h3>
+          <p>このプロパティに文字列が指定されている場合、日付のカスタム形式として解析されます。</p>
+          <p>関数の場合、適切な値が与えられたmoment.jsオブジェクトを返さなければなりません。</p>
+          <script class="load">
+            createObj = function() {
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/barba_common.js"></script>
+</body>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>棒グラフ(Bar) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../chartjs.html">Chart.js</a></li>
+            <li><a href="../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../configuration/legend.html">凡例</a></li>
+                <li><a href="../configuration/title.html">タイトル</a></li>
+                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../charts.html">Charts</a>
+              <ul id="navi_charts">
+                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a class="active" href="../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>棒グラフ(Bar)</h1>
+          <p>
+            棒グラフ(BarChart)は、値を縦棒で表示します。
+            トレンドデータの表示や、複数のデータを並べて比較する際によく使われます。
+          </p>
+          <canvas id="myChart1"></canvas>
+          <h2>使用例</h2>
+          <pre><code class="js">var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+});</code></pre>
+          <h2>データセットプロパティ</h2>
+          <p>
+            棒グラフは、各データセットに対して、いくつかのプロパティを設定することができます。
+            これらは特定のデータセットの表示プロパティを設定するために使用されます。
+            例えば、バー(棒)の色は通常このように設定することができます。
+          </p>
+          <pre><code class="js">new Chart(ctx, {
+  type: 'bar',
+  data: {
+    datasets: [{
+      backgroundColor:[
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 205, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(201, 203, 207, 0.2)"
+      ],
+      borderColor: [
+        "rgb(255, 99, 132)",
+        "rgb(255, 159, 64)",
+        "rgb(255, 205, 86)",
+        "rgb(75, 192, 192)",
+        "rgb(54, 162, 235)",
+        "rgb(153, 102, 255)",
+        "rgb(201, 203, 207)"
+      ],
+    }]
+  },
+});</code></pre>
+          <p>
+            いくつかのプロパティは配列を指定することができます。
+            これらに配列が指定されている場合、最初の値は、最初の棒データとして適用され、
+            2番目の値は、2番目の棒データとして適用され、3番目以降も同様です。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>label</code></td>
+              <td><code>string</code></td>
+              <td>凡例とツールチップに表示するデータセットのラベル。</td>
+            </tr>
+            <tr>
+              <td><code>xAxisID</code></td>
+              <td><code>string</code></td>
+              <td>
+                データセットをプロットしたX軸のid。
+                未指定の場合は、最初のX軸のidになります。
+              </td>
+            </tr>
+            <tr>
+              <td><code>yAxisID</code></td>
+              <td><code>string</code></td>
+              <td>
+                データセットをプロットしたY軸のid。
+                未指定の場合、最初のY軸のidになります。
+              </td>
+            </tr>
+            <tr>
+              <td><code>backgroundColor</code></td>
+              <td><code>color/color[]</code></td>
+              <td>バーを塗りつぶす色。<a href="../general/colors.html">カラー</a>を参照してください。</td>
+            </tr>
+            <tr>
+              <td><code>borderColor</code></td>
+              <td><code>color/color[]</code></td>
+              <td>枠線の色。<a href="../general/colors.html">カラー</a>を参照してください。</td>
+            </tr>
+            <tr>
+              <td><code>borderWidth</code></td>
+              <td><code>number/number[]</code></td>
+              <td>枠線の太さ(px)。</td>
+            </tr>
+            <tr>
+              <td><code>borderSkipped</code></td>
+              <td><code>string</code></td>
+              <td>枠線を表示しない「辺」。<a href="#borderskipped">詳しくはこちら</a></td>
+            </tr>
+            <tr>
+              <td><code>hoverBackgroundColor</code></td>
+              <td><code>color/color[]</code></td>
+              <td>ホバー時の塗りつぶしの色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderColor</code></td>
+              <td><code>color/color[]</code></td>
+              <td>ホバー時の枠線の色。</td>
+            </tr>
+            <tr>
+              <td><code>hoverBorderWidth</code></td>
+              <td><code>number/number[]</code></td>
+              <td>ホバー時の枠線の太さ。</td>
+            </tr>
+          </table><br>
+          <h3 id="borderskipped">borderSkipped</h3>
+          <p>
+            この設定はバーの底に枠線を描写させないために使用します。
+            通常、棒グラフから派生したチャートを生成しない限り、この設定を変更する必要はありません。
+          </p>
+          <p>以下を指定することができます。</p>
+          <ul>
+            <li>bottom</li>
+            <li>left</li>
+            <li>top</li>
+            <li>right</li>
+          </ul>
+          <h2 id="config-options">設定オプション</h2>
+          <p>
+            棒グラフには以下の設定オプションが定義されています。
+            これらのオプションは、グローバルのオプション<code>Chart.defaults.global</code>とマージされ、
+            チャートに渡されるオプションを生成します。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>barPercentage</code></td>
+              <td><code>number</code></td>
+              <td><code>0.9</code></td>
+              <td>
+                バーごとの利用可能な太さの割合(0～1)。カテゴリの幅内である必要があります。
+                <code>1.0</code>の場合、カテゴリ全体の幅になり、バーが互いに隣り合います。
+                <a href="#barpercentage-vs-categorypercentage">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>categoryPercentage</code></td>
+              <td><code>number</code></td>
+              <td><code>0.8</code></td>
+              <td>
+                カテゴリーごとの利用可能な幅の割合(0～1)。サンプルの幅内である必要があります。
+                <a href="#barpercentage-vs-categorypercentage">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>barThickness</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                各バーの幅を手動で設定します。
+                セットされていない場合、サンプルの幅は他のサンプルと重ならない範囲での最大幅になるように自動的に計算されます。
+                その後、<code>barPercentage</code>と<code>categoryPercentage</code>を使ってバーのサイズが設定されます。
+              </td>
+            </tr>
+            <tr>
+              <td><code>maxBarThickness</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>バーの幅がこの値より太くならないようになります。</td>
+            </tr>
+            <tr>
+              <td><code>gridLines.offsetGridLines</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td><code>true</code>を設定した場合、バーはグリッドラインの中間になります。
+                グリッドラインは目盛線の半分ずつ左へずれます。
+                <code>false</code>の場合、グリッドラインはバーの真ん中から右側にずれます。
+                <a href="#offsetGridLines">詳しくはこちら</a>
+              </td>
+            </tr>
+          </table>
+          <p class="note">※こららの設定は軸設定(<code>xAxes</code>、<code>yAxes</code>)内に設定すると適用されます。</p><br>
+          <h3 id="offsetGridLines">offsetGridLines</h3>
+          <p><code>true</code>を設定した場合、バーがグリッド線の間に入ります。
+            グリッドラインは目盛線間隔の半分だけ左にずれて表示されます。
+            <code>false</code>の場合、グリッドラインはバーの真ん中から右側にずれることになります。
+            棒グラフではデフォルトで<code>true</code>が設定されており、
+            それ以外のチャートでは<code>false</code>が設定されています。
+          </p>
+          <p>
+            この設定は軸設定で適用されます。
+            チャートに軸を追加した場合、追加した軸にそれぞれ設定する必要があります。
+          </p>
+          <pre><code class="js">options = {
+    scales: {
+        xAxes: [{
+            gridLines: {
+                offsetGridLines: true
+            }
+        }]
+    }
+}</code></pre>
+          <h2>デフォルトオプション</h2>
+          <p>
+            通常、生成する全ての棒グラフに構成オプションを適用します。
+            グローバルオプションは<code>Chart.defaults.bar</code>に格納されます。
+            グローバルオプションを変更すると、変更後に生成されたチャートにのみ反映され、
+            すでに生成済みのチャートは変更されません。
+          </p>
+          <h2 id="barpercentage-vs-categorypercentage">barPercentage vs categoryPercentage</h2>
+          <p>以下に、<code>barPercentage</code>と<code>categoryPercentage</code>の関係を示します。</p>
+          <pre><code class="txt">// categoryPercentage: 1.0
+// barPercentage: 1.0
+Bar:       | 1.0 | 1.0 |
+Category:  |    1.0    |
+Sample:    |===========|
+ 
+// categoryPercentage: 1.0
+// barPercentage: 0.5
+Bar:          |.5|  |.5|
+Category:  |      1.0     |
+Sample:    |==============|
+ 
+// categoryPercentage: 0.5
+// barPercentage: 1.0
+Bar:           |1.||1.|
+Category:      |  .5  |
+Sample:    |==============|</code></pre>
+          <h2>データ構造</h2>
+          <p>棒グラフのデータセットにある<code>data</code>プロパティは、
+            数値配列を指定することができます。
+            データ配列のそれぞれのポイントは、X軸上の同じインデックスのラベルに対応します。
+          </p>
+          <pre><code class="js">data: [20, 10]</code></pre>
+          <p><a href="../axis/cartesian/time.html#time-cartesian-axis">時間スケール</a>を使う場合には、X/Y座標を指定することもできます。</p>
+          <pre><code class="js">data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]</code></pre><br>
+          <h2>積み上げ棒グラフ</h2>
+          <p>
+            棒グラフを積み上げ棒グラフにするには、X/Y軸設定のスタッキングを有効に変更します。
+            積み上げ棒グラフを使用することで、1つのデータ系列が複数の小さな要素で構成されていることを示すことができます。
+          </p>
+          <pre><code class="js">var stackedBar = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            xAxes: [{
+                stacked: true
+            }],
+            yAxes: [{
+                stacked: true
+            }]
+        }
+    }
+});</code></pre><br>
+          <h2>データセットプロパティ</h2>
+          <p>以下のプロパティは積み上げ棒グラフ特有のプロパティです。</p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>stack</code></td>
+              <td><code>string</code></td>
+              <td>
+                データセットが含まれるグループのid。
+                (スタックされている場合、各グループは別々のスタックになります。)
+              </td>
+            </tr>
+          </table>
+          <h1>Horizontal Bar Chart</h1>
+          <p>
+            横棒グラフ(HrizontalBarChart)は、棒グラフのバリエーションの一つです。
+            トレンドデータの表示や、複数のデータを並べて比較する際によく使われます。
+          </p>
+          <canvas id="myChart2"></canvas>
+          <h2>使用例</h2>
+          <pre><code class="js">var myBarChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: data,
+    options: options
+});</code></pre>
+          <h2>設定オプション</h2>
+          <p>横棒グラフには<a href="#config-options">棒グラフ</a>と同じ設定オプションを指定することができます。
+            しかし、棒グラフのX軸に指定されたオプションは、横棒グラフのY軸に適用されます。
+          </p>
+          <p>デフォルトの横棒グラフ設定は<code>Chart.defaults.horizontalBar</code>で指定されています。</p>
+          <script class="load">
+            createObj = function() {
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              var data = {
+                labels: ["January","February","March","April","May","June","July"],
+                datasets: [{
+                  label: "My First Dataset",
+                  data: [65,59,80,81,56,55,40],
+                  fill: false,
+                  backgroundColor:[
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
+                    "rgba(255, 205, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(153, 102, 255, 0.2)",
+                    "rgba(201, 203, 207, 0.2)"
+                  ],
+                  borderColor: [
+                    "rgb(255, 99, 132)",
+                    "rgb(255, 159, 64)",
+                    "rgb(255, 205, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(54, 162, 235)",
+                    "rgb(153, 102, 255)",
+                    "rgb(201, 203, 207)"
+                  ],
+                  borderWidth: 1
+                }]
+              };
+            
+              // barChart
+              new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }],
+                  },
+                }
+              });
+            
+              // horizontalBarChart
+              var ctx = document.getElementById('myChart2').getContext('2d');
+              new Chart(ctx, {
+                type: 'horizontalBar',
+                data: data,
+                options: {
+                  scales: {
+                    xAxes: [{
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }],
+                  },
+                }
+              });
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>線形軸(linear) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/fx.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script src="../../js/barba.min.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../chartjs.html">Chart.js</a></li>
+            <li><a href="../../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../../configuration/legend.html">凡例</a></li>
+                <li><a href="../../configuration/title.html">タイトル</a></li>
+                <li><a href="../../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../../charts.html">Charts</a>
+              <ul class="hidden" id="navi_charts">
+                <li><a href="../../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../../axis.html">Axis</a>
+              <ul id="navi_axis">
+                <li class="cartesian"><a href="../../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a class="active" href="../../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>線形軸(linear)</h1>
+          <p>
+            リニア(線形)スケールは、数値データのチャートに使用されます。
+            X軸またはY軸のどちらかに設定することができます。
+            散布図では、X軸に対してリニアスケールを使った折れ線グラフを自動的に設定します。
+            名前が示すように、線形補間を使って、値が軸上のどこにあるかを決定します。
+          </p>
+          <h2>目盛線設定</h2>
+          <p>
+            リニアスケールには、目盛線の設定のための以下のオプションがあります。
+            これらは<code>tick</code>オプションのサブオプションです。
+            これらのオプションは<a href="../cartesian.html#tick-configuration">目盛線設定</a>を拡張します。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>beginAtZero</code></td>
+              <td><code>boolean</code></td>
+              <td></td>
+              <td><code>true</code>の場合、スケール指定されていなければ<code>0</code>を表示します。</td>
+            </tr>
+            <tr>
+              <td><code>min</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                データの最小値を、スケールの最小値で上書きします。
+                <a href="#axis-range-settings">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>max</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                データの最大値を、スケールの最大値で上書きします。
+                <a href="#axis-range-settings">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>maxTicksLimit</code></td>
+              <td><code>number</code></td>
+              <td><code>11</code></td>
+              <td>表示する目盛線とグリッドラインの最大数。</td>
+            </tr>
+            <tr>
+              <td><code>stepSize</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                スケールの固定ステップサイズ。
+                <a href="#step-size">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>suggestedMax</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                データの最大値を計算する場合に使用する調整値。
+                <a href="#axis-range-settings">詳しくはこちら</a>
+              </td>
+            </tr>
+            <tr>
+              <td><code>suggestedMin</code></td>
+              <td><code>number</code></td>
+              <td></td>
+              <td>
+                データの最小値を計算する場合に使用する調整値。
+                <a href="#axis-range-settings">詳しくはこちら</a>
+              </td>
+            </tr>
+          </table><br>
+          <h2 id="axis-range-settings">範囲設定</h2>
+          <p>
+            軸の範囲設定が複数指定された場合に、
+            それぞれの値が互いにどう作用するか理解することが重要です。
+          </p>
+          <p><code>suggestedMax</code>と<code>suggestedMin</code>は、
+            軸をスケールするために、データのみを変更します。
+            これらは、自動で軸範囲を変更するに便利です。
+          </p>
+          <pre><code class="js">let minDataValue = Math.min(mostNegativeValue, options.ticks.suggestedMin);
+let maxDataValue = Math.max(mostPositiveValue, options.ticks.suggestedMax);</code></pre><br>
+          <p>以下の例では、データの最大値は<code>50</code>ですが、最大値を<code>100</code>まで拡張します。
+            しかし、最小値は<code>suggestedMin</code>の値よりも小さいので、無視されます。
+          </p>
+          <pre><code class="js">let chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'First dataset',
+            data: [0, 20, 40, 50]
+        }],
+        labels: ['January', 'February', 'March', 'April']
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 50
+                    suggestedMax: 100
+                }
+            }]
+        }
+    }
+});</code></pre><br>
+          <p><code>suggested～</code>とは対象的に、
+            <code>min</code>、<code>max</code>では軸の終端が明示的に設定されます。
+            これらが設定されると、一部のデータが表示されない場合があります。
+          </p>
+          <h2 id="step-size">ステップサイズ</h2>
+          <p><code>stepSize</code>が設定されている場合、
+            目盛線は<code>stepSize</code>の倍数で列挙されます。
+            <code>stepSize</code>が設定されていない場合、
+            適切なアルゴリズムを使って自動的に目盛線を表示します。
+          </p>
+          <p>以下の例では、<code>0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5</code>に目盛線を生成するY軸チャートを設定しています。</p>
+          <pre><code class="js">let options = {
+    scales: {
+        yAxes: [{
+            ticks: {
+                max: 5,
+                min: 0,
+                stepSize: 0.5
+            }
+        }]
+    }
+};</code></pre>
+          <script class="load">
+            createObj = function() {
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/barba_common.js"></script>
+</body>

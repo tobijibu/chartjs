@@ -1,0 +1,1 @@
+var linkClicked=function(){},initStateChange=function(){createObj=null},newPageReady=function(){},transitionCompleted=function(){"function"==typeof createObj&&createObj()};

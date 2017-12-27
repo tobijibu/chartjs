@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>New Charts | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../chartjs.html">Chart.js</a></li>
+            <li><a href="../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../configuration.html">Configuration</a>
+              <ul class="hidden" id="navi_configuration">
+                <li><a href="../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../configuration/layout.html">レイアウト</a></li>
+                <li><a href="../configuration/legend.html">凡例</a></li>
+                <li><a href="../configuration/title.html">タイトル</a></li>
+                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../charts.html">Charts</a>
+              <ul class="hidden" id="navi_charts">
+                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../developers.html">Developers</a>
+              <ul id="navi_developers">
+                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a class="active" href="../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>New Charts</h1>
+          <p>
+            Chart.js2.0では、データセットごとのコントローラの概念が導入されました。
+            スケールのように、必要に応じて新しいコントローラを書くことができます。
+          </p>
+          <pre><code class="js">Chart.controllers.MyType = Chart.DatasetController.extend({
+
+});
+
+
+// Chart.jsのAPIを使って、新しいインスタンスを生成できるようになりました。
+new Chart(ctx, {
+    // これはコンストラクタが登録された文字列です。つまりChart.controllers.MyTypeです。
+    type: 'MyType',
+    data: data,
+    options: options
+});</code></pre>
+          <h2>データセットコントローラインターフェース</h2>
+          <p>データセットコントローラは以下のインターフェースを実装する必要があります。</p>
+          <pre><code class="js">{
+    // データセット内の各データの要素を生成します。dataset.metaDataとして、データセットの配列に要素を格納します。
+    addElements: function() {},
+
+    // 指定されたインデックスの要素を作成し、状態をリセットします。
+    addElementAndReset: function(index) {},
+
+    // データセットの表示を描画します。
+    // @param ease : もし指定されている場合、数値は要素をどのくらい移動させるかを示します。
+    //               すでにあるコントローラのdraw()の実装を確認して、どのように使用するか見てみましょう。
+    draw: function(ease) {},
+
+    // 指定した要素からホバー時のスタイルを削除します。
+    removeHoverStyle: function(element) {},
+
+    // 指定した要素にホバー時のスタイルを追加します。
+    setHoverStyle: function(element) {},
+
+    // 新しいデータに応じて要素を更新します。
+    // @param reset : trueの場合、要素をリセットし、最終的な値へアニメーションさせます。
+    update: function(reset) {},
+}</code></pre>
+          <p>以下のメソッドは、派生したデータセットコントローラによって、上書きされる場合があります。</p>
+          <pre><code class="js">{
+    // コントローラの初期化
+    initialize: function(chart, datasetIndex) {},
+
+    // このコントローラで表現されたデータセットがスケールにリンクすることを保証します。
+    // 鶏頭図やドーナツグラフではhelpers.noopに上書きされます。
+    // 1つのスケールを使用するチャートタイプ
+    linkScales: function() {},
+
+    // 更新がトリガーされた時に、メインチャートコントローラから呼び出されます。
+    // デフォルトの実装では、変更するデータポイント数を処理し、適切な要素を生成します。
+    buildOrUpdateElements: function() {}
+}</code></pre>
+          <h2>既存のグラフタイプの拡張</h2>
+          <p>
+            既存のコントローラタイプの拡張や、置き換えは簡単です。
+            組み込み済みのチャートタイプを、自分のコンストラクタに置き換えるだけです。
+          </p>
+          <p>組み込み済みのコントローラタイプは以下の通りです。</p>
+          <ul>
+            <li><code>Chart.controllers.line</code></li>
+            <li><code>Chart.controllers.bar</code></li>
+            <li><code>Chart.controllers.radar</code></li>
+            <li><code>Chart.controllers.doughnut</code></li>
+            <li><code>Chart.controllers.polarArea</code></li>
+            <li><code>Chart.controllers.bubble</code></li>
+          </ul>
+          <p>例えば、バブルチャートを拡張して新しいチャートタイプを定義するには、以下のように指定します。</p>
+          <pre><code class="js">// 'derivedBubble'のデフォルト値を'bubble'と同じにします。
+// Chart.defaults[chartType]を使ってデフォルト値を見つけます。
+// デフォルト値が見つからない場合、バグがあるようです。
+Chart.defaults.derivedBubble = Chart.defaults.bubble;
+
+// Chart.controllers.bubble.extend({ extensions here });を使うことをお勧めします。
+var custom = Chart.controllers.bubble.extend({
+    draw: function(ease) {
+        // 最初にスーパーメソッドを呼び出します。
+        Chart.controllers.bubble.prototype.draw.call(this, ease);
+ 
+        // これでこのデータセットのカスタム表示が可能です。
+        // ここでは、各データセットの最初の点の周りに、赤いボックスを表示します。
+        var meta = this.getMeta();
+        var pt0 = meta.data[0];
+        var radius = pt0._view.radius;
+ 
+        var ctx = this.chart.chart.ctx;
+        ctx.save();
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(pt0._view.x - radius, pt0._view.y - radius, 2 * radius, 2 * radius);
+        ctx.restore();
+    }
+});
+
+// チャートの初期化ルーチンがChart.controllers[type]を見つけられうようにコントローラを格納します。
+Chart.controllers.derivedBubble = custom; 
+
+// これで新しいチャートタイプを作成できるようになりました。
+new Chart(ctx, {
+    type: 'derivedBubble',
+    data: data,
+    options: options,
+});</code></pre><br>
+          <h3>barコントローラ</h3>
+          <p>
+            棒グラフ(bar)のコントローラには、特殊なプロパティがあります。
+            バーの幅を正しく計算するために、コントローラはバーにマップするデータセット数を決めなければなりません。
+            そのために、barコントローラは、初期化中にデータセット内に<code>bar</code>プロパティを付加してください。
+            置換や、変更したbarコントローラを生成する場合も同様です。
+            これにより、通常の棒グラフと、新しく派生した棒グラフがシームレスに動作します。
+          </p>
+          <script class="load">
+            createObj = function() {
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>

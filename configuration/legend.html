@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Legend Configuration | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/chartjs/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Chart.js - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../chartjs.html">Chart.js</a></li>
+            <li><a href="../gettingStarted.html">Getting Started</a>
+              <ul class="hidden" id="navi_getting_started">
+                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
+                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+              </ul>
+            </li>
+            <li><a href="../general.html">General</a>
+              <ul class="hidden" id="navi_general">
+                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
+                </li>
+                <li class="devicePixelRatio"><a href="../general/devicePixelRatio.html">ピクセル比率</a>
+                </li>
+                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
+                  <ul>
+                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
+                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
+                  </ul>
+                </li>
+                <li class="options"><a href="../general/options.html">オプション</a>
+                </li>
+                <li class="colors"><a href="../general/colors.html">カラー</a>
+                </li>
+                <li class="fonts"><a href="../general/fonts.html">フォント</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../configuration.html">Configuration</a>
+              <ul id="navi_configuration">
+                <li><a href="../configuration/animations.html">アニメーション</a></li>
+                <li><a href="../configuration/layout.html">レイアウト</a></li>
+                <li><a class="active" href="../configuration/legend.html">凡例</a></li>
+                <li><a href="../configuration/title.html">タイトル</a></li>
+                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+                <li><a href="../configuration/elements.html">要素</a></li>
+              </ul>
+            </li>
+            <li><a href="../charts.html">Charts</a>
+              <ul class="hidden" id="navi_charts">
+                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+                <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+                <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+                <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis.html">Axis</a>
+              <ul class="hidden" id="navi_axis">
+                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                  <ul>
+                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                  </ul>
+                </li>
+                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                  <ul>
+                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                  </ul>
+                </li>
+                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
+                </li>
+                <li class="styling"><a href="../axis/styling.html">スタイル</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="../developers.html">Developers</a>
+              <ul class="hidden" id="navi_developers">
+                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
+                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
+                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
+                <li class="developers-charts"><a href="../developers/charts.html">新規チャート追加</a></li>
+                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
+                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
+              </ul>
+            </li>
+            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+              <ul class="hidden" id="navi_additional_note">
+                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
+                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
+          <script>
+            toggleAdditionalNote = function() {
+              let elem = document.getElementById('navi_additional_note');
+              elem.classList.toggle('hidden');
+            }
+          </script>
+        </div>
+        <div class="main">
+          <h1>Legend Configuration</h1>
+          <p>チャートの凡例は、チャートに表示されるデータのデータセットの情報を表示します。</p>
+          <h2>設定</h2>
+          <p>凡例設定は名前空間<code>options.legend</code>に渡されます。
+            グローバルオプションは<code>Chart.defaults.global.legend</code>で定義されています。
+          </p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>display</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td>凡例を表示するかどうか。</td>
+            </tr>
+            <tr>
+              <td><code>position</code></td>
+              <td><code>string</code></td>
+              <td><code>top</code></td>
+              <td>凡例の表示位置。<a href="#position">詳細はこちら</a></td>
+            </tr>
+            <tr>
+              <td><code>fullWidth</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td>
+                凡例を横幅100%で指定するかどうか。(他のボックスは下に押し下げられます。)
+                通常利用の場合、この設定は変更不要です。
+              </td>
+            </tr>
+            <tr>
+              <td><code>onClick</code></td>
+              <td><code>function</code></td>
+              <td> </td>
+              <td>ラベルにクリックイベントが登録された時に呼び出されます。</td>
+            </tr>
+            <tr>
+              <td><code>onHover</code></td>
+              <td><code>function</code></td>
+              <td> </td>
+              <td>ラベルに'mousemove'イベントが登録された時に呼び出されます。</td>
+            </tr>
+            <tr>
+              <td><code>reverse</code></td>
+              <td><code>boolean</code></td>
+              <td><code>false</code></td>
+              <td>凡例を逆順で表示します。</td>
+            </tr>
+            <tr>
+              <td><code>labels</code></td>
+              <td><code>object</code></td>
+              <td> </td>
+              <td><a href="#legend-label-configuration">凡例ラベル設定</a>を確認してください。</td>
+            </tr>
+          </table>
+          <h2 id="position">position</h2>
+          <p>凡例の表示位置を指定します。以下を指定することができます。</p>
+          <ul>
+            <li>top</li>
+            <li>left</li>
+            <li>bottom</li>
+            <li>right</li>
+          </ul>
+          <h2 id="legend-label-configuration">凡例ラベル設定</h2>
+          <p>凡例ラベル設定は<code>label</code>オプションのサブオプションです。</p>
+          <table class="my-table">
+            <tr>
+              <th>名称</th>
+              <th>type</th>
+              <th>初期値</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td><code>boxWidth</code></td>
+              <td><code>number</code></td>
+              <td><code>40</code></td>
+              <td>カラーボックスの幅。</td>
+            </tr>
+            <tr>
+              <td><code>fontSize</code></td>
+              <td><code>number</code></td>
+              <td><code>12</code></td>
+              <td>フォントサイズ。</td>
+            </tr>
+            <tr>
+              <td><code>fontStyle</code></td>
+              <td><code>string</code></td>
+              <td><code>normal</code></td>
+              <td>フォントスタイル。</td>
+            </tr>
+            <tr>
+              <td><code>fontColor</code></td>
+              <td><code>color</code></td>
+              <td><code>#666</code></td>
+              <td>文字色。</td>
+            </tr>
+            <tr>
+              <td><code>fontFamily</code></td>
+              <td><code>string</code></td>
+              <td><code>"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"</code></td>
+              <td>凡例のフォント。</td>
+            </tr>
+            <tr>
+              <td><code>padding</code></td>
+              <td><code>number</code></td>
+              <td><code>10</code></td>
+              <td>カラーボックスの行間。</td>
+            </tr>
+            <tr>
+              <td><code>generateLabels</code></td>
+              <td><code>function</code></td>
+              <td> </td>
+              <td>
+                各項目の凡例を生成します。
+                デフォルトはカラーボックスのテキストとテキストスタイルを返します。
+                詳細は<a href="#legend-item-interface">凡例項目</a>を確認してください。
+              </td>
+            </tr>
+            <tr>
+              <td><code>filter</code></td>
+              <td><code>function</code></td>
+              <td><code>null</code></td>
+              <td>
+                凡例項目をフィルタリングします。
+                <a href="#legend-item-interface">凡例項目</a>と、チャートデータの2つのパラメータを受け取ります。
+              </td>
+            </tr>
+            <tr>
+              <td><code>usePointStyle</code></td>
+              <td><code>boolean</code></td>
+              <td><code>false</code></td>
+              <td>
+                ラベルスタイルをポイントスタイルに合わせます。
+                (この場合、サイズは<code>fontoSize</code>に基いており、<code>boxWidth</code>は使用しません。)
+              </td>
+            </tr>
+          </table>
+          <h2 id="legend-item-interface">凡例項目</h2>
+          <p>凡例の<code>onClick</code>に渡される項目は、<code>labels.generateLabels</code>から返される項目です。
+            それらの項目は以下のように設定する必要があります。
+          </p>
+          <pre><code class="js">{
+    // 表示するラベル
+    text: String,
+ 
+    // 凡例ボックスを塗りつぶす色
+    fillStyle: Color,
+ 
+    // trueの場合、非表示のデータセットになります。このデータのラベルには取り消し線が表示されます。
+    hidden: Boolean,
+ 
+    // 凡例とチャートの線のための設定です。
+    // 参照：https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineCap 
+    lineCap: String,
+ 
+    // 凡例とチャートの線のための設定です。
+    // 参照：https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/setLineDash
+    lineDash: Array[Number],
+ 
+    // 凡例とチャートの線のための設定です。
+    // 参照：https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+    lineDashOffset: Number,
+ 
+    // 凡例とチャートの線のための設定です。
+    // 参照：https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineJoin
+    lineJoin: String,
+ 
+    // ボックスの枠線の太さ。
+    lineWidth: Number,
+ 
+    // 凡例ボックスの枠線のスタイル。
+    strokeStyle: Color
+ 
+    // 凡例のポイントのスタイル。(usePointStyleをtrueにした場合のみ。)
+    pointStyle: String
+}</code></pre>
+          <h3>例</h3>
+          <p>以下は、凡例を有効化し、全ての文字色を赤にする例です。</p>
+          <pre><code class="js">var chart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(255, 99, 132)'
+            }
+        }
+    }
+});</code></pre>
+          <h2>クリックアクションをカスタマイズ</h2>
+          <p>
+            凡例の項目をクリックした時に、別の動作を指定したい場合があります。
+            設定オブジェクトにコールバックを設定するだけで、簡単に実現できます。
+          </p>
+          <p>デフォルトの凡例クリック時の動作は以下のとおりです。</p>
+          <pre><code class="js">onClick: function(e, legendItem) {
+    var index = legendItem.datasetIndex;
+    var ci = this.chart;
+    var meta = ci.getDatasetMeta(index);
+ 
+    // controller.isDatasetVisibleのコメントを参照して下さい。
+    meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+ 
+    // データセットを非表示にしました。チャートを再表示してください。
+    ci.update();
+}</code></pre>
+          <p>
+            代わりに最初の2つのデータの表示状態をリンクする必要があるとします。
+            以下のようにクリックハンドラを変更することができます。
+          </p>
+          <pre><code class="js">var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
+var newLegendClickHandler = function (e, legendItem) {
+    var index = legendItem.datasetIndex;
+ 
+    if (index > 1) {
+        // デフォルトの動作を行います。
+        defaultLegendClickHandler(e, legendItem);
+    } else {
+        let ci = this.chart;
+        [ci.getDatasetMeta(0),
+         ci.getDatasetMeta(1)].forEach(function(meta) {
+            meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+        });
+        ci.update();
+    }
+};
+ 
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        legend: {
+ 
+        }
+    }
+});</code></pre>
+          <p>チャートの凡例をクリックすると、最初の2つのデータの表示状態がリンクされます。</p>
+          <h2>HTML凡例</h2>
+          <p>
+            時々、複雑なデザインの凡例を生成する必要があるかもしれません。
+            この場合、HTMLを使うのが合理的です。
+            Chart.jsはプロトタイプにHTMLを返す<code>generateLegend()</code>メソッドを用意しています。
+          </p>
+          <pre><code class="js">var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        legendCallback: function(chart) {
+            // ここでHTML文字列を返します。
+        }
+    }
+});</code></pre><br>
+          <h3>デモ1</h3>
+          <p>チャートのラベルとラインを変更しています。</p>
+          <canvas id="myChart1"></canvas>
+          <h4>JavaScript</h4>
+          <pre><code class="js">var ctx = document.getElementById('myChart').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets:[{
+            type: 'line',
+            label: "A",
+            data: [65, 59, 80, 81, 56, 55, 40],
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderColor: "rgb(54, 162, 235)",
+            borderWidth: 1,
+            borderDash: [1, 3],
+            strokeStyle: "rgb(54, 162, 235)",
+            pointStyle: 'triangle',
+        },
+        {
+            type: 'line',
+            label: "B",
+            data: [55, 59, 70, 91, 26, 25, 70],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgb(255, 99, 132)",
+            borderWidth: 1,
+            borderDash: [5, 10],
+            strokeStyle: "rgb(255, 99, 132)",
+            pointStyle: 'rect',
+        },
+        {
+            type: 'line',
+            label: "C",
+            data: [70, 43, 33, 62, 53, 93, 30],
+            backgroundColor: "rgba(255, 206, 86, 0.2)",
+            borderColor: "rgb(255, 206, 86)",
+            borderWidth: 1,
+            borderDash: [3, 15],
+            strokeStyle: "rgb(255, 206, 86)",
+            pointStyle: 'star',
+        }]
+    },
+    options: {
+        legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                boxWidth: 30,
+                fontSize: 16,
+                fontColor: '#333',
+                padding: 20,
+                filter: function(items, chartData) {
+                    // データセットのインデックスが0(A)でないものを表示します。
+                    return items.datasetIndex !== 0;
+                },
+                usePointStyle: true,
+                generateLabels: function(chart){
+                    return  chart.data.datasets.map(function(dataset, i) {
+                        return {
+                            // plugin.legend.js generateLabels.labelsを参照してください。
+                            text: dataset.label,
+                            fillStyle: dataset.backgroundColor,
+                            hidden: dataset.hidden,
+                            lineCap: dataset.borderCapStyle,
+                            lineDash: dataset.borderDash,
+                            lineDashOffset: dataset.borderDashOffset,
+                            lineJoin: dataset.borderJoinStyle,
+                            lineWidth: dataset.borderWidth,
+                            strokeStyle: dataset.borderColor,
+                            pointStyle: dataset.pointStyle,
+                            // 以下はデータセットの表示をトグルする場合に使用します。
+                            datasetIndex: i
+                        };
+                    });
+                }
+            }
+        }
+    }
+});</code></pre>
+          <script class="load">
+            createObj = function() {
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                      labels: ["January", "February", "March", "April", "May", "June", "July"],
+                      datasets:[{
+                          type: 'line',
+                          label: "A",
+                          data: [65, 59, 80, 81, 56, 55, 40],
+                          backgroundColor: "rgba(54, 162, 235, 0.2)",
+                          borderColor: "rgb(54, 162, 235)",
+                          borderWidth: 1,
+                          borderDash: [1, 3],
+                          strokeStyle: "rgb(54, 162, 235)",
+                          pointStyle: 'triangle',
+                      },
+                      {
+                          type: 'line',
+                          label: "B",
+                          data: [55, 59, 70, 91, 26, 25, 70],
+                          backgroundColor: "rgba(255, 99, 132, 0.2)",
+                          borderColor: "rgb(255, 99, 132)",
+                          borderWidth: 1,
+                          borderDash: [5, 10],
+                          strokeStyle: "rgb(255, 99, 132)",
+                          pointStyle: 'rect',
+                      },
+                      {
+                          type: 'line',
+                          label: "C",
+                          data: [70, 43, 33, 62, 53, 93, 30],
+                          backgroundColor: "rgba(255, 206, 86, 0.2)",
+                          borderColor: "rgb(255, 206, 86)",
+                          borderWidth: 1,
+                          borderDash: [3, 15],
+                          strokeStyle: "rgb(255, 206, 86)",
+                          pointStyle: 'star',
+                      }]
+                  },
+                  options: {
+                      legend: {
+                          display: true,
+                          position: 'bottom',
+                          labels: {
+                              boxWidth: 30,
+                              fontSize: 16,
+                              fontColor: '#333',
+                              padding: 20,
+                              filter: function(items, chartData) {
+                                  // データセットのインデックスが0(A)でないものを表示します。
+                                  return items.datasetIndex !== 0;
+                              },
+                              usePointStyle: true,
+                              generateLabels: function(chart){
+                                  return  chart.data.datasets.map(function(dataset, i) {
+                                      return {
+                                          // plugin.legend.js generateLabels.labelsを参照してください。
+                                          text: dataset.label,
+                                          fillStyle: dataset.backgroundColor,
+                                          hidden: dataset.hidden,
+                                          lineCap: dataset.borderCapStyle,
+                                          lineDash: dataset.borderDash,
+                                          lineDashOffset: dataset.borderDashOffset,
+                                          lineJoin: dataset.borderJoinStyle,
+                                          lineWidth: dataset.borderWidth,
+                                          strokeStyle: dataset.borderColor,
+                                          pointStyle: dataset.pointStyle,
+                                          // 以下はデータセットの表示をトグルする場合に使用します。
+                                          datasetIndex: i
+                                      };
+                                  });
+                              }
+                          }
+                      }
+                  }
+              });
+            };
+          </script>
+          <div class="license">
+            <p>
+              &copy; 2013
+               Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>
