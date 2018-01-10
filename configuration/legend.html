@@ -41,113 +41,197 @@
       navi_icon.classList.toggle('active');
     }
   </script>
-  <div id="barba-wrapper">
-    <div class="barba-container">
-      <div class="wrapper">
-        <div class="navi">
-          <ul>
-            <li><a href="../">Home</a></li>
-            <li><a href="../chartjs.html">Chart.js</a></li>
-            <li><a href="../gettingStarted.html">Getting Started</a>
-              <ul class="hidden" id="navi_getting_started">
-                <li class="installation"><a href="../gettingStarted/installation.html">インストール</a></li>
-                <li class="integration"><a href="../gettingStarted/integration.html">インテグレーション</a></li>
-                <li class="usage"><a href="../gettingStarted/usage.html">使い方</a></li>
+  <div class="wrapper">
+    <div class="navi">
+      <ul class="menu">
+        <li><a class="index" href="../index.html">Home</a></li>
+        <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
+        <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
+          <ul class="hidden" id="navi_gettingStarted">
+            <li><a href="../gettingStarted/installation.html">インストール</a></li>
+            <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+            <li><a href="../gettingStarted/usage.html">使い方</a></li>
+          </ul>
+        </li>
+        <li><a class="general" href="../general.html">General</a>
+          <ul class="hidden" id="navi_general">
+            <li><a href="../general/responsive.html">レスポンシブ</a>
+            </li>
+            <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
+            </li>
+            <li><a href="../general/interactions.html">インタラクション</a>
+              <ul>
+                <li><a href="../general/interactions/events.html">イベント</a></li>
+                <li><a href="../general/interactions/modes.html">モード</a></li>
               </ul>
             </li>
-            <li><a href="../general.html">General</a>
-              <ul class="hidden" id="navi_general">
-                <li class="responsive"><a href="../general/responsive.html">レスポンシブ</a>
-                </li>
-                <li class="device-pixel-ratio"><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
-                </li>
-                <li class="interactions"><a href="../general/interactions.html">インタラクション</a>
-                  <ul>
-                    <li class="interactions-events"><a href="../general/interactions/events.html">イベント</a></li>
-                    <li class="interactions-modes"><a href="../general/interactions/modes.html">モード</a></li>
-                  </ul>
-                </li>
-                <li class="options"><a href="../general/options.html">オプション</a>
-                </li>
-                <li class="colors"><a href="../general/colors.html">カラー</a>
-                </li>
-                <li class="fonts"><a href="../general/fonts.html">フォント</a>
-                </li>
-              </ul>
+            <li><a href="../general/options.html">オプション</a>
             </li>
-            <li><a href="../configuration.html">Configuration</a>
-              <ul id="navi_configuration">
-                <li><a href="../configuration/animations.html">アニメーション</a></li>
-                <li><a href="../configuration/layout.html">レイアウト</a></li>
-                <li><a class="active" href="../configuration/legend.html">凡例</a></li>
-                <li><a href="../configuration/title.html">タイトル</a></li>
-                <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
-                <li><a href="../configuration/elements.html">要素</a></li>
-              </ul>
+            <li><a href="../general/colors.html">カラー</a>
             </li>
-            <li><a href="../charts.html">Charts</a>
-              <ul class="hidden" id="navi_charts">
-                <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
-                <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
-                <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
-                <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
-                <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
-                <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
-                <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
-                <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
-                <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
-              </ul>
-            </li>
-            <li><a href="../axis.html">Axis</a>
-              <ul class="hidden" id="navi_axis">
-                <li class="cartesian"><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
-                  <ul>
-                    <li class="cartesian-category"><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
-                    <li class="cartesian-linear"><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
-                    <li class="cartesian-logarithmic"><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
-                    <li class="cartesian-time"><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
-                  </ul>
-                </li>
-                <li class="radial"><a href="../axis/radial.html">放射軸(RadialAxes)</a>
-                  <ul>
-                    <li class="radial-linear"><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
-                  </ul>
-                </li>
-                <li class="labeling"><a href="../axis/labeling.html">ラベル</a>
-                </li>
-                <li class="styling"><a href="../axis/styling.html">スタイル</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="../developers.html">Developers</a>
-              <ul class="hidden" id="navi_developers">
-                <li class="developers-api"><a href="../developers/api.html">Chart.js API</a></li>
-                <li class="developers-updates"><a href="../developers/updates.html">チャートの更新</a></li>
-                <li class="developers-plugins"><a href="../developers/plugins.html">プラグイン</a></li>
-                <li class="developers-charts"><a href="../developers/charts.html">新規チャート追加</a></li>
-                <li class="developers-axes"><a href="../developers/axes.html">新規軸追加</a></li>
-                <li class="developers-contributing"><a href="../developers/contributing.html">Contribute</a></li>
-              </ul>
-            </li>
-            <li><span onclick="toggleAdditionalNote()">Additional Note</span>
-              <ul class="hidden" id="navi_additional_note">
-                <li class="api-comparison-table"><a href="../additional-note/comparison-table.html">比較</a></li>
-                <li class="api-popular-extensions"><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
-                <li class="api-license"><a href="../additional-note/license.html">ライセンス</a></li>
-              </ul>
-            </li>
-            <hr>
-            <li>HTML Source
-              <div id="navi_source"><a href="https://github.com/tobijibu/chartjs/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/chartjs/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            <li><a href="../general/fonts.html">フォント</a>
             </li>
           </ul>
-          <script>
-            toggleAdditionalNote = function() {
-              let elem = document.getElementById('navi_additional_note');
-              elem.classList.toggle('hidden');
-            }
-          </script>
-        </div>
+        </li>
+        <li><a class="configuration" href="../configuration.html">Configuration</a>
+          <ul id="navi_configuration">
+            <li><a href="../configuration/animations.html">アニメーション</a></li>
+            <li><a href="../configuration/layout.html">レイアウト</a></li>
+            <li><a class="active" href="../configuration/legend.html">凡例</a></li>
+            <li><a href="../configuration/title.html">タイトル</a></li>
+            <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+            <li><a href="../configuration/elements.html">要素</a></li>
+          </ul>
+        </li>
+        <li><a class="charts" href="../charts.html">Charts</a>
+          <ul class="hidden" id="navi_charts">
+            <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+            <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+            <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+            <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+            <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+            <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+            <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+            <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+            <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+          </ul>
+        </li>
+        <li><a class="axis" href="../axis.html">Axis</a>
+          <ul class="hidden" id="navi_axis">
+            <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+              <ul>
+                <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+              <ul>
+                <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+              </ul>
+            </li>
+            <li><a href="../axis/labeling.html">ラベル</a>
+            </li>
+            <li><a href="../axis/styling.html">スタイル</a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="developers" href="../developers.html">Developers</a>
+          <ul class="hidden" id="navi_developers">
+            <li><a href="../developers/api.html">Chart.js API</a></li>
+            <li><a href="../developers/updates.html">チャートの更新</a></li>
+            <li><a href="../developers/plugins.html">プラグイン</a></li>
+            <li><a href="../developers/charts.html">新規チャート追加</a></li>
+            <li><a href="../developers/axes.html">新規軸追加</a></li>
+            <li><a href="../developers/contributing.html">Contribute</a></li>
+          </ul>
+        </li>
+        <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+          <ul class="hidden" id="navi_additional-note">
+            <li><a href="../additional-note/comparison-table.html">比較</a></li>
+            <li><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
+            <li><a href="../additional-note/license.html">ライセンス</a></li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>HTML Source
+          <div id="navi_source"><a href="https://github.com/tobijibu/undefinedarchive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/undefined"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+        </li>
+      </ul>
+      <div id="gcs" data-id="017083506626304158170:woyepwc4z9w">
+        <script>
+          (function() {
+            var cx = document.getElementById('gcs').getAttribute('data-id');
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search linkTarget=""></gcse:search>
+      </div>
+      <style>
+        .cse .gsc-control-cse,
+        .gsc-control-cse {
+          border: 0px solid #fff;
+          padding: 0;
+        }
+        /* 検索ボックス */
+        .gsc-input-box {
+          border: 0px solid #fff;
+          border-bottom: 1px solid #000;
+        }
+        .gsc-search-box-tools .gsc-search-box .gsc-input {
+          padding-right: 0px;
+        }
+        .gsc-search-box .gsc-input>input:hover,
+        .gsc-input-box-hover {
+          border: 1px solid #fff;
+          border-bottom: 1px solid #333;
+          border-top-color: #fff;
+          -moz-box-shadow: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+        .gsc-search-box .gsc-input>input:focus,
+        .gsc-input-box-focus {
+          border: 1px solid #fff;
+          border-bottom: 1px solid #333;
+          -moz-box-shadow: none;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+        .gsib_a {
+          padding-top: 2px;
+        }
+        .gsst_a .gscb_a {
+          color: #aaa;
+        }
+        /* 検索ボタン */
+        input.gsc-search-button {
+          margin-left: 0;
+        }
+        .cse .gsc-search-button input.gsc-search-button-v2,
+        input.gsc-search-button-v2 {
+          padding: 6px;
+          margin-top: 5px;
+        }
+        .cse input.gsc-search-button,
+        input.gsc-search-button {
+          color: #fff;
+          border: 1px solid #000;
+          border-radius: 0;
+          -moz-border-radius: 0;
+          -webkit-border-radius: 0;
+          background-color: #000;
+          background-image: none;
+          filter: none;
+          transition: .4s;
+        }
+        .cse input.gsc-search-button:hover,
+        input.gsc-search-button:hover {
+          color: #333;
+          border-color: #333;
+          background-color: #333;
+          background-image: none;
+          filter: none;
+          transition: .4s;
+        }
+      </style>
+      <script>
+        toggleAdditionalNote = function() {
+          let elem = document.getElementById('navi_additional-note');
+          elem.classList.toggle('hidden');
+        }
+      </script>
+    </div>
+    <div id="barba-wrapper">
+      <div class="barba-container">
         <div class="main">
           <h1>Legend Configuration</h1>
           <p>チャートの凡例は、チャートに表示されるデータのデータセットの情報を表示します。</p>
