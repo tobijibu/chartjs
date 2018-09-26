@@ -1,428 +1,218 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Options | Chart.js - にほんご。</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="Options | Chart.js - にほんご。">
-    <meta property="og:url">
-    <meta property="og:type" content="article">
-    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
-    <style>html{overflow-y:scroll}#navi ul,body{margin:0;padding:0}body{font-family:"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,sans-serif;font-feature-settings:"palt";letter-spacing:.8pt;word-wrap:break-word;line-height:1.76;color:#000;text-shadow:0 0 0 #000}#container{display:grid;grid-template-columns:240px auto;grid-template-rows:54px auto auto;grid-template-areas:' header header  ' ' navi   content ' ' footer footer  '}footer,header{grid-area:header;grid-column:1/3;grid-row:1/2}#content,#navi{grid-area:navi;grid-column:1/2;grid-row:2/3}#content{grid-area:content;grid-column:2/3;margin-left:-240px}footer{grid-area:footer;grid-row:3/4;height:2em;line-height:1.6;font-size:.72rem;text-align:right}@media screen and (max-width:1200px){#container{grid-template-columns:100%;grid-template-rows:70px auto auto}#content,#navi,header{grid-column:1}#content{margin-left:0}}code{margin:0 2px;padding:2px 4px;font-family:Consolas,Monaco,"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,monospace;background-color:#e0e0e0;font-size:.88em}pre{margin:.8em 0 0;color:#333;line-height:1.4;letter-spacing:normal}pre>code{background-color:transparent;font-size:.88rem}blockquote{margin-left:0;padding-left:1em;color:#666;font-size:.8rem;border-left:2px solid #e0e0e0}dd{margin-left:1em}ul{padding-left:1.6em}.table-box,pre{overflow-x:auto}.my-table,.my-table td,pre{border:1px solid #e0e0e0}.my-table{border-collapse:collapse;width:100%}.my-table th{border:1px solid #333;vertical-align:top;background-color:#333;color:#fff}.my-table th.detail{min-width:16em}.my-table td{vertical-align:top;padding:16px 8px;word-wrap:break-word}.nowrap{white-space:nowrap}header{display:flex;align-items:center;height:3.4em;padding:16px;position:fixed;z-index:99;box-sizing:border-box;background-color:rgba(255,255,255,.8)}.navi_toggle{font-size:.8rem;width:1.6em;padding-top:.4em;display:none;position:relative}.icon svg,.navi_toggle svg{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;width:2em}#menu_close,#navi .hidden{display:none}.icon{width:32px;height:32px;display:block;position:relative}.icon svg{width:16px;height:16px}.title{font-size:.8rem;padding:1.1em 1em .9em}#navi a,.title a{color:#000;text-decoration:none}#navi{padding-left:1.5em;height:calc(100% - 54px);overflow-y:auto;margin-top:54px;position:fixed;width:240px;box-sizing:border-box}.navi{display:block}#navi .s-title{font-size:.72rem;color:#666}#navi ul{list-style-type:none}#navi li{font-size:1rem;text-shadow:none;margin:.64em 0}#navi li li,#navi li li li{font-size:.8rem;text-shadow:none;margin:.48em .48em .48em .56em}#navi li li li{text-shadow:0 0 0 #000;margin:.48em .48em .48em .96em;font-weight:400}#navi a{transition:.4s;border-bottom:1px #fff solid}#navi a.active,#navi li,#navi li li{font-weight:700}#navi a.active::before{content:'\bb \20 ';font-size:.96em;margin-left:-.97em}#navi hr{border-top:1px solid #e0e0e0;width:200px;margin:2.4em 0}#navi::-webkit-scrollbar{width:4px}#navi::-webkit-scrollbar-thumb{background-color:rgba(238,238,238,.3)}#navi:hover::-webkit-scrollbar-thumb{background-color:#e0e0e0}#navi_source{margin-top:1em}#navi_source a{margin-left:2.4em;font-weight:400}#main .share_link svg,#navi_source svg{width:1.72em}#main{width:640px;margin:0 auto;height:100%;box-sizing:border-box}#main a{transition:.3s;color:#333;text-decoration:none;border-bottom:1px solid #e0e0e0}.license{margin-bottom:2.4em;line-height:1.6;font-size:.72rem}footer>span{background-color:rgba(255,255,255,.8);padding:4px;position:fixed;bottom:4px;right:8px}#main .share_link,.license{text-align:right}#main .share_link a{width:40px;text-shadow:none;margin-left:16px;color:#aaa;border-bottom:0}a.i-hatena{position:relative}a.i-hatena>span{position:absolute;left:.25em;font-family:Verdana;font-weight:700;color:#fff;font-style:normal;line-height:1.84}@media screen and (max-width:1200px){html{font-size:16px}#navi,header{width:100%}.navi_toggle{width:32px;height:32px;display:block}.icon{display:none}#navi{font-size:16px;margin-top:16px;position:fixed;top:1.6em;background-color:rgba(255,255,255,.8);z-index:99;height:100%}#navi li{font-size:1.2em;margin:.8em 0}#navi li li,#navi li li li{font-size:.8em;margin:1em 0 0 1em}.navi{margin-left:-1600px}.show{margin-left:0}#main{width:100%;padding:1.6em}#main>div{margin:0}}html{font-size:16px}#main{line-height:1.6}#main h1,#main h2,#main h5,#main h6{font-weight:400}#main h1{margin-bottom:.5em;text-shadow:none}#main h3,#main h4,#main h5,#main h6{margin:2em 0 1em}#main h2{text-shadow:none;margin:0 0 .4em;padding-top:2em}#main h5,#main h6{text-decoration:underline}#update_date,p.note{color:#666;font-size:.72rem}#main span.args,#main span.type,sup{color:#666}ul.none{list-style-type:none}ul.disc{list-style-type:disc}ul.num{list-style-type:decimal}#main li{margin:.64em 0}hr{border-top:1px solid #e0e0e0}img{max-width:100%}#update_date{text-align:right}.search-box{margin:2.4em 0;width:200px}.cse .gsc-control-cse,div.gsc-control-cse{border:0;padding:0}div.gsc-input-box{border:0;border-bottom:1px solid #000}form.gsc-search-box-tools .gsc-search-box td.gsc-input{padding-right:0}div.gsc-input-box-focus,div.gsc-search-box td.gsc-input>input:focus{border:0;border-bottom:1px solid #333;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}td.gsib_a{padding-top:5px}a.gsst_a span.gscb_a{color:#aaa}button.gsc-search-button{margin-left:0}.cse .gsc-search-button button.gsc-search-button-v2,button.gsc-search-button-v2{padding:6px}.cse button.gsc-search-button,button.gsc-search-button{color:#fff;border:0;border-bottom:1px solid #000;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;background-color:#000;background-image:none;filter:none}@media screen and (max-width:1120px){.search-box{width:90%}}::selection{background:rgba(255,132,174,.4)}::-moz-selection{background:rgba(255,132,174,.4)}#main a:hover,#main a:visited:hover,#navi a:hover{color:#ff1744}.icon svg rect{fill:#ff1744}#main .my-table td.center{text-align:center}#main .my-table th a.link{color:#fff}table.library th.name{width:8em}</style>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-106478577-1', 'auto');
-    </script>
-  </head>
-  <body>
-    <div id="container">
-      <header>
-        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
-            <svg>
-              <rect width="16" height="16" fill="#e0e0e0"></rect>
-            </svg></a></div>
-        <div class="navi_toggle" onclick="toggleMenu()">
-          <svg id="menu_close" viewBox="0 0 24 24">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-            <path d="M0 0h24v24H0z" fill="none"></path>
-          </svg>
-          <svg id="menu_open" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
-        </div>
-        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div>
-      </header>
-      <div class="navi" id="navi">
-        <ul class="menu">
-          <li><a class="index" href="../index.html">Home</a></li>
-          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
-          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
-            <ul class="hidden" id="navi_gettingStarted">
-              <li><a href="../gettingStarted/installation.html">インストール</a></li>
-              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
-              <li><a href="../gettingStarted/usage.html">使い方</a></li>
-            </ul>
-          </li>
-          <li><a class="general" href="../general.html">General</a>
-            <ul id="navi_general">
-              <li><a href="../general/responsive.html">レスポンシブ</a>
-              </li>
-              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
-              </li>
-              <li><a href="../general/interactions.html">インタラクション</a>
-                <ul>
-                  <li><a href="../general/interactions/events.html">イベント</a></li>
-                  <li><a href="../general/interactions/modes.html">モード</a></li>
-                </ul>
-              </li>
-              <li><a class="active" href="../general/options.html">オプション</a>
-              </li>
-              <li><a href="../general/colors.html">カラー</a>
-              </li>
-              <li><a href="../general/fonts.html">フォント</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="configuration" href="../configuration.html">Configuration</a>
-            <ul class="hidden" id="navi_configuration">
-              <li><a href="../configuration/animations.html">アニメーション</a></li>
-              <li><a href="../configuration/layout.html">レイアウト</a></li>
-              <li><a href="../configuration/legend.html">凡例</a></li>
-              <li><a href="../configuration/title.html">タイトル</a></li>
-              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
-              <li><a href="../configuration/elements.html">要素</a></li>
-            </ul>
-          </li>
-          <li><a class="charts" href="../charts.html">Charts</a>
-            <ul class="hidden" id="navi_charts">
-              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
-              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
-              <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
-              <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
-              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
-              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
-              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
-              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
-              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
-            </ul>
-          </li>
-          <li><a class="axis" href="../axis.html">Axis</a>
-            <ul class="hidden" id="navi_axis">
-              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
-                <ul>
-                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
-                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
-                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
-                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
-                <ul>
-                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/labeling.html">ラベル</a>
-              </li>
-              <li><a href="../axis/styling.html">スタイル</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="developers" href="../developers.html">Developers</a>
-            <ul class="hidden" id="navi_developers">
-              <li><a href="../developers/api.html">Chart.js API</a></li>
-              <li><a href="../developers/updates.html">チャートの更新</a></li>
-              <li><a href="../developers/plugins.html">プラグイン</a></li>
-              <li><a href="../developers/charts.html">新規チャート追加</a></li>
-              <li><a href="../developers/axes.html">新規軸追加</a></li>
-              <li><a href="../developers/contributing.html">Contribute</a></li>
-            </ul>
-          </li>
-          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
-            <ul class="hidden" id="navi_additional-note">
-              <li><a href="../additional-note/comparison-table.html">比較</a></li>
-              <li><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
-              <li><a href="../additional-note/license.html">ライセンス</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
-        <div id="main">
-          <div id="barba-wrapper">
-            <div class="barba-container">
-              <h1>Options</h1>
-              <div id="update_date"><span>更新日: 2018.02.09
-</span>
-              </div>
-              <h2 id="scriptable-options">scriptableオプション</h2>
-              <p>
-                スクリプト可能(scriptable)オプションは
-                各データに対して呼び出される関数を適用します。
-                この関数は、一意なパラメータである<code>context</code>を受け取ります。
-                (<a href="#option-context">オプションコンテキスト</a>を参照)
-              </p>
-              <pre><code class="js">color: function(context) {
-    var index = context.dataIndex;
-    var value = context.dataset.data[index];
-    return value < 0 ? 'red' :  // マイナス値なら'red'
-        index % 2 ? 'blue' :    // それ以外は'blue'か'green'
-        'green';
-}</code></pre>
-              <blockquote>注意：スクリプト可能オプションは、バブルチャートのいくつかのオプションでのみ適用可能です。</blockquote>
-              <h3>デモ</h3>
-              <p>アイテムの色をfunctionで生成しています。<br><code>x</code>、<code>y</code>どちらもマイナス値の場合に赤で表示します。
-                それ以外は、インデックスが奇数なら青、偶数なら緑で表示します。
-              </p>
-              <canvas id="myChart1"></canvas>
-              <h4>JavaScript</h4>
-              <pre><code class="js">var ctx = document.getElementById("myChart").getContext('2d');
-function setBorderColor(context) {
-    return setColor(context, 'border')
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Options | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Options | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul id="navi_general"><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a class="active" href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul class="hidden" id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axis</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li><li><a href="../developers/contributing.html">Contribute</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a href="../additional-note/popular-extensions.html">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Options</h1><div id="update_date"><span>更新日: 2018.09.03
+</span></div><h2 id="scriptable-options">scriptableオプション</h2><p>スクリプト可能(scriptable)オプションは
+各データに対して呼び出される関数を適用します。
+この関数は、一意なパラメータである<code>context</code>を受け取ります。
+(<a href="#option-context">オプションコンテキスト</a>を参照)</p><pre><code>color: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+    <span class="hljs-keyword">var</span> index = context.dataIndex;
+    <span class="hljs-keyword">var</span> value = context.dataset.data[index];
+    <span class="hljs-keyword">return</span> value &lt; <span class="hljs-number">0</span> ? <span class="hljs-string">'red'</span> :  <span class="hljs-comment">// マイナス値なら'red'</span>
+        index % <span class="hljs-number">2</span> ? <span class="hljs-string">'blue'</span> :    <span class="hljs-comment">// それ以外は'blue'か'green'</span>
+        <span class="hljs-string">'green'</span>;
+}</code></pre><blockquote>注意：スクリプト可能オプションは、バブルチャートのいくつかのオプションでのみ適用可能です。</blockquote><h3>デモ</h3><p>アイテムの色をfunctionで生成しています。<br><code>x</code>、<code>y</code>どちらもマイナス値の場合に赤で表示します。
+それ以外は、インデックスが奇数なら青、偶数なら緑で表示します。</p><canvas id="myChart1"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setBorderColor</span>(<span class="hljs-params">context</span>) </span>{
+    <span class="hljs-keyword">return</span> setColor(context, <span class="hljs-string">'border'</span>)
 }
-function setBgColor(context) {
-    return setColor(context, 'bg')
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setBgColor</span>(<span class="hljs-params">context</span>) </span>{
+    <span class="hljs-keyword">return</span> setColor(context, <span class="hljs-string">'bg'</span>)
 }
-function setColor(context, type) {
-    var index = context.dataIndex;
-    var value = context.dataset.data[index];
-    var opaque = type === 'bg' ? 0.2 : 1;
-    return value.x < 0 && value.y < 0 ? 'rgba(255, 99, 132, ' + opaque + ')' :  // マイナス値なら'red'
-        index % 2 ? 'rgba(54, 162, 235, ' + opaque + ')' :    // それ以外は'blue'か'green'
-        'rgba(75, 192, 192, ' + opaque + ')';
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setColor</span>(<span class="hljs-params">context, type</span>) </span>{
+    <span class="hljs-keyword">var</span> index = context.dataIndex;
+    <span class="hljs-keyword">var</span> value = context.dataset.data[index];
+    <span class="hljs-keyword">var</span> opaque = type === <span class="hljs-string">'bg'</span> ? <span class="hljs-number">0.2</span> : <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> value.x &lt; <span class="hljs-number">0</span> &amp;&amp; value.y &lt; <span class="hljs-number">0</span> ? <span class="hljs-string">'rgba(255, 99, 132, '</span> + opaque + <span class="hljs-string">')'</span> :  <span class="hljs-comment">// マイナス値なら'red'</span>
+        index % <span class="hljs-number">2</span> ? <span class="hljs-string">'rgba(54, 162, 235, '</span> + opaque + <span class="hljs-string">')'</span> :    <span class="hljs-comment">// それ以外は'blue'か'green'</span>
+        <span class="hljs-string">'rgba(75, 192, 192, '</span> + opaque + <span class="hljs-string">')'</span>;
 }
-new Chart(ctx, {
-    type: 'bubble',
-    data: {
-        datasets:[{
-            data: [
-                {x: -44, y:  87, r:  8},
-                {x:  10, y:  10, r: 16},
-                {x:  77, y:  29, r: 13},
-                {x:  40, y: -62, r: 14},
-                {x:  83, y:  21, r: 21},
-                {x: -78, y:  51, r: 10},
-                {x:  21, y:  46, r: 12},
-                {x:  35, y: -43, r:  5},
-                {x: -10, y: -59, r: 16},
-                {x: -23, y: -32, r: 20},
+<span class="hljs-keyword">new</span> Chart(ctx, {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'bubble'</span>,
+    <span class="hljs-attr">data</span>: {
+        <span class="hljs-attr">datasets</span>:[{
+            <span class="hljs-attr">data</span>: [
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-44</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">87</span>, <span class="hljs-attr">r</span>:  <span class="hljs-number">8</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">10</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">10</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">16</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">77</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">29</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">13</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">40</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-62</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">14</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">83</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">21</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">21</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-78</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">51</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">10</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">21</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">46</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">12</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">35</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-43</span>, <span class="hljs-attr">r</span>:  <span class="hljs-number">5</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-10</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-59</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">16</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-23</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-32</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">20</span>},
             ],
-            backgroundColor: setBgColor,
-            borderColor: setBorderColor,
-            borderWidth: 1
+            <span class="hljs-attr">backgroundColor</span>: setBgColor,
+            <span class="hljs-attr">borderColor</span>: setBorderColor,
+            <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>
         }]
     },
-    options: {
-        legend: {
-            display: false
+    <span class="hljs-attr">options</span>: {
+        <span class="hljs-attr">legend</span>: {
+            <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>
         }
     }
-})</code></pre><br>
-              <h2 id="indexable-options">indexableオプション</h2>
-              <p>
-                インデックス可能(indexable)オプションは、
-                各データと同じインデックスに対応する要素を持った配列も指定することができます。
-                このメソッドは、データと同じ数の要素を持った配列を指定する必要があります。
-                そのため、functionがサポートされているならば、functionを使った方が良いでしょう。
-              </p>
-              <pre><code class="js">color: [
-    'red',    // dataのindexが0の色
-    'blue',   // dataのindexが1の色
-    'green',  // dataのindexが2の色
-    'black',  // dataのindexが3の色
-    //...
-]</code></pre>
-              <h3>デモ</h3>
-              <p>チャートを赤、青、黄色、緑、紫、オレンジの6色で表示しています。</p>
-              <canvas id="myChart2"></canvas>
-              <h4>JavaScript</h4>
-              <pre><code class="js">var ctx = document.getElementById("myChart").getContext('2d');
-new Chart(ctx, {
-    type: 'bubble',
-    data: {
-        datasets:[{
-            data: [
-                {x: -44, y:  87, r:  8},
-                {x:  10, y:  10, r: 16},
-                {x:  77, y:  29, r: 13},
-                {x:  40, y: -62, r: 14},
-                {x:  83, y:  21, r: 21},
-                {x: -78, y:  51, r: 10},
-                {x:  21, y:  46, r: 12},
-                {x:  35, y: -43, r:  5},
-                {x: -10, y: -59, r: 16},
-                {x: -23, y: -32, r: 20},
+})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2 id="indexable-options">indexableオプション</h2><p>インデックス可能(indexable)オプションは、
+各データと同じインデックスに対応する要素を持った配列も指定することができます。
+このメソッドは、データと同じ数の要素を持った配列を指定する必要があります。
+そのため、functionがサポートされているならば、functionを使った方が良いでしょう。</p><pre><code>color: [
+    <span class="hljs-string">'red'</span>,    <span class="hljs-comment">// dataのindexが0の色</span>
+    <span class="hljs-string">'blue'</span>,   <span class="hljs-comment">// dataのindexが1の色</span>
+    <span class="hljs-string">'green'</span>,  <span class="hljs-comment">// dataのindexが2の色</span>
+    <span class="hljs-string">'black'</span>,  <span class="hljs-comment">// dataのindexが3の色</span>
+    <span class="hljs-comment">//...</span>
+]</code></pre><h3>デモ</h3><p>チャートを赤、青、黄色、緑、紫、オレンジの6色で表示しています。</p><canvas id="myChart2"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+<span class="hljs-keyword">new</span> Chart(ctx, {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'bubble'</span>,
+    <span class="hljs-attr">data</span>: {
+        <span class="hljs-attr">datasets</span>:[{
+            <span class="hljs-attr">data</span>: [
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-44</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">87</span>, <span class="hljs-attr">r</span>:  <span class="hljs-number">8</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">10</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">10</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">16</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">77</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">29</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">13</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">40</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-62</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">14</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">83</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">21</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">21</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-78</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">51</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">10</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">21</span>, <span class="hljs-attr">y</span>:  <span class="hljs-number">46</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">12</span>},
+                {<span class="hljs-attr">x</span>:  <span class="hljs-number">35</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-43</span>, <span class="hljs-attr">r</span>:  <span class="hljs-number">5</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-10</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-59</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">16</span>},
+                {<span class="hljs-attr">x</span>: <span class="hljs-number">-23</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">-32</span>, <span class="hljs-attr">r</span>: <span class="hljs-number">20</span>},
             ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
+            <span class="hljs-attr">backgroundColor</span>: [
+                <span class="hljs-string">'rgba(255, 99, 132, 0.2)'</span>,
+                <span class="hljs-string">'rgba(54, 162, 235, 0.2)'</span>,
+                <span class="hljs-string">'rgba(255, 206, 86, 0.2)'</span>,
+                <span class="hljs-string">'rgba(75, 192, 192, 0.2)'</span>,
+                <span class="hljs-string">'rgba(153, 102, 255, 0.2)'</span>,
+                <span class="hljs-string">'rgba(255, 159, 64, 0.2)'</span>,
+                <span class="hljs-string">'rgba(255, 99, 132, 0.2)'</span>,
+                <span class="hljs-string">'rgba(54, 162, 235, 0.2)'</span>,
+                <span class="hljs-string">'rgba(255, 206, 86, 0.2)'</span>,
+                <span class="hljs-string">'rgba(75, 192, 192, 0.2)'</span>,
             ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
+            <span class="hljs-attr">borderColor</span>: [
+                <span class="hljs-string">'rgba(255,99,132,1)'</span>,
+                <span class="hljs-string">'rgba(54, 162, 235, 1)'</span>,
+                <span class="hljs-string">'rgba(255, 206, 86, 1)'</span>,
+                <span class="hljs-string">'rgba(75, 192, 192, 1)'</span>,
+                <span class="hljs-string">'rgba(153, 102, 255, 1)'</span>,
+                <span class="hljs-string">'rgba(255, 159, 64, 1)'</span>,
+                <span class="hljs-string">'rgba(255,99,132,1)'</span>,
+                <span class="hljs-string">'rgba(54, 162, 235, 1)'</span>,
+                <span class="hljs-string">'rgba(255, 206, 86, 1)'</span>,
+                <span class="hljs-string">'rgba(75, 192, 192, 1)'</span>,
             ],
-            borderWidth: 1
+            <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>
         }]
     },
-    options: {
-        legend: {
-            display: false
+    <span class="hljs-attr">options</span>: {
+        <span class="hljs-attr">legend</span>: {
+            <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>
         }
     }
-})</code></pre><br>
-              <h2 id="option-context">オプションコンテキスト</h2>
-              <p>
-                オプションコンテキストは、
-                オプション解決の際に、オプションのコンテキストを渡す為に使われます。
-                今はスクリプト可能オプションでのみ適用可能です。
-              </p>
-              <p>コンテキストオブジェクトは以下のプロパティが含まれています。</p>
-              <ul>
-                <li><code>chart</code> : 関連するチャート。</li>
-                <li><code>dataIndex</code> : 現在のデータのindex。</li>
-                <li><code>dataset</code> : indexのデータセット。<code>datasetIndex</code></li>
-                <li><code>datasetIndex</code> : 現在のデータセットのindex。</li>
-              </ul>
-              <blockquote>
-                重要：コンテキストは様々な種類のエンティティ(dataset、data等)が存在するため、
-                一部のプロパティは<code>undefined</code>になる場合があります。
-                そのため、コンテキストのプロパティを使う前には必ず中身を確認してください。
-              </blockquote>
-              <script class="load">
-                createObj = function() {
-                  // scriptable
-                  var ctx = document.getElementById("myChart1").getContext('2d');
-                  function setBorderColor(context) {
-                      return setColor(context, 'border')
-                  }
-                  function setBgColor(context) {
-                      return setColor(context, 'bg')
-                  }
-                  function setColor(context, type) {
-                      var index = context.dataIndex;
-                      var value = context.dataset.data[index];
-                      var opaque = type === 'bg' ? 0.2 : 1;
-                      return value.x < 0 && value.y < 0 ? 'rgba(255, 99, 132, ' + opaque + ')' :  // マイナス値なら'red'
-                          index % 2 ? 'rgba(54, 162, 235, ' + opaque + ')' :    // それ以外は'blue'か'green'
-                          'rgba(75, 192, 192, ' + opaque + ')';
-                  }
-                  new Chart(ctx, {
-                      type: 'bubble',
-                      data: {
-                          datasets:[{
-                              data: [
-                                  {x: -44, y:  87, r:  8},
-                                  {x:  10, y:  10, r: 16},
-                                  {x:  77, y:  29, r: 13},
-                                  {x:  40, y: -62, r: 14},
-                                  {x:  83, y:  21, r: 21},
-                                  {x: -78, y:  51, r: 10},
-                                  {x:  21, y:  46, r: 12},
-                                  {x:  35, y: -43, r:  5},
-                                  {x: -10, y: -59, r: 16},
-                                  {x: -23, y: -32, r: 20},
-                              ],
-                              backgroundColor: setBgColor,
-                              borderColor: setBorderColor,
-                              borderWidth: 1
-                          }]
-                      },
-                      options: {
-                          legend: {
-                              display: false
-                          }
-                      }
-                  })
-                
-                  // indexable
-                  var ctx = document.getElementById("myChart2").getContext('2d');
-                  new Chart(ctx, {
-                      type: 'bubble',
-                      data: {
-                          datasets:[{
-                              data: [
-                                  {x: -44, y:  87, r:  8},
-                                  {x:  10, y:  10, r: 16},
-                                  {x:  77, y:  29, r: 13},
-                                  {x:  40, y: -62, r: 14},
-                                  {x:  83, y:  21, r: 21},
-                                  {x: -78, y:  51, r: 10},
-                                  {x:  21, y:  46, r: 12},
-                                  {x:  35, y: -43, r:  5},
-                                  {x: -10, y: -59, r: 16},
-                                  {x: -23, y: -32, r: 20},
-                              ],
-                              backgroundColor: [
-                                  'rgba(255, 99, 132, 0.2)',
-                                  'rgba(54, 162, 235, 0.2)',
-                                  'rgba(255, 206, 86, 0.2)',
-                                  'rgba(75, 192, 192, 0.2)',
-                                  'rgba(153, 102, 255, 0.2)',
-                                  'rgba(255, 159, 64, 0.2)',
-                                  'rgba(255, 99, 132, 0.2)',
-                                  'rgba(54, 162, 235, 0.2)',
-                                  'rgba(255, 206, 86, 0.2)',
-                                  'rgba(75, 192, 192, 0.2)',
-                              ],
-                              borderColor: [
-                                  'rgba(255,99,132,1)',
-                                  'rgba(54, 162, 235, 1)',
-                                  'rgba(255, 206, 86, 1)',
-                                  'rgba(75, 192, 192, 1)',
-                                  'rgba(153, 102, 255, 1)',
-                                  'rgba(255, 159, 64, 1)',
-                                  'rgba(255,99,132,1)',
-                                  'rgba(54, 162, 235, 1)',
-                                  'rgba(255, 206, 86, 1)',
-                                  'rgba(75, 192, 192, 1)',
-                              ],
-                              borderWidth: 1
-                          }]
-                      },
-                      options: {
-                          legend: {
-                              display: false
-                          }
-                      }
-                  })
-                
-                };
-              </script><br>
-              <div class="license">
-                <p>
-                  &copy; 2013
-                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
-                </p>
-                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer><span>
-           &copy; <span id="copy_year">2017</span> tobijibu</span></footer>
-    </div>
-    <noscript id="deferred-styles">
-      <link href="../css/lazy.css" rel="stylesheet">
-    </noscript>
-    <script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-      
-    </script>
-    <script src="../js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
-    <div id="src" hidden></div>
-  </body>
-</html>
+})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2 id="option-context">オプションコンテキスト</h2><p>オプションコンテキストは、
+オプション解決の際に、オプションのコンテキストを渡す為に使われます。
+今はスクリプト可能オプションでのみ適用可能です。</p><p>コンテキストオブジェクトは以下のプロパティが含まれています。</p><ul><li><code>chart</code> : 関連するチャート。</li><li><code>dataIndex</code> : 現在のデータのindex。</li><li><code>dataset</code> : indexのデータセット。<code>datasetIndex</code></li><li><code>datasetIndex</code> : 現在のデータセットのindex。</li></ul><blockquote>重要：コンテキストは様々な種類のエンティティ(dataset、data等)が存在するため、
+一部のプロパティは<code>undefined</code>になる場合があります。
+そのため、コンテキストのプロパティを使う前には必ず中身を確認してください。</blockquote><script class="load">createObj = function() {
+  // scriptable
+  var ctx = document.getElementById("myChart1").getContext('2d');
+  function setBorderColor(context) {
+      return setColor(context, 'border')
+  }
+  function setBgColor(context) {
+      return setColor(context, 'bg')
+  }
+  function setColor(context, type) {
+      var index = context.dataIndex;
+      var value = context.dataset.data[index];
+      var opaque = type === 'bg' ? 0.2 : 1;
+      return value.x < 0 && value.y < 0 ? 'rgba(255, 99, 132, ' + opaque + ')' :  // マイナス値なら'red'
+          index % 2 ? 'rgba(54, 162, 235, ' + opaque + ')' :    // それ以外は'blue'か'green'
+          'rgba(75, 192, 192, ' + opaque + ')';
+  }
+  new Chart(ctx, {
+      type: 'bubble',
+      data: {
+          datasets:[{
+              data: [
+                  {x: -44, y:  87, r:  8},
+                  {x:  10, y:  10, r: 16},
+                  {x:  77, y:  29, r: 13},
+                  {x:  40, y: -62, r: 14},
+                  {x:  83, y:  21, r: 21},
+                  {x: -78, y:  51, r: 10},
+                  {x:  21, y:  46, r: 12},
+                  {x:  35, y: -43, r:  5},
+                  {x: -10, y: -59, r: 16},
+                  {x: -23, y: -32, r: 20},
+              ],
+              backgroundColor: setBgColor,
+              borderColor: setBorderColor,
+              borderWidth: 1
+          }]
+      },
+      options: {
+          legend: {
+              display: false
+          }
+      }
+  })
+
+  // indexable
+  var ctx = document.getElementById("myChart2").getContext('2d');
+  new Chart(ctx, {
+      type: 'bubble',
+      data: {
+          datasets:[{
+              data: [
+                  {x: -44, y:  87, r:  8},
+                  {x:  10, y:  10, r: 16},
+                  {x:  77, y:  29, r: 13},
+                  {x:  40, y: -62, r: 14},
+                  {x:  83, y:  21, r: 21},
+                  {x: -78, y:  51, r: 10},
+                  {x:  21, y:  46, r: 12},
+                  {x:  35, y: -43, r:  5},
+                  {x: -10, y: -59, r: 16},
+                  {x: -23, y: -32, r: 20},
+              ],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          legend: {
+              display: false
+          }
+      }
+  })
+
+};</script><br><div class="license"><p>&copy; 2013
+ Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>

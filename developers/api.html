@@ -1,333 +1,84 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>API | Chart.js - にほんご。</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="API | Chart.js - にほんご。">
-    <meta property="og:url">
-    <meta property="og:type" content="article">
-    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
-    <style>html{overflow-y:scroll}#navi ul,body{margin:0;padding:0}body{font-family:"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,sans-serif;font-feature-settings:"palt";letter-spacing:.8pt;word-wrap:break-word;line-height:1.76;color:#000;text-shadow:0 0 0 #000}#container{display:grid;grid-template-columns:240px auto;grid-template-rows:54px auto auto;grid-template-areas:' header header  ' ' navi   content ' ' footer footer  '}footer,header{grid-area:header;grid-column:1/3;grid-row:1/2}#content,#navi{grid-area:navi;grid-column:1/2;grid-row:2/3}#content{grid-area:content;grid-column:2/3;margin-left:-240px}footer{grid-area:footer;grid-row:3/4;height:2em;line-height:1.6;font-size:.72rem;text-align:right}@media screen and (max-width:1200px){#container{grid-template-columns:100%;grid-template-rows:70px auto auto}#content,#navi,header{grid-column:1}#content{margin-left:0}}code{margin:0 2px;padding:2px 4px;font-family:Consolas,Monaco,"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,monospace;background-color:#e0e0e0;font-size:.88em}pre{margin:.8em 0 0;color:#333;line-height:1.4;letter-spacing:normal}pre>code{background-color:transparent;font-size:.88rem}blockquote{margin-left:0;padding-left:1em;color:#666;font-size:.8rem;border-left:2px solid #e0e0e0}dd{margin-left:1em}ul{padding-left:1.6em}.table-box,pre{overflow-x:auto}.my-table,.my-table td,pre{border:1px solid #e0e0e0}.my-table{border-collapse:collapse;width:100%}.my-table th{border:1px solid #333;vertical-align:top;background-color:#333;color:#fff}.my-table th.detail{min-width:16em}.my-table td{vertical-align:top;padding:16px 8px;word-wrap:break-word}.nowrap{white-space:nowrap}header{display:flex;align-items:center;height:3.4em;padding:16px;position:fixed;z-index:99;box-sizing:border-box;background-color:rgba(255,255,255,.8)}.navi_toggle{font-size:.8rem;width:1.6em;padding-top:.4em;display:none;position:relative}.icon svg,.navi_toggle svg{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;width:2em}#menu_close,#navi .hidden{display:none}.icon{width:32px;height:32px;display:block;position:relative}.icon svg{width:16px;height:16px}.title{font-size:.8rem;padding:1.1em 1em .9em}#navi a,.title a{color:#000;text-decoration:none}#navi{padding-left:1.5em;height:calc(100% - 54px);overflow-y:auto;margin-top:54px;position:fixed;width:240px;box-sizing:border-box}.navi{display:block}#navi .s-title{font-size:.72rem;color:#666}#navi ul{list-style-type:none}#navi li{font-size:1rem;text-shadow:none;margin:.64em 0}#navi li li,#navi li li li{font-size:.8rem;text-shadow:none;margin:.48em .48em .48em .56em}#navi li li li{text-shadow:0 0 0 #000;margin:.48em .48em .48em .96em;font-weight:400}#navi a{transition:.4s;border-bottom:1px #fff solid}#navi a.active,#navi li,#navi li li{font-weight:700}#navi a.active::before{content:'\bb \20 ';font-size:.96em;margin-left:-.97em}#navi hr{border-top:1px solid #e0e0e0;width:200px;margin:2.4em 0}#navi::-webkit-scrollbar{width:4px}#navi::-webkit-scrollbar-thumb{background-color:rgba(238,238,238,.3)}#navi:hover::-webkit-scrollbar-thumb{background-color:#e0e0e0}#navi_source{margin-top:1em}#navi_source a{margin-left:2.4em;font-weight:400}#main .share_link svg,#navi_source svg{width:1.72em}#main{width:640px;margin:0 auto;height:100%;box-sizing:border-box}#main a{transition:.3s;color:#333;text-decoration:none;border-bottom:1px solid #e0e0e0}.license{margin-bottom:2.4em;line-height:1.6;font-size:.72rem}footer>span{background-color:rgba(255,255,255,.8);padding:4px;position:fixed;bottom:4px;right:8px}#main .share_link,.license{text-align:right}#main .share_link a{width:40px;text-shadow:none;margin-left:16px;color:#aaa;border-bottom:0}a.i-hatena{position:relative}a.i-hatena>span{position:absolute;left:.25em;font-family:Verdana;font-weight:700;color:#fff;font-style:normal;line-height:1.84}@media screen and (max-width:1200px){html{font-size:16px}#navi,header{width:100%}.navi_toggle{width:32px;height:32px;display:block}.icon{display:none}#navi{font-size:16px;margin-top:16px;position:fixed;top:1.6em;background-color:rgba(255,255,255,.8);z-index:99;height:100%}#navi li{font-size:1.2em;margin:.8em 0}#navi li li,#navi li li li{font-size:.8em;margin:1em 0 0 1em}.navi{margin-left:-1600px}.show{margin-left:0}#main{width:100%;padding:1.6em}#main>div{margin:0}}html{font-size:16px}#main{line-height:1.6}#main h1,#main h2,#main h5,#main h6{font-weight:400}#main h1{margin-bottom:.5em;text-shadow:none}#main h3,#main h4,#main h5,#main h6{margin:2em 0 1em}#main h2{text-shadow:none;margin:0 0 .4em;padding-top:2em}#main h5,#main h6{text-decoration:underline}#update_date,p.note{color:#666;font-size:.72rem}#main span.args,#main span.type,sup{color:#666}ul.none{list-style-type:none}ul.disc{list-style-type:disc}ul.num{list-style-type:decimal}#main li{margin:.64em 0}hr{border-top:1px solid #e0e0e0}img{max-width:100%}#update_date{text-align:right}.search-box{margin:2.4em 0;width:200px}.cse .gsc-control-cse,div.gsc-control-cse{border:0;padding:0}div.gsc-input-box{border:0;border-bottom:1px solid #000}form.gsc-search-box-tools .gsc-search-box td.gsc-input{padding-right:0}div.gsc-input-box-focus,div.gsc-search-box td.gsc-input>input:focus{border:0;border-bottom:1px solid #333;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}td.gsib_a{padding-top:5px}a.gsst_a span.gscb_a{color:#aaa}button.gsc-search-button{margin-left:0}.cse .gsc-search-button button.gsc-search-button-v2,button.gsc-search-button-v2{padding:6px}.cse button.gsc-search-button,button.gsc-search-button{color:#fff;border:0;border-bottom:1px solid #000;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;background-color:#000;background-image:none;filter:none}@media screen and (max-width:1120px){.search-box{width:90%}}::selection{background:rgba(255,132,174,.4)}::-moz-selection{background:rgba(255,132,174,.4)}#main a:hover,#main a:visited:hover,#navi a:hover{color:#ff1744}.icon svg rect{fill:#ff1744}#main .my-table td.center{text-align:center}#main .my-table th a.link{color:#fff}table.library th.name{width:8em}</style>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-106478577-1', 'auto');
-    </script>
-  </head>
-  <body>
-    <div id="container">
-      <header>
-        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
-            <svg>
-              <rect width="16" height="16" fill="#e0e0e0"></rect>
-            </svg></a></div>
-        <div class="navi_toggle" onclick="toggleMenu()">
-          <svg id="menu_close" viewBox="0 0 24 24">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-            <path d="M0 0h24v24H0z" fill="none"></path>
-          </svg>
-          <svg id="menu_open" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
-        </div>
-        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div>
-      </header>
-      <div class="navi" id="navi">
-        <ul class="menu">
-          <li><a class="index" href="../index.html">Home</a></li>
-          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
-          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
-            <ul class="hidden" id="navi_gettingStarted">
-              <li><a href="../gettingStarted/installation.html">インストール</a></li>
-              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
-              <li><a href="../gettingStarted/usage.html">使い方</a></li>
-            </ul>
-          </li>
-          <li><a class="general" href="../general.html">General</a>
-            <ul class="hidden" id="navi_general">
-              <li><a href="../general/responsive.html">レスポンシブ</a>
-              </li>
-              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
-              </li>
-              <li><a href="../general/interactions.html">インタラクション</a>
-                <ul>
-                  <li><a href="../general/interactions/events.html">イベント</a></li>
-                  <li><a href="../general/interactions/modes.html">モード</a></li>
-                </ul>
-              </li>
-              <li><a href="../general/options.html">オプション</a>
-              </li>
-              <li><a href="../general/colors.html">カラー</a>
-              </li>
-              <li><a href="../general/fonts.html">フォント</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="configuration" href="../configuration.html">Configuration</a>
-            <ul class="hidden" id="navi_configuration">
-              <li><a href="../configuration/animations.html">アニメーション</a></li>
-              <li><a href="../configuration/layout.html">レイアウト</a></li>
-              <li><a href="../configuration/legend.html">凡例</a></li>
-              <li><a href="../configuration/title.html">タイトル</a></li>
-              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
-              <li><a href="../configuration/elements.html">要素</a></li>
-            </ul>
-          </li>
-          <li><a class="charts" href="../charts.html">Charts</a>
-            <ul class="hidden" id="navi_charts">
-              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
-              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
-              <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
-              <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
-              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
-              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
-              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
-              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
-              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
-            </ul>
-          </li>
-          <li><a class="axis" href="../axis.html">Axis</a>
-            <ul class="hidden" id="navi_axis">
-              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
-                <ul>
-                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
-                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
-                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
-                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
-                <ul>
-                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/labeling.html">ラベル</a>
-              </li>
-              <li><a href="../axis/styling.html">スタイル</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="developers" href="../developers.html">Developers</a>
-            <ul id="navi_developers">
-              <li><a class="active" href="../developers/api.html">Chart.js API</a></li>
-              <li><a href="../developers/updates.html">チャートの更新</a></li>
-              <li><a href="../developers/plugins.html">プラグイン</a></li>
-              <li><a href="../developers/charts.html">新規チャート追加</a></li>
-              <li><a href="../developers/axes.html">新規軸追加</a></li>
-              <li><a href="../developers/contributing.html">Contribute</a></li>
-            </ul>
-          </li>
-          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
-            <ul class="hidden" id="navi_additional-note">
-              <li><a href="../additional-note/comparison-table.html">比較</a></li>
-              <li><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
-              <li><a href="../additional-note/license.html">ライセンス</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
-        <div id="main">
-          <div id="barba-wrapper">
-            <div class="barba-container">
-              <h1>API</h1>
-              <div id="update_date"><span>更新日: 2018.06.14
-</span>
-              </div>
-              <p>
-                各チャートには、便利グローバルなプロトタイプメソッドセットがあります。
-                これらはChart.jsで生成された全てのチャートで利用できます。
-                例では折れ線グラフで使っています。
-              </p>
-              <pre><code class="js">// 例：
-var myLineChart = new Chart(ctx, config);</code></pre>
-              <h2>.destroy()</h2>
-              <p>
-                任意のチャートのインスタンスを破棄します。
-                これでChart.jsのチャートオブジェクトに保持している参照と、
-                アタッチされたイベントを破棄します。
-                このメソッドは、canvasに新しいチャートを生成する前に呼び出す必要があります。
-              </p>
-              <pre><code class="js">// 特定のチャートインスタンスを破棄
-myLineChart.destroy();</code></pre>
-              <h2 id="update">.update(config)</h2>
-              <p>
-                チャートの更新をトリガーします。
-                このメソッドは、dataオブジェクトを更新した後でも、安全に呼び出すことができます。
-                全てのスケール、凡例が更新され、チャートを再描画します。
-              </p>
-              <pre><code class="js">// durationは再描画するアニメーションの時間です。
-// lazyはbooleanです。trueの場合、他のアニメーションで中断することができます。
-myLineChart.data.datasets[0].data[2] = 50; // 最初のデータセットの値を'March'から'50'に更新します。
-myLineChart.update(); // updateを呼び出すと、Marchの位置が'90'から'50'にアニメーションで表示されます。</code></pre>
-              <blockquote>注意：データ参照の置換(<code>myLineChart.data = {datasets: [...</code>}])は、
-                <b>ver2.6</b>以降でのみ有効です。
-                それ以前のバージョンでデータオブジェクト全体を置換するには、
-                次の方法で解決することができます。<code>myLineChart.config.data = {datasets: [...]}</code>
-              </blockquote>
-              <p><code>config</code>オブジェクトには、更新処理のための追加設定を指定することができます。
-                <code>update</code>をイベントハンドラで手動で行い、異なるアニメーションが必要な場合に便利です。
-              </p>
-              <p>以下のプロパティがサポートされています。</p>
-              <ul>
-                <li><b>duration</b> (number)：再描画アニメーションの時間(ms)。</li>
-                <li><b>lazy</b> (boolean)：<code>true</code>の場合、他のアニメーションで中断することができます。</li>
-                <li><b>easing</b> (string)：アニメーションのイージング。<a class="no-barba" href="../configuration/animations.html#easing">イージング</a>を参照してください。</li>
-              </ul>
-              <h3>例</h3>
-              <pre><code class="js">myChart.update({
-    duration: 800,
-    easing: 'easeOutBounce'
-})</code></pre>
-              <p>詳しくは<a class="no-barba" href="./updates.html">チャートの更新</a>を参照して下さい。</p>
-              <h2>.reset()</h2>
-              <p>
-                最初のアニメーションの前の状態にリセットします。
-                <code>update</code>を使って新しいアニメーションをトリガーすることができます。
-              </p>
-              <pre><code class="js">myLineChart.reset();</code></pre>
-              <h2>.render(config)</h2>
-              <p>
-                全てのチャートの再描画をトリガーします。
-                このメソッドは、データを更新しないことに注意してください。
-                更新する場合は<code>.update()</code>を使用してください。
-              </p>
-              <p><code>config</code>オブジェクトの詳細は<code>.update()</code>を参照して下さい。</p>
-              <pre><code class="js">// durationは再描画するアニメーションの時間です。
-// lazyはbooleanです。trueの場合、他のアニメーションで中断することができます。
-myLineChart.render({
-    duration: 800,
-    lazy: false,
-    easing: 'easeOutBounce'
-});</code></pre>
-              <h2>.stop()</h2>
-              <p>
-                任意のアニメーションのループを停止します。
-                これにより、チャートのアニメーションが一時停止します。
-                <code>.render()</code>を呼び出すと、再度アニメーションを実行します。
-              </p>
-              <pre><code class="js">// チャートのアニメーションループを一時停止します。
-myLineChart.stop();
-// => 連鎖性を保つために'this'を返します。</code></pre>
-              <h2>.resize()</h2>
-              <p>
-                canvas要素のサイズを手動で変更します。
-                このメソッドは、キャンバスをリサイズする度に実行され、
-                キャンバスノードのサイズを変更した場合は、手動で呼び出すことができます。
-              </p>
-              <pre><code class="js">// サイズ変更して再描画し、要素を塗りつぶします
-myLineChart.resize();
-// => 連鎖性を保つために'this'を返します。</code></pre>
-              <h2>.clear()</h2>
-              <p>
-                canvasをクリアします。
-                アニメーションのフレーム間で幅広く使用されており、役に立つかもしれません。
-              </p>
-              <pre><code class="js">// myLineChartが表示されているcanvasをクリアします。
-myLineChart.clear();
-// => 連鎖性を保つために'this'を返します。</code></pre>
-              <h2>.toBase64Image()</h2>
-              <p>現在のチャート状態をBase64エンコードして文字列を返します。</p>
-              <pre><code class="js">myLineChart.toBase64Image();
-// => canvasの状態をpng画像にしたURLを返します。</code></pre>
-              <h2>.generateLegend()</h2>
-              <p>
-                グラフの凡例のHTML文字列を返します。
-                凡例はオプションの<code>legendCallback</code>から生成されます。
-              </p>
-              <pre><code class="js">myLineChart.generateLegend();
-// => 凡例のHTML文字列を返します。</code></pre>
-              <h2>.getElementAtEvent(e)</h2>
-              <p>イベントの引数か、jQueryのイベントを<code>getElementAtEvent(event)</code>に渡して呼び出すと、
-                イベントの実行ポイントにある要素を1つだけ返します。
-                範囲内に複数の要素がある場合、最初の要素だけが返されます。
-                このメソッドから返される値は、1つのパラメータを持った配列です。
-                配列は<code>get～AtEvent</code>メソッド間でAPIの整合性を保つために使用されます。
-              </p>
-              <pre><code class="js">myLineChart.getElementAtEvent(e);
-// => イベント発生ポイントの最初の要素を返します。</code></pre>
-              <p>クリックされた要素を取得するには、<code>getElementAtEvent</code>を使うことが出来ます。</p>
-              <pre><code class="js">function clickHandler(evt) {
-    var item = myChart.getElementAtEvent(evt)[0];
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>API | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="API | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    if (item) {
-        var label = myChart.data.labels[firstPoint._index];
-        var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul class="hidden" id="navi_general"><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul class="hidden" id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axis</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul id="navi_developers"><li><a class="active" href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li><li><a href="../developers/contributing.html">Contribute</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a href="../additional-note/popular-extensions.html">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>API</h1><div id="update_date"><span>更新日: 2018.09.04
+</span></div><p>各チャートには、便利グローバルなプロトタイプメソッドセットがあります。
+これらはChart.jsで生成された全てのチャートで利用できます。
+例では折れ線グラフで使っています。</p><pre><code><span class="hljs-comment">// 例：</span>
+<span class="hljs-keyword">var</span> myLineChart = <span class="hljs-keyword">new</span> Chart(ctx, config);
+</code></pre><h2>.destroy()</h2><p>任意のチャートのインスタンスを破棄します。
+これでChart.jsのチャートオブジェクトに保持している参照と、
+アタッチされたイベントを破棄します。
+このメソッドは、canvasに新しいチャートを生成する前に呼び出す必要があります。</p><pre><code><span class="hljs-comment">// 特定のチャートインスタンスを破棄</span>
+myLineChart.destroy();
+</code></pre><h2 id="update">.update(config)</h2><p>チャートの更新をトリガーします。
+このメソッドは、dataオブジェクトを更新した後でも、安全に呼び出すことができます。
+全てのスケール、凡例が更新され、チャートを再描画します。</p><pre><code><span class="hljs-comment">// durationは再描画するアニメーションの時間です。</span>
+<span class="hljs-comment">// lazyはbooleanです。trueの場合、他のアニメーションで中断することができます。</span>
+myLineChart.data.datasets[<span class="hljs-number">0</span>].data[<span class="hljs-number">2</span>] = <span class="hljs-number">50</span>; <span class="hljs-comment">// 最初のデータセットの値を'March'から'50'に更新します。</span>
+myLineChart.update(); <span class="hljs-comment">// updateを呼び出すと、Marchの位置が'90'から'50'にアニメーションで表示されます。</span></code></pre><blockquote>注意：データ参照の置換(<code>myLineChart.data = {datasets: [...</code>}])は、
+<b>ver2.6</b>以降でのみ有効です。
+それ以前のバージョンでデータオブジェクト全体を置換するには、
+次の方法で解決することができます。<code>myLineChart.config.data = {datasets: [...]}</code></blockquote><p><code>config</code>オブジェクトには、更新処理のための追加設定を指定することができます。
+<code>update</code>をイベントハンドラで手動で行い、異なるアニメーションが必要な場合に便利です。</p><p>以下のプロパティがサポートされています。</p><ul><li><b>duration</b> (number)：再描画アニメーションの時間(ms)。</li><li><b>lazy</b> (boolean)：<code>true</code>の場合、他のアニメーションで中断することができます。</li><li><b>easing</b> (string)：アニメーションのイージング。<a class="no-barba" href="../configuration/animations.html#easing">イージング</a>を参照してください。</li></ul><h3>例</h3><pre><code>myChart.update({
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">800</span>,
+    <span class="hljs-attr">easing</span>: <span class="hljs-string">'easeOutBounce'</span>
+})</code></pre><p>詳しくは<a class="no-barba" href="./updates.html">チャートの更新</a>を参照して下さい。</p><h2>.reset()</h2><p>最初のアニメーションの前の状態にリセットします。
+<code>update</code>を使って新しいアニメーションをトリガーすることができます。</p><pre><code>myLineChart.reset();
+</code></pre><h2>.render(config)</h2><p>全てのチャートの再描画をトリガーします。
+このメソッドは、データを更新しないことに注意してください。
+更新する場合は<code>.update()</code>を使用してください。</p><p><code>config</code>オブジェクトの詳細は<code>.update()</code>を参照して下さい。</p><pre><code><span class="hljs-comment">// durationは再描画するアニメーションの時間です。</span>
+<span class="hljs-comment">// lazyはbooleanです。trueの場合、他のアニメーションで中断することができます。</span>
+myLineChart.render({
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">800</span>,
+    <span class="hljs-attr">lazy</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">easing</span>: <span class="hljs-string">'easeOutBounce'</span>
+});
+</code></pre><h2>.stop()</h2><p>任意のアニメーションのループを停止します。
+これにより、チャートのアニメーションが一時停止します。
+<code>.render()</code>を呼び出すと、再度アニメーションを実行します。</p><pre><code><span class="hljs-comment">// チャートのアニメーションループを一時停止します。</span>
+myLineChart.stop();
+<span class="hljs-comment">// =&gt; 連鎖性を保つために'this'を返します。</span>
+</code></pre><h2>.resize()</h2><p>canvas要素のサイズを手動で変更します。
+このメソッドは、キャンバスをリサイズする度に実行され、
+キャンバスノードのサイズを変更した場合は、手動で呼び出すことができます。</p><pre><code><span class="hljs-comment">// サイズ変更して再描画し、要素を塗りつぶします</span>
+myLineChart.resize();
+<span class="hljs-comment">// =&gt; 連鎖性を保つために'this'を返します。</span>
+</code></pre><h2>.clear()</h2><p>canvasをクリアします。
+アニメーションのフレーム間で幅広く使用されており、役に立つかもしれません。</p><pre><code><span class="hljs-comment">// myLineChartが表示されているcanvasをクリアします。</span>
+myLineChart.clear();
+<span class="hljs-comment">// =&gt; 連鎖性を保つために'this'を返します。</span>
+</code></pre><h2>.toBase64Image()</h2><p>現在のチャート状態をBase64エンコードして文字列を返します。</p><pre><code>myLineChart.toBase64Image();
+<span class="hljs-comment">// =&gt; canvasの状態をpng画像にしたURLを返します。</span>
+</code></pre><h2>.generateLegend()</h2><p>グラフの凡例のHTML文字列を返します。
+凡例はオプションの<code>legendCallback</code>から生成されます。</p><pre><code>myLineChart.generateLegend();
+<span class="hljs-comment">// =&gt; 凡例のHTML文字列を返します。</span>
+</code></pre><h2>.getElementAtEvent(e)</h2><p>イベントの引数か、jQueryのイベントを<code>getElementAtEvent(event)</code>に渡して呼び出すと、
+イベントの実行ポイントにある要素を1つだけ返します。
+範囲内に複数の要素がある場合、最初の要素だけが返されます。
+このメソッドから返される値は、1つのパラメータを持った配列です。
+配列は<code>get～AtEvent</code>メソッド間でAPIの整合性を保つために使用されます。</p><pre><code>myLineChart.getElementAtEvent(e);
+<span class="hljs-comment">// =&gt; イベント発生ポイントの最初の要素を返します。</span></code></pre><p>クリックされた要素を取得するには、<code>getElementAtEvent</code>を使うことが出来ます。</p><pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clickHandler</span>(<span class="hljs-params">evt</span>) </span>{
+    <span class="hljs-keyword">var</span> item = myChart.getElementAtEvent(evt)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-keyword">if</span> (item) {
+        <span class="hljs-keyword">var</span> label = myChart.data.labels[firstPoint._index];
+        <span class="hljs-keyword">var</span> value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
     }
-}</code></pre>
-              <h2>.getElementsAtEvent(e)</h2>
-              <p>
-                イベントポイントの要素を探し、同じデータインデックスの全ての要素を返します。
-                このメソッドは、内部的に'label'の強調表示に利用されます。
-              </p>
-              <p>イベントの引数か、jQueryのイベントを<code>getElementsAtEvent(event)</code>に渡して呼び出すと、
-                イベントの実行ポイントにある要素を返します。
-              </p>
-              <pre><code class="js">canvas.onclick = function(evt){
-    var activePoints = myLineChart.getElementsAtEvent(evt);
-    // => activePointsはクリックイベントが発生したポイントと同じ位置にある要素の配列です。
-};</code></pre>
-              <p>この機能は、DOMベースのツールチップの実装や、アプリケーションで独自の動作をトリガーするのに便利です。</p>
-              <h2>.getDatasetAtEvent(e)</h2>
-              <p>
-                イベントポイントの要素を探し、そのデータセットから全ての要素を返します。
-                このメソッドは、内部的に'dataset'の強調表示に利用されます。
-              </p>
-              <pre><code class="js">myLineChart.getDatasetAtEvent(e);
-// => 要素の配列を返します。</code></pre>
-              <h2>.getDatasetMeta(index)</h2>
-              <p>
-                現在のインデックスに一致するデータセットを探し、メタデータを返します。
-                返されるデータには、チャートの生成に必要な全てのメタデータが含まれます。
-              </p>
-              <p>メタデータの<code>data</code>プロパティには、
-                チャートタイプに応じて、各点、矩形等の情報が含まれます。
-              </p>
-              <p>Chart.jsの<a href="https://github.com/chartjs/Chart.js/tree/master/test" target="_blank" rel="noopener noreferrer">テスト</a>では、
-                様々な使用例を使うことができます。
-              </p>
-              <pre><code class="js">var meta = myChart.getDatasetMeta(0);
-var x = meta.data[0]._model.x</code></pre><br>
-              <div class="license">
-                <p>
-                  &copy; 2013
-                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
-                </p>
-                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer><span>
-           &copy; <span id="copy_year">2017</span> tobijibu</span></footer>
-    </div>
-    <noscript id="deferred-styles">
-      <link href="../css/lazy.css" rel="stylesheet">
-    </noscript>
-    <script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-      
-    </script>
-    <script src="../js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
-    <div id="src" hidden></div>
-  </body>
-</html>
+}
+</code></pre><h2>.getElementsAtEvent(e)</h2><p>イベントポイントの要素を探し、同じデータインデックスの全ての要素を返します。
+このメソッドは、内部的に'label'の強調表示に利用されます。</p><p>イベントの引数か、jQueryのイベントを<code>getElementsAtEvent(event)</code>に渡して呼び出すと、
+イベントの実行ポイントにある要素を返します。</p><pre><code>canvas.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>)</span>{
+    <span class="hljs-keyword">var</span> activePoints = myLineChart.getElementsAtEvent(evt);
+    <span class="hljs-comment">// =&gt; activePointsはクリックイベントが発生したポイントと同じ位置にある要素の配列です。</span>
+};</code></pre><p>この機能は、DOMベースのツールチップの実装や、アプリケーションで独自の動作をトリガーするのに便利です。</p><h2>.getDatasetAtEvent(e)</h2><p>イベントポイントの要素を探し、そのデータセットから全ての要素を返します。
+このメソッドは、内部的に'dataset'の強調表示に利用されます。</p><pre><code>myLineChart.getDatasetAtEvent(e);
+<span class="hljs-comment">// =&gt; 要素の配列を返します。</span>
+</code></pre><h2>.getDatasetMeta(index)</h2><p>現在のインデックスに一致するデータセットを探し、メタデータを返します。
+返されるデータには、チャートの生成に必要な全てのメタデータが含まれます。</p><p>メタデータの<code>data</code>プロパティには、
+チャートタイプに応じて、各点、矩形等の情報が含まれます。</p><p>Chart.jsの<a href="https://github.com/chartjs/Chart.js/tree/master/test" target="_blank" rel="noopener noreferrer">テスト</a>では、
+様々な使用例を使うことができます。</p><pre><code><span class="hljs-keyword">var</span> meta = myChart.getDatasetMeta(<span class="hljs-number">0</span>);
+<span class="hljs-keyword">var</span> x = meta.data[<span class="hljs-number">0</span>]._model.x</code></pre><br><div class="license"><p>&copy; 2013
+ Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>

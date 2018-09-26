@@ -1,365 +1,74 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>円グラフ(Doughnut &amp; Pie) | Chart.js - にほんご。</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="円グラフ(Doughnut &amp; Pie) | Chart.js - にほんご。">
-    <meta property="og:url">
-    <meta property="og:type" content="article">
-    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
-    <style>html{overflow-y:scroll}#navi ul,body{margin:0;padding:0}body{font-family:"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,sans-serif;font-feature-settings:"palt";letter-spacing:.8pt;word-wrap:break-word;line-height:1.76;color:#000;text-shadow:0 0 0 #000}#container{display:grid;grid-template-columns:240px auto;grid-template-rows:54px auto auto;grid-template-areas:' header header  ' ' navi   content ' ' footer footer  '}footer,header{grid-area:header;grid-column:1/3;grid-row:1/2}#content,#navi{grid-area:navi;grid-column:1/2;grid-row:2/3}#content{grid-area:content;grid-column:2/3;margin-left:-240px}footer{grid-area:footer;grid-row:3/4;height:2em;line-height:1.6;font-size:.72rem;text-align:right}@media screen and (max-width:1200px){#container{grid-template-columns:100%;grid-template-rows:70px auto auto}#content,#navi,header{grid-column:1}#content{margin-left:0}}code{margin:0 2px;padding:2px 4px;font-family:Consolas,Monaco,"游ゴシック Medium","Yu Gothic Medium",YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ',Meiryo,monospace;background-color:#e0e0e0;font-size:.88em}pre{margin:.8em 0 0;color:#333;line-height:1.4;letter-spacing:normal}pre>code{background-color:transparent;font-size:.88rem}blockquote{margin-left:0;padding-left:1em;color:#666;font-size:.8rem;border-left:2px solid #e0e0e0}dd{margin-left:1em}ul{padding-left:1.6em}.table-box,pre{overflow-x:auto}.my-table,.my-table td,pre{border:1px solid #e0e0e0}.my-table{border-collapse:collapse;width:100%}.my-table th{border:1px solid #333;vertical-align:top;background-color:#333;color:#fff}.my-table th.detail{min-width:16em}.my-table td{vertical-align:top;padding:16px 8px;word-wrap:break-word}.nowrap{white-space:nowrap}header{display:flex;align-items:center;height:3.4em;padding:16px;position:fixed;z-index:99;box-sizing:border-box;background-color:rgba(255,255,255,.8)}.navi_toggle{font-size:.8rem;width:1.6em;padding-top:.4em;display:none;position:relative}.icon svg,.navi_toggle svg{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;width:2em}#menu_close,#navi .hidden{display:none}.icon{width:32px;height:32px;display:block;position:relative}.icon svg{width:16px;height:16px}.title{font-size:.8rem;padding:1.1em 1em .9em}#navi a,.title a{color:#000;text-decoration:none}#navi{padding-left:1.5em;height:calc(100% - 54px);overflow-y:auto;margin-top:54px;position:fixed;width:240px;box-sizing:border-box}.navi{display:block}#navi .s-title{font-size:.72rem;color:#666}#navi ul{list-style-type:none}#navi li{font-size:1rem;text-shadow:none;margin:.64em 0}#navi li li,#navi li li li{font-size:.8rem;text-shadow:none;margin:.48em .48em .48em .56em}#navi li li li{text-shadow:0 0 0 #000;margin:.48em .48em .48em .96em;font-weight:400}#navi a{transition:.4s;border-bottom:1px #fff solid}#navi a.active,#navi li,#navi li li{font-weight:700}#navi a.active::before{content:'\bb \20 ';font-size:.96em;margin-left:-.97em}#navi hr{border-top:1px solid #e0e0e0;width:200px;margin:2.4em 0}#navi::-webkit-scrollbar{width:4px}#navi::-webkit-scrollbar-thumb{background-color:rgba(238,238,238,.3)}#navi:hover::-webkit-scrollbar-thumb{background-color:#e0e0e0}#navi_source{margin-top:1em}#navi_source a{margin-left:2.4em;font-weight:400}#main .share_link svg,#navi_source svg{width:1.72em}#main{width:640px;margin:0 auto;height:100%;box-sizing:border-box}#main a{transition:.3s;color:#333;text-decoration:none;border-bottom:1px solid #e0e0e0}.license{margin-bottom:2.4em;line-height:1.6;font-size:.72rem}footer>span{background-color:rgba(255,255,255,.8);padding:4px;position:fixed;bottom:4px;right:8px}#main .share_link,.license{text-align:right}#main .share_link a{width:40px;text-shadow:none;margin-left:16px;color:#aaa;border-bottom:0}a.i-hatena{position:relative}a.i-hatena>span{position:absolute;left:.25em;font-family:Verdana;font-weight:700;color:#fff;font-style:normal;line-height:1.84}@media screen and (max-width:1200px){html{font-size:16px}#navi,header{width:100%}.navi_toggle{width:32px;height:32px;display:block}.icon{display:none}#navi{font-size:16px;margin-top:16px;position:fixed;top:1.6em;background-color:rgba(255,255,255,.8);z-index:99;height:100%}#navi li{font-size:1.2em;margin:.8em 0}#navi li li,#navi li li li{font-size:.8em;margin:1em 0 0 1em}.navi{margin-left:-1600px}.show{margin-left:0}#main{width:100%;padding:1.6em}#main>div{margin:0}}html{font-size:16px}#main{line-height:1.6}#main h1,#main h2,#main h5,#main h6{font-weight:400}#main h1{margin-bottom:.5em;text-shadow:none}#main h3,#main h4,#main h5,#main h6{margin:2em 0 1em}#main h2{text-shadow:none;margin:0 0 .4em;padding-top:2em}#main h5,#main h6{text-decoration:underline}#update_date,p.note{color:#666;font-size:.72rem}#main span.args,#main span.type,sup{color:#666}ul.none{list-style-type:none}ul.disc{list-style-type:disc}ul.num{list-style-type:decimal}#main li{margin:.64em 0}hr{border-top:1px solid #e0e0e0}img{max-width:100%}#update_date{text-align:right}.search-box{margin:2.4em 0;width:200px}.cse .gsc-control-cse,div.gsc-control-cse{border:0;padding:0}div.gsc-input-box{border:0;border-bottom:1px solid #000}form.gsc-search-box-tools .gsc-search-box td.gsc-input{padding-right:0}div.gsc-input-box-focus,div.gsc-search-box td.gsc-input>input:focus{border:0;border-bottom:1px solid #333;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}td.gsib_a{padding-top:5px}a.gsst_a span.gscb_a{color:#aaa}button.gsc-search-button{margin-left:0}.cse .gsc-search-button button.gsc-search-button-v2,button.gsc-search-button-v2{padding:6px}.cse button.gsc-search-button,button.gsc-search-button{color:#fff;border:0;border-bottom:1px solid #000;border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;background-color:#000;background-image:none;filter:none}@media screen and (max-width:1120px){.search-box{width:90%}}::selection{background:rgba(255,132,174,.4)}::-moz-selection{background:rgba(255,132,174,.4)}#main a:hover,#main a:visited:hover,#navi a:hover{color:#ff1744}.icon svg rect{fill:#ff1744}#main .my-table td.center{text-align:center}#main .my-table th a.link{color:#fff}table.library th.name{width:8em}</style>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-106478577-1', 'auto');
-    </script>
-  </head>
-  <body>
-    <div id="container">
-      <header>
-        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
-            <svg>
-              <rect width="16" height="16" fill="#e0e0e0"></rect>
-            </svg></a></div>
-        <div class="navi_toggle" onclick="toggleMenu()">
-          <svg id="menu_close" viewBox="0 0 24 24">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-            <path d="M0 0h24v24H0z" fill="none"></path>
-          </svg>
-          <svg id="menu_open" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
-        </div>
-        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div>
-      </header>
-      <div class="navi" id="navi">
-        <ul class="menu">
-          <li><a class="index" href="../index.html">Home</a></li>
-          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
-          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
-            <ul class="hidden" id="navi_gettingStarted">
-              <li><a href="../gettingStarted/installation.html">インストール</a></li>
-              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
-              <li><a href="../gettingStarted/usage.html">使い方</a></li>
-            </ul>
-          </li>
-          <li><a class="general" href="../general.html">General</a>
-            <ul class="hidden" id="navi_general">
-              <li><a href="../general/responsive.html">レスポンシブ</a>
-              </li>
-              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
-              </li>
-              <li><a href="../general/interactions.html">インタラクション</a>
-                <ul>
-                  <li><a href="../general/interactions/events.html">イベント</a></li>
-                  <li><a href="../general/interactions/modes.html">モード</a></li>
-                </ul>
-              </li>
-              <li><a href="../general/options.html">オプション</a>
-              </li>
-              <li><a href="../general/colors.html">カラー</a>
-              </li>
-              <li><a href="../general/fonts.html">フォント</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="configuration" href="../configuration.html">Configuration</a>
-            <ul class="hidden" id="navi_configuration">
-              <li><a href="../configuration/animations.html">アニメーション</a></li>
-              <li><a href="../configuration/layout.html">レイアウト</a></li>
-              <li><a href="../configuration/legend.html">凡例</a></li>
-              <li><a href="../configuration/title.html">タイトル</a></li>
-              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
-              <li><a href="../configuration/elements.html">要素</a></li>
-            </ul>
-          </li>
-          <li><a class="charts" href="../charts.html">Charts</a>
-            <ul id="navi_charts">
-              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
-              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
-              <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
-              <li><a class="active" href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
-              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
-              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
-              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
-              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
-              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
-            </ul>
-          </li>
-          <li><a class="axis" href="../axis.html">Axis</a>
-            <ul class="hidden" id="navi_axis">
-              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
-                <ul>
-                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
-                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
-                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
-                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
-                <ul>
-                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
-                </ul>
-              </li>
-              <li><a href="../axis/labeling.html">ラベル</a>
-              </li>
-              <li><a href="../axis/styling.html">スタイル</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="developers" href="../developers.html">Developers</a>
-            <ul class="hidden" id="navi_developers">
-              <li><a href="../developers/api.html">Chart.js API</a></li>
-              <li><a href="../developers/updates.html">チャートの更新</a></li>
-              <li><a href="../developers/plugins.html">プラグイン</a></li>
-              <li><a href="../developers/charts.html">新規チャート追加</a></li>
-              <li><a href="../developers/axes.html">新規軸追加</a></li>
-              <li><a href="../developers/contributing.html">Contribute</a></li>
-            </ul>
-          </li>
-          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
-            <ul class="hidden" id="navi_additional-note">
-              <li><a href="../additional-note/comparison-table.html">比較</a></li>
-              <li><a href="../additional-note/popular-extensions.html">拡張機能</a></li>
-              <li><a href="../additional-note/license.html">ライセンス</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
-        <div id="main">
-          <div id="barba-wrapper">
-            <div class="barba-container">
-              <h1>円グラフ(Doughnut &amp; Pie)</h1>
-              <div id="update_date"><span>更新日: 2018.06.25
-</span>
-              </div>
-              <p>
-                円グラフ＆ドーナツグラフは、恐らく最も一般的なグラフです。
-                どちらのグラフも、セグメントに分割され、各セグメントは「円孤」でデータの比率を表現します。
-              </p>
-              <p>このグラフはデータ同士の関係比率を示すのに優れています。</p>
-              <p>
-                円グラフとドーナツグラフは事実上同じクラスですが、
-                1つ異なるデフォルト値として、<code>cutoutPercentage</code>を持っています。
-                このパラメータは、「円の中身を何％切り抜くか」を示します。
-                円グラフならば<code>0</code>、ドーナツグラフなら<code>50</code>です。
-              </p>
-              <p><code>Chart</code>のコアには2つのエイリアスが登録されています。
-                デフォルト値と、エイリアス以外は全く同じです。
-              </p>
-              <canvas id="myChart1"></canvas>
-              <h2>使用例</h2>
-              <pre><code class="js">// 円グラフの場合
-var myPieChart = new Chart(ctx,{
-    type: 'pie',
-    data: data,
-    options: options
-});</code></pre>
-              <pre><code class="js">// ドーナツグラフの場合
-var myDoughnutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: data,
-    options: options
-});</code></pre>
-              <h2>データセットプロパティ</h2>
-              <p>
-                円グラフ＆ドーナツグラフは、各データセットに対して、いくつかのプロパティを指定することができます。
-                これらは特定のデータセットの表示プロパティを設定するために使用されます。
-                例えば、孤の色は通常このように指定することができます。
-              </p>
-              <pre><code class="js">new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    datasets:[{
-      backgroundColor: [
-        "rgb(255, 99, 132)",
-        "rgb(54, 162, 235)",
-        "rgb(255, 205, 86)"
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>円グラフ(Doughnut &amp; Pie) | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="円グラフ(Doughnut &amp; Pie) | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul class="hidden" id="navi_general"><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a class="active" href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axis</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li><li><a href="../developers/contributing.html">Contribute</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a href="../additional-note/popular-extensions.html">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>円グラフ(Doughnut &amp; Pie)</h1><div id="update_date"><span>更新日: 2018.09.04
+</span></div><p>円グラフ＆ドーナツグラフは、恐らく最も一般的なグラフです。
+どちらのグラフも、セグメントに分割され、各セグメントは「円孤」でデータの比率を表現します。</p><p>このグラフはデータ同士の関係比率を示すのに優れています。</p><p>円グラフとドーナツグラフは事実上同じクラスですが、
+1つ異なるデフォルト値として、<code>cutoutPercentage</code>を持っています。
+このパラメータは、「円の中身を何％切り抜くか」を示します。
+円グラフならば<code>0</code>、ドーナツグラフなら<code>50</code>です。</p><p><code>Chart</code>のコアには2つのエイリアスが登録されています。
+デフォルト値と、エイリアス以外は全く同じです。</p><canvas id="myChart1"></canvas><h2>使用例</h2><pre><code><span class="hljs-comment">// 円グラフの場合</span>
+<span class="hljs-keyword">var</span> myPieChart = <span class="hljs-keyword">new</span> Chart(ctx,{
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'pie'</span>,
+    <span class="hljs-attr">data</span>: data,
+    <span class="hljs-attr">options</span>: options
+});</code></pre><pre><code><span class="hljs-comment">// ドーナツグラフの場合</span>
+<span class="hljs-keyword">var</span> myDoughnutChart = <span class="hljs-keyword">new</span> Chart(ctx, {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'doughnut'</span>,
+    <span class="hljs-attr">data</span>: data,
+    <span class="hljs-attr">options</span>: options
+});
+</code></pre><h2>データセットプロパティ</h2><p>円グラフ＆ドーナツグラフは、各データセットに対して、いくつかのプロパティを指定することができます。
+これらは特定のデータセットの表示プロパティを設定するために使用されます。
+例えば、孤の色は通常このように指定することができます。</p><pre><code><span class="hljs-keyword">new</span> Chart(ctx, {
+  <span class="hljs-attr">type</span>: <span class="hljs-string">"doughnut"</span>,
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">datasets</span>:[{
+      <span class="hljs-attr">backgroundColor</span>: [
+        <span class="hljs-string">"rgb(255, 99, 132)"</span>,
+        <span class="hljs-string">"rgb(54, 162, 235)"</span>,
+        <span class="hljs-string">"rgb(255, 205, 86)"</span>
       ]
     }]
   }
-});</code></pre><br>
-              <div class="table-box">
-                <table class="my-table">
-                  <tr>
-                    <th>名称</th>
-                    <th>type</th>
-                    <th>説明</th>
-                  </tr>
-                  <tr>
-                    <td><code>label</code></td>
-                    <td><code>string</code></td>
-                    <td class="detail">凡例とツールチップに表示するデータセットのラベル。</td>
-                  </tr>
-                  <tr>
-                    <td><code>backgroundColor</code></td>
-                    <td><code>color[]</code></td>
-                    <td>孤を塗りつぶす色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td>
-                  </tr>
-                  <tr>
-                    <td><code>borderColor</code></td>
-                    <td><code>color[]</code></td>
-                    <td>枠線の色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td>
-                  </tr>
-                  <tr>
-                    <td><code>borderWidth</code></td>
-                    <td><code>number[]</code></td>
-                    <td>枠線の太さ(px)。</td>
-                  </tr>
-                  <tr>
-                    <td><code>hoverBackgroundColor</code></td>
-                    <td><code>color[]</code></td>
-                    <td>ホバー時の塗りつぶしの色。</td>
-                  </tr>
-                  <tr>
-                    <td><code>hoverBorderColor</code></td>
-                    <td><code>color[]</code></td>
-                    <td>ホバー時の枠線の色。</td>
-                  </tr>
-                  <tr>
-                    <td><code>hoverBorderWidth</code></td>
-                    <td><code>number[]</code></td>
-                    <td>ホバー時の枠線の太さ。</td>
-                  </tr>
-                </table>
-              </div><br>
-              <h2>設定オプション</h2>
-              <p>
-                円グラフ＆ドーナツグラフには以下の設定オプションが定義されています。
-                これらのオプションは、グローバルのオプション<code>Chart.defaults.global</code>とマージされ、
-                チャートに渡されるオプションを生成します。
-              </p>
-              <div class="table-box">
-                <table class="my-table">
-                  <tr>
-                    <th>名称</th>
-                    <th>type</th>
-                    <th>初期値</th>
-                    <th class="detail">説明</th>
-                  </tr>
-                  <tr>
-                    <td><code>cutoutPercentage</code></td>
-                    <td><code>number</code></td>
-                    <td><code>50</code> - ドーナツグラフ、<br><code>0</code> - 円グラフ</td>
-                    <td>グラフの中心を何％切り抜くか。</td>
-                  </tr>
-                  <tr>
-                    <td><code>rotation</code></td>
-                    <td><code>number</code></td>
-                    <td><code>-0.5 * Math.PI</code></td>
-                    <td>孤を表示する際にどの角度から表示するか。</td>
-                  </tr>
-                  <tr>
-                    <td><code>circumference</code></td>
-                    <td><code>number</code></td>
-                    <td><code>2 * Math.PI</code></td>
-                    <td>どの角度までの孤で表現するか。<br>
-                      <p class="note">※バウムクーヘンの1片や扇形になるようなイメージです。</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><code>animation.animateRotate</code></td>
-                    <td><code>boolean</code></td>
-                    <td><code>true</code></td>
-                    <td><code>true</code>の場合、チャートを回転アニメーションで表示します。
-                      このプロパティは<code>options.animation</code>オブジェクトに含まれています。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><code>animation.animateScale</code></td>
-                    <td><code>boolean</code></td>
-                    <td><code>false</code></td>
-                    <td><code>true</code>の場合、チャートを中心から外側に拡大するアニメーションで表示します。</td>
-                  </tr>
-                </table>
-              </div><br>
-              <h2>デフォルトオプション</h2>
-              <p>
-                作成された各ドーナツグラフはデフォルト値を変更することができ、
-                このオブジェクトは<code>Chart.defaults.doughnut</code>を使用することができます。
-                また円グラフにも<code>Chart.defaults.pie</code>で変更可能なデフォルト値のクローンがあり、
-                唯一の違いは、<code>cutoutPercentage</code>に<code>0</code>が設定されていることです。
-              </p><br>
-              <h2>データ構造</h2>
-              <p>
-                円グラフでは、データセットにデータポイントの配列が含まれている必要があります。
-                データポイントは数値でなければならず、
-                Chart.jsが全ての値を合計し、各データの割合を計算します。
-              </p>
-              <p>また、ツールチップが正しく表示されるように、ラベル配列の設定も必要です。</p>
-              <pre><code class="js">data = {
-    datasets: [{
-        data: [10, 20, 30]
+});</code></pre><br><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th>説明</th></tr><tr><td><code>label</code></td><td><code>string</code></td><td class="detail">凡例とツールチップに表示するデータセットのラベル。</td></tr><tr><td><code>backgroundColor</code></td><td><code>color[]</code></td><td>孤を塗りつぶす色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td></tr><tr><td><code>borderColor</code></td><td><code>color[]</code></td><td>枠線の色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td></tr><tr><td><code>borderWidth</code></td><td><code>number[]</code></td><td>枠線の太さ(px)。</td></tr><tr><td><code>hoverBackgroundColor</code></td><td><code>color[]</code></td><td>ホバー時の塗りつぶしの色。</td></tr><tr><td><code>hoverBorderColor</code></td><td><code>color[]</code></td><td>ホバー時の枠線の色。</td></tr><tr><td><code>hoverBorderWidth</code></td><td><code>number[]</code></td><td>ホバー時の枠線の太さ。</td></tr></table></div><br><h2>設定オプション</h2><p>円グラフ＆ドーナツグラフには以下の設定オプションが定義されています。
+これらのオプションは、グローバルのオプション<code>Chart.defaults.global</code>とマージされ、
+チャートに渡されるオプションを生成します。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th>初期値</th><th class="detail">説明</th></tr><tr><td><code>cutoutPercentage</code></td><td><code>number</code></td><td><code>50</code> - ドーナツグラフ、<br><code>0</code> - 円グラフ</td><td>グラフの中心を何％切り抜くか。</td></tr><tr><td><code>rotation</code></td><td><code>number</code></td><td><code>-0.5 * Math.PI</code></td><td>孤を表示する際にどの角度から表示するか。</td></tr><tr><td><code>circumference</code></td><td><code>number</code></td><td><code>2 * Math.PI</code></td><td>どの角度までの孤で表現するか。<br><p class="note">※バウムクーヘンの1片や扇形になるようなイメージです。</p></td></tr><tr><td><code>animation.animateRotate</code></td><td><code>boolean</code></td><td><code>true</code></td><td><code>true</code>の場合、チャートを回転アニメーションで表示します。
+このプロパティは<code>options.animation</code>オブジェクトに含まれています。</td></tr><tr><td><code>animation.animateScale</code></td><td><code>boolean</code></td><td><code>false</code></td><td><code>true</code>の場合、チャートを中心から外側に拡大するアニメーションで表示します。</td></tr></table></div><br><h2>デフォルトオプション</h2><p>作成された各ドーナツグラフはデフォルト値を変更することができ、
+このオブジェクトは<code>Chart.defaults.doughnut</code>を使用することができます。
+また円グラフにも<code>Chart.defaults.pie</code>で変更可能なデフォルト値のクローンがあり、
+唯一の違いは、<code>cutoutPercentage</code>に<code>0</code>が設定されていることです。</p><br><h2>データ構造</h2><p>円グラフでは、データセットにデータポイントの配列が含まれている必要があります。
+データポイントは数値でなければならず、
+Chart.jsが全ての値を合計し、各データの割合を計算します。</p><p>また、ツールチップが正しく表示されるように、ラベル配列の設定も必要です。</p><pre><code>data = {
+    <span class="hljs-attr">datasets</span>: [{
+        <span class="hljs-attr">data</span>: [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
     }],
- 
-    // 他の孤をホバーした時に、凡例とツールチップに以下のラベルを表示する。
+
+    <span class="hljs-comment">// 他の孤をホバーした時に、凡例とツールチップに以下のラベルを表示する。</span>
     labels: [
-        'Red',
-        'Yellow',
-        'Blue'
+        <span class="hljs-string">'Red'</span>,
+        <span class="hljs-string">'Yellow'</span>,
+        <span class="hljs-string">'Blue'</span>
     ]
-};</code></pre>
-              <script class="load">
-                createObj = function() {
-                  var ctx = document.getElementById('myChart1').getContext('2d');
-                  new Chart(ctx, {
-                    type: "doughnut",
-                    data: {
-                      labels: ["Red", "Blue", "Yellow"],
-                      datasets:[{
-                        label: "My First Dataset",
-                        data: [300,50,100],
-                        backgroundColor: [
-                          "rgb(255, 99, 132)",
-                          "rgb(54, 162, 235)",
-                          "rgb(255, 205, 86)"
-                        ]
-                      }]
-                    }
-                  });
-                };
-              </script><br>
-              <div class="license">
-                <p>
-                  &copy; 2013
-                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
-                </p>
-                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer><span>
-           &copy; <span id="copy_year">2017</span> tobijibu</span></footer>
-    </div>
-    <noscript id="deferred-styles">
-      <link href="../css/lazy.css" rel="stylesheet">
-    </noscript>
-    <script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-      
-    </script>
-    <script src="../js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
-    <div id="src" hidden></div>
-  </body>
-</html>
+};
+</code></pre><script class="load">createObj = function() {
+  var ctx = document.getElementById('myChart1').getContext('2d');
+  new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: ["Red", "Blue", "Yellow"],
+      datasets:[{
+        label: "My First Dataset",
+        data: [300,50,100],
+        backgroundColor: [
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)"
+        ]
+      }]
+    }
+  });
+};</script><br><div class="license"><p>&copy; 2013
+ Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>
