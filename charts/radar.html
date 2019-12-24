@@ -1,18 +1,171 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>レーダーチャート(Radar) | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="レーダーチャート(Radar) | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul class="hidden" id="navi_general"><li><a href="../general/accessibility.html">アクセシビリティ</a></li><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li><li><a href="../general/performance.html">パフォーマンス</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a class="active" href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axes</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>レーダーチャート(Radar)</h1><div id="update_date"><span>更新日: 2019.12.06
-</span></div><p>レーダーチャート(RadarChart)は、複数のデータポイントと、それらの変化を示すための手法です。
-2つ以上のデータセットのポイントを比較する際によく使われます。</p><canvas id="myChart1"></canvas><h2>使用例</h2><pre><code><span class="hljs-keyword">var</span> myRadarChart = <span class="hljs-keyword">new</span> Chart(ctx, {
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>レーダーチャート(Radar) | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="レーダーチャート(Radar) | Chart.js - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="chartjs"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a class="index" href="../index.html">Home</a></li>
+          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
+          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
+            <ul class="hidden" id="navi_gettingStarted">
+              <li><a href="../gettingStarted/installation.html">インストール</a></li>
+              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+              <li><a href="../gettingStarted/usage.html">使い方</a></li>
+            </ul>
+          </li>
+          <li><a class="general" href="../general.html">General</a>
+            <ul class="hidden" id="navi_general">
+              <li><a href="../general/accessibility.html">アクセシビリティ</a>
+              </li>
+              <li><a href="../general/responsive.html">レスポンシブ</a>
+              </li>
+              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
+              </li>
+              <li><a href="../general/interactions.html">インタラクション</a>
+                <ul>
+                  <li><a href="../general/interactions/events.html">イベント</a></li>
+                  <li><a href="../general/interactions/modes.html">モード</a></li>
+                </ul>
+              </li>
+              <li><a href="../general/options.html">オプション</a>
+              </li>
+              <li><a href="../general/colors.html">カラー</a>
+              </li>
+              <li><a href="../general/fonts.html">フォント</a>
+              </li>
+              <li><a href="../general/performance.html">パフォーマンス</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="configuration" href="../configuration.html">Configuration</a>
+            <ul class="hidden" id="navi_configuration">
+              <li><a href="../configuration/animations.html">アニメーション</a></li>
+              <li><a href="../configuration/layout.html">レイアウト</a></li>
+              <li><a href="../configuration/legend.html">凡例</a></li>
+              <li><a href="../configuration/title.html">タイトル</a></li>
+              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+              <li><a href="../configuration/elements.html">要素</a></li>
+            </ul>
+          </li>
+          <li><a class="charts" href="../charts.html">Charts</a>
+            <ul id="navi_charts">
+              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+              <li><a class="active" href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+              <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+            </ul>
+          </li>
+          <li><a class="axis" href="../axis.html">Axes</a>
+            <ul class="hidden" id="navi_axis">
+              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                <ul>
+                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                <ul>
+                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/labeling.html">ラベル</a>
+              </li>
+              <li><a href="../axis/styling.html">スタイル</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="developers" href="../developers.html">Developers</a>
+            <ul class="hidden" id="navi_developers">
+              <li><a href="../developers/api.html">Chart.js API</a></li>
+              <li><a href="../developers/updates.html">チャートの更新</a></li>
+              <li><a href="../developers/plugins.html">プラグイン</a></li>
+              <li><a href="../developers/charts.html">新規チャート追加</a></li>
+              <li><a href="../developers/axes.html">新規軸追加</a></li>
+            </ul>
+          </li>
+          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+            <ul class="hidden" id="navi_additional-note">
+              <li><a href="../additional-note/comparison-table.html">比較</a></li>
+              <li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li>
+              <li><a href="../additional-note/license.html">ライセンス</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>レーダーチャート(Radar)</h1>
+              <div id="update_date"><span>更新日: 2019.12.06
+</span>
+              </div>
+              <p>
+                レーダーチャート(RadarChart)は、複数のデータポイントと、それらの変化を示すための手法です。
+                2つ以上のデータセットのポイントを比較する際によく使われます。
+              </p>
+              <canvas id="myChart1"></canvas>
+              <h2>使用例</h2>
+              <pre><code><span class="hljs-keyword">var</span> myRadarChart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'radar'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: options
 });
-</code></pre><h2>データセットプロパティ</h2><p>レーダーチャートは、各データセットに対して、いくつかのプロパティを指定することができます。
-これらは特定のデータセットの表示プロパティを設定するために使用されます。
-例えば、ライン(線)の色は通常このように指定することができます。</p><pre><code><span class="hljs-keyword">new</span> Chart(ctx, {
+</code></pre>
+              <h2>データセットプロパティ</h2>
+              <p>
+                レーダーチャートは、各データセットに対して、いくつかのプロパティを指定することができます。
+                これらは特定のデータセットの表示プロパティを設定するために使用されます。
+                例えば、ライン(線)の色は通常このように指定することができます。
+              </p>
+              <pre><code><span class="hljs-keyword">new</span> Chart(ctx, {
   <span class="hljs-attr">type</span>: <span class="hljs-string">"radar"</span>,
   <span class="hljs-attr">data</span>: {
     <span class="hljs-attr">datasets</span>: [{
@@ -23,18 +176,411 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
   },
 });
 
-</code></pre><p>全ての<code>point～</code>プロパティは配列を指定することができます。
-これらに配列が指定されている場合、最初の値は、最初のポイントの設定として適用され、
-2番目の値は、2番目のポイントとして適用され、3番目以降も同様です。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th><a class="link" href="../general/options.html#scriptable-options">scriptable</a></th><th><a class="link" href="../general/options.html#indexable-options">indexable</a></th><th>初期値</th></tr><tr><td><a href="#line-styling"><code>backgroundColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>-</td><td><code>'rgba(0, 0, 0, 0.1)'</code></td></tr><tr><td><a href="#line-styling"><code>borderCapStyle</code></a></td><td><code>string</code></td><td>○</td><td>-</td><td><code>'butt'</code></td></tr><tr><td><a href="#line-styling"><code>borderColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>-</td><td><code>'rgba(0, 0, 0, 0.1)'</code></td></tr><tr><td><a href="#line-styling"><code>borderDash</code></a></td><td><code>number[]</code></td><td>○</td><td>-</td><td><code>[]</code></td></tr><tr><td><a href="#line-styling"><code>borderDashOffset</code></a></td><td><code>number</code></td><td>○</td><td>-</td><td><code>0.0</code></td></tr><tr><td><a href="#line-styling"><code>borderJoinStyle</code></a></td><td><code>string</code></td><td>○</td><td>-</td><td><code>'miter'</code></td></tr><tr><td><a href="#line-styling"><code>borderWidth</code></a></td><td><code>number</code></td><td>○</td><td>-</td><td><code>3</code></td></tr><tr><td><a href="#line-styling"><code>hoverBackgroundColor</code></a></td><td> <a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderCapStyle</code></a></td><td><code>string</code></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderDash</code></a></td><td><code>number[]</code></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderDashOffset</code></a></td><td><code>number</code></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderJoinStyle</code></a></td><td><code>string</code></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>hoverBorderWidth</code></a></td><td><code>number</code></td><td>○</td><td>-</td><td><code>undefined</code></td></tr><tr><td><a href="#line-styling"><code>fill</code></a></td><td><code>boolean|string</code></td><td>○</td><td>-</td><td><code>true</code></td></tr><tr><td><a href="#general"><code>label</code></a></td><td><code>string</code></td><td>-</td><td>-</td><td><code>''</code></td></tr><tr><td><a href="#general"><code>order</code></a></td><td><code>number</code></td><td>-</td><td>-</td><td><code>0</code></td></tr><tr><td><a href="#line-styling"><code>lineTension</code></a></td><td><code>number</code></td><td>-</td><td>-</td><td><code>0</code></td></tr><tr><td><a href="#point-styling"><code>pointBackgroundColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>○</td><td><code>'rgba(0, 0, 0, 0.1)'</code></td></tr><tr><td><a href="#point-styling"><code>pointBorderColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>○</td><td><code>'rgba(0, 0, 0, 0.1)'</code></td></tr><tr><td><a href="#point-styling"><code>pointBorderWidth</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>1</code></td></tr><tr><td><a href="#point-styling"><code>pointHitRadius</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>1</code></td></tr><tr><td><a href="#interactions"><code>pointHoverBackgroundColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>○</td><td><code>undefined</code></td></tr><tr><td><a href="#interactions"><code>pointHoverBorderColor</code></a></td><td><a class="no-barba" href="../general/colors.html">カラー</a></td><td>○</td><td>○</td><td><code>undefined</code></td></tr><tr><td><a href="#interactions"><code>pointHoverBorderWidth</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>1</code></td></tr><tr><td><a href="#interactions"><code>pointHoverRadius</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>4</code></td></tr><tr><td><a href="#point-styling"><code>pointRadius</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>3</code></td></tr><tr><td><a href="#point-styling"><code>pointRotation</code></a></td><td><code>number</code></td><td>○</td><td>○</td><td><code>0</code></td></tr><tr><td><a href="#point-styling"><code>pointStyle</code></a></td><td><code>string|image</code></td><td>○</td><td>○</td><td><code>'circle'</code></td></tr><tr><td><a href="#line-styling"><code>spanGaps</code></a></td><td><code>boolean</code></td><td>-</td><td>-</td><td><code>undefined</code></td></tr></table></div><br><h3 id="general">全般</h3><div class="table-box"><table class="my-table"><tr><th>名称</th><th class="detail">説明</th></tr><tr><td><code>label</code></td><td>凡例とツールチップに表示するデータセットのラベル。</td></tr><tr><td><code>order</code></td><td>データセットの描画順。</td></tr></table></div><br><h3 id="point-styling">ポイントスタイル</h3><p>各ポイントのスタイルは以下のプロパティで指定することができます。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th class="detail">説明</th></tr><tr><td><code>pointBackgroundColor</code></td><td>ポイントを塗りつぶす色。</td></tr><tr><td><code>pointBorderColor</code></td><td>ポイントの枠線の色。</td></tr><tr><td><code>pointBorderWidth</code></td><td>ポイントの枠線の太さ(px)。</td></tr><tr><td><code>pointHitRadius</code></td><td>マウスイベントを発生させる非表示ポイントのサイズ。</td></tr><tr><td><code>pointRadius</code></td><td>ポイントの半径。<code>0</code>を指定した場合、ポイントは非表示になります。</td></tr><tr><td><code>pointRotation</code></td><td>ポイントの角度。</td></tr><tr><td><code>pointStyle</code></td><td>ポイントのスタイル。
-詳しくは<a class="no-barba" href="../configuration/elements.html#point-styles">pointスタイル</a>を参照してください。</td></tr></table></div><p><code>undefined</code>の場合、どのプロパティも関連する<a class="no-barba" href="../configuration/elements.html#point-configuration"><code>elements.point.*</code></a>にオプションにフォールバックします。</p><br><h3 id="line-styling">ラインスタイル</h3><p>線のスタイルは以下のプロパティで指定することができます。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th class="detail">説明</th></tr><tr><td><code>backgroundColor</code></td><td>線の内側を塗りつぶす色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td></tr><tr><td><code>borderCapStyle</code></td><td>線の先端のスタイル。
-(<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineCap" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)</td></tr><tr><td><code>borderColor</code></td><td>線の色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td></tr><tr><td><code>borderDash</code></td><td>線の長さとスペース間隔(ダッシュ構成)。
-(<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)</td></tr><tr><td><code>borderDashOffset</code></td><td>ダッシュのオフセット。
-(<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)</td></tr><tr><td><code>borderJoinStyle</code></td><td>線の接合点のスタイル。</td></tr><tr><td><code>borderWidth</code></td><td>線の太さ(px)。(<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineJoin" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。).</td></tr><tr><td><code>fill</code></td><td>線の下をどのように塗りつぶすか。<a class="no-barba" href="./area.html">エリアチャート(Area)</a>を参照してください。</td></tr><tr><td><code>lineTension</code></td><td>ベジェ曲線のテンション(張力)。
-<code>0</code>を指定すると直線になります。</td></tr><tr><td><code>spanGaps</code></td><td><code>true</code>を指定した場合、データが無かったり<code>null</code>であってもポイント間の線を表示します。
-<code>false</code>を指定した場合、<code>NaN</code>データのポイントは線が途切れます。</td></tr></table></div><p><code>undefined</code>の場合、どのプロパティも関連する<a href="../configuration/elements.html#line-configuration"><code>elements.line.*</code></a>にオプションにフォールバックします。</p><br><h3 id="interactions">インタラクション</h3><p>各ポイントのインタラクションは以下のプロパティで指定することができます。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th class="detail">説明</th></tr><tr><td><code>pointHoverBackgroundColor</code></td><td>ホバーした時のポイントの背景色。</td></tr><tr><td><code>pointHoverBorderColor</code></td><td>ホバーした時のポイントの枠線の色。</td></tr><tr><td><code>pointHoverBorderWidth</code></td><td>ホバーした時のポイントの枠線の太さ。</td></tr><tr><td><code>pointHoverRadius</code></td><td>ホバーした時のポイントの半径。</td></tr></table></div><br><h2>設定オプション</h2><p>レーダーチャートは以下のオプションを定義します。
-これらのオプションはグローバルチャートオプションの<code>Chart.defaults.global</code>にマージされます。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th>初期値</th><th class="detail">説明</th></tr><tr><td><code>spanGaps</code></td><td><code>boolean</code></td><td><code>false</code></td><td><code>false</code>の場合、<code>NaN</code>データで線が途切れます。</td></tr></table></div><br><h2>スケールオプション</h2><p>レーダーチャートは単一のスケールのみをサポートしています。
-スケールのオプションは<code>scale</code>プロパティで定義されています。
-詳細は<a href="../axis/radial/linear.html">線形軸(linear)</a>で参照することができます。</p><pre><code>options = {
+</code></pre>
+              <p>全ての<code>point～</code>プロパティは配列を指定することができます。
+                これらに配列が指定されている場合、最初の値は、最初のポイントの設定として適用され、
+                2番目の値は、2番目のポイントとして適用され、3番目以降も同様です。
+              </p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th>type</th>
+                    <th><a class="link" href="../general/options.html#scriptable-options">scriptable</a></th>
+                    <th><a class="link" href="../general/options.html#indexable-options">indexable</a></th>
+                    <th>初期値</th>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>backgroundColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>'rgba(0, 0, 0, 0.1)'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderCapStyle</code></a></td>
+                    <td><code>string</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>'butt'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>'rgba(0, 0, 0, 0.1)'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderDash</code></a></td>
+                    <td><code>number[]</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>[]</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderDashOffset</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>0.0</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderJoinStyle</code></a></td>
+                    <td><code>string</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>'miter'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>borderWidth</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>3</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBackgroundColor</code></a></td>
+                    <td> <a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderCapStyle</code></a></td>
+                    <td><code>string</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderDash</code></a></td>
+                    <td><code>number[]</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderDashOffset</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderJoinStyle</code></a></td>
+                    <td><code>string</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>hoverBorderWidth</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>fill</code></a></td>
+                    <td><code>boolean|string</code></td>
+                    <td>○</td>
+                    <td>-</td>
+                    <td><code>true</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#general"><code>label</code></a></td>
+                    <td><code>string</code></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><code>''</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#general"><code>order</code></a></td>
+                    <td><code>number</code></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><code>0</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>lineTension</code></a></td>
+                    <td><code>number</code></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><code>0</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointBackgroundColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>'rgba(0, 0, 0, 0.1)'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointBorderColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>'rgba(0, 0, 0, 0.1)'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointBorderWidth</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>1</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointHitRadius</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>1</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#interactions"><code>pointHoverBackgroundColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#interactions"><code>pointHoverBorderColor</code></a></td>
+                    <td><a class="no-barba" href="../general/colors.html">カラー</a></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#interactions"><code>pointHoverBorderWidth</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>1</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#interactions"><code>pointHoverRadius</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>4</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointRadius</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>3</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointRotation</code></a></td>
+                    <td><code>number</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>0</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#point-styling"><code>pointStyle</code></a></td>
+                    <td><code>string|image</code></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><code>'circle'</code></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#line-styling"><code>spanGaps</code></a></td>
+                    <td><code>boolean</code></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><code>undefined</code></td>
+                  </tr>
+                </table>
+              </div><br>
+              <h3 id="general">全般</h3>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>label</code></td>
+                    <td>凡例とツールチップに表示するデータセットのラベル。</td>
+                  </tr>
+                  <tr>
+                    <td><code>order</code></td>
+                    <td>データセットの描画順。</td>
+                  </tr>
+                </table>
+              </div><br>
+              <h3 id="point-styling">ポイントスタイル</h3>
+              <p>各ポイントのスタイルは以下のプロパティで指定することができます。</p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>pointBackgroundColor</code></td>
+                    <td>ポイントを塗りつぶす色。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointBorderColor</code></td>
+                    <td>ポイントの枠線の色。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointBorderWidth</code></td>
+                    <td>ポイントの枠線の太さ(px)。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointHitRadius</code></td>
+                    <td>マウスイベントを発生させる非表示ポイントのサイズ。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointRadius</code></td>
+                    <td>ポイントの半径。<code>0</code>を指定した場合、ポイントは非表示になります。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointRotation</code></td>
+                    <td>ポイントの角度。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointStyle</code></td>
+                    <td>
+                      ポイントのスタイル。
+                      詳しくは<a class="no-barba" href="../configuration/elements.html#point-styles">pointスタイル</a>を参照してください。
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <p><code>undefined</code>の場合、どのプロパティも関連する<a class="no-barba" href="../configuration/elements.html#point-configuration"><code>elements.point.*</code></a>にオプションにフォールバックします。</p><br>
+              <h3 id="line-styling">ラインスタイル</h3>
+              <p>線のスタイルは以下のプロパティで指定することができます。</p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>backgroundColor</code></td>
+                    <td>線の内側を塗りつぶす色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td>
+                  </tr>
+                  <tr>
+                    <td><code>borderCapStyle</code></td>
+                    <td>
+                      線の先端のスタイル。
+                      (<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineCap" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>borderColor</code></td>
+                    <td>線の色。<a class="no-barba" href="../general/colors.html">カラー</a>を参照してください。</td>
+                  </tr>
+                  <tr>
+                    <td><code>borderDash</code></td>
+                    <td>
+                      線の長さとスペース間隔(ダッシュ構成)。
+                      (<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/setLineDash" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>borderDashOffset</code></td>
+                    <td>
+                      ダッシュのオフセット。
+                      (<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>borderJoinStyle</code></td>
+                    <td>線の接合点のスタイル。</td>
+                  </tr>
+                  <tr>
+                    <td><code>borderWidth</code></td>
+                    <td>
+                      線の太さ(px)。(<a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/lineJoin" target="_blank" rel="noopener noreferrer">MDN</a>を参照してください。).</td>
+                  </tr>
+                  <tr>
+                    <td><code>fill</code></td>
+                    <td>線の下をどのように塗りつぶすか。<a class="no-barba" href="./area.html">エリアチャート(Area)</a>を参照してください。</td>
+                  </tr>
+                  <tr>
+                    <td><code>lineTension</code></td>
+                    <td>
+                      ベジェ曲線のテンション(張力)。
+                      <code>0</code>を指定すると直線になります。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>spanGaps</code></td>
+                    <td><code>true</code>を指定した場合、データが無かったり<code>null</code>であってもポイント間の線を表示します。
+                      <code>false</code>を指定した場合、<code>NaN</code>データのポイントは線が途切れます。
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <p><code>undefined</code>の場合、どのプロパティも関連する<a href="../configuration/elements.html#line-configuration"><code>elements.line.*</code></a>にオプションにフォールバックします。</p><br>
+              <h3 id="interactions">インタラクション</h3>
+              <p>各ポイントのインタラクションは以下のプロパティで指定することができます。</p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>pointHoverBackgroundColor</code></td>
+                    <td>ホバーした時のポイントの背景色。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointHoverBorderColor</code></td>
+                    <td>ホバーした時のポイントの枠線の色。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointHoverBorderWidth</code></td>
+                    <td>ホバーした時のポイントの枠線の太さ。</td>
+                  </tr>
+                  <tr>
+                    <td><code>pointHoverRadius</code></td>
+                    <td>ホバーした時のポイントの半径。</td>
+                  </tr>
+                </table>
+              </div><br>
+              <h2>設定オプション</h2>
+              <p>
+                レーダーチャートは以下のオプションを定義します。
+                これらのオプションはグローバルチャートオプションの<code>Chart.defaults.global</code>にマージされます。
+              </p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th>type</th>
+                    <th>初期値</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>spanGaps</code></td>
+                    <td><code>boolean</code></td>
+                    <td><code>false</code></td>
+                    <td><code>false</code>の場合、<code>NaN</code>データで線が途切れます。</td>
+                  </tr>
+                </table>
+              </div><br>
+              <h2>スケールオプション</h2>
+              <p>
+                レーダーチャートは単一のスケールのみをサポートしています。
+                スケールのオプションは<code>scale</code>プロパティで定義されています。
+                詳細は<a href="../axis/radial/linear.html">線形軸(linear)</a>で参照することができます。
+              </p>
+              <pre><code>options = {
     <span class="hljs-attr">scale</span>: {
         <span class="hljs-attr">angleLines</span>: {
             <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>
@@ -44,54 +590,90 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">suggestedMax</span>: <span class="hljs-number">100</span>
         }
     }
-};</code></pre><br><h2>デフォルトオプション</h2><p>通常、生成する全てのレーダーチャートに構成オプションを適用します。
-グローバルオプションは<code>Chart.defaults.radar</code>に格納されます。
-グローバルオプションを変更すると、変更後に生成されたチャートにのみ反映され、
-すでに生成済みのチャートは変更されません。</p><br><h2>データ構造</h2><p>棒グラフのデータセットにある<code>data</code>プロパティは、
-数値配列を指定することができます。
-データ配列のそれぞれのポイントは、X軸上の同じインデックスのラベルに対応します。</p><pre><code>data: [<span class="hljs-number">20</span>, <span class="hljs-number">10</span>]</code></pre><p>レーダーチャートでは、各ポイントが何を意味するかを示すために、
-グラフの各ポイントの周りに表示する文字配列(ラベル)を含みます。</p><pre><code>data: {
+};</code></pre><br>
+              <h2>デフォルトオプション</h2>
+              <p>
+                通常、生成する全てのレーダーチャートに構成オプションを適用します。
+                グローバルオプションは<code>Chart.defaults.radar</code>に格納されます。
+                グローバルオプションを変更すると、変更後に生成されたチャートにのみ反映され、
+                すでに生成済みのチャートは変更されません。
+              </p><br>
+              <h2>データ構造</h2>
+              <p>棒グラフのデータセットにある<code>data</code>プロパティは、
+                数値配列を指定することができます。
+                データ配列のそれぞれのポイントは、X軸上の同じインデックスのラベルに対応します。
+              </p>
+              <pre><code>data: [<span class="hljs-number">20</span>, <span class="hljs-number">10</span>]</code></pre>
+              <p>
+                レーダーチャートでは、各ポイントが何を意味するかを示すために、
+                グラフの各ポイントの周りに表示する文字配列(ラベル)を含みます。
+              </p>
+              <pre><code>data: {
     <span class="hljs-attr">labels</span>: [<span class="hljs-string">'Running'</span>, <span class="hljs-string">'Swimming'</span>, <span class="hljs-string">'Eating'</span>, <span class="hljs-string">'Cycling'</span>],
     <span class="hljs-attr">datasets</span>: [{
         <span class="hljs-attr">data</span>: [<span class="hljs-number">20</span>, <span class="hljs-number">10</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>]
     }]
 }
-</code></pre><script class="load">createObj = function() {
-  var ctx = document.getElementById('myChart1').getContext('2d');
-  new Chart(ctx, {
-    type: "radar",
-    data: {
-      labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-      datasets: [{
-        label: "My First Dataset",
-        data: [65,59,90,81,56,55,40],
-        fill: true,
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgb(255, 99, 132)",
-        pointBackgroundColor: "rgb(255, 99, 132)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(255, 99, 132)"
-      }, {
-        label: "My Second Dataset",
-        data: [28,48,40,19,96,27,100],
-        fill: true,
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgb(54, 162, 235)",
-        pointBackgroundColor: "rgb(54, 162, 235)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(54, 162, 235)"
-      }]
-    },
-    options: {
-      elements: {
-        line: {
-          tension: 0,
-          borderWidth: 3
-        }
-      }
-    }
-  });
-};</script><br><div class="license"><p>&copy; 2013
- Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>
+</code></pre>
+              <script class="load">
+                createObj = function() {
+                  var ctx = document.getElementById('myChart1').getContext('2d');
+                  new Chart(ctx, {
+                    type: "radar",
+                    data: {
+                      labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+                      datasets: [{
+                        label: "My First Dataset",
+                        data: [65,59,90,81,56,55,40],
+                        fill: true,
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgb(255, 99, 132)",
+                        pointBackgroundColor: "rgb(255, 99, 132)",
+                        pointBorderColor: "#fff",
+                        pointHoverBackgroundColor: "#fff",
+                        pointHoverBorderColor: "rgb(255, 99, 132)"
+                      }, {
+                        label: "My Second Dataset",
+                        data: [28,48,40,19,96,27,100],
+                        fill: true,
+                        backgroundColor: "rgba(54, 162, 235, 0.2)",
+                        borderColor: "rgb(54, 162, 235)",
+                        pointBackgroundColor: "rgb(54, 162, 235)",
+                        pointBorderColor: "#fff",
+                        pointHoverBackgroundColor: "#fff",
+                        pointHoverBorderColor: "rgb(54, 162, 235)"
+                      }]
+                    },
+                    options: {
+                      elements: {
+                        line: {
+                          tension: 0,
+                          borderWidth: 3
+                        }
+                      }
+                    }
+                  });
+                };
+              </script><br>
+              <div class="license">
+                <p>
+                  &copy; 2013
+                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

@@ -1,20 +1,174 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Options | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Options | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul id="navi_general"><li><a href="../general/accessibility.html">アクセシビリティ</a></li><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a class="active" href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li><li><a href="../general/performance.html">パフォーマンス</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul class="hidden" id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axes</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Options</h1><div id="update_date"><span>更新日: 2019.05.31
-</span></div><h2 id="scriptable-options">scriptableオプション</h2><p>スクリプト可能(scriptable)オプションは
-各データに対して呼び出される関数を適用します。
-この関数は、一意なパラメータである<code>context</code>を受け取ります。
-(<a href="#option-context">オプションコンテキスト</a>を参照)</p><pre><code>color: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Options | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Options | Chart.js - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="chartjs"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a class="index" href="../index.html">Home</a></li>
+          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
+          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
+            <ul class="hidden" id="navi_gettingStarted">
+              <li><a href="../gettingStarted/installation.html">インストール</a></li>
+              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+              <li><a href="../gettingStarted/usage.html">使い方</a></li>
+            </ul>
+          </li>
+          <li><a class="general" href="../general.html">General</a>
+            <ul id="navi_general">
+              <li><a href="../general/accessibility.html">アクセシビリティ</a>
+              </li>
+              <li><a href="../general/responsive.html">レスポンシブ</a>
+              </li>
+              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
+              </li>
+              <li><a href="../general/interactions.html">インタラクション</a>
+                <ul>
+                  <li><a href="../general/interactions/events.html">イベント</a></li>
+                  <li><a href="../general/interactions/modes.html">モード</a></li>
+                </ul>
+              </li>
+              <li><a class="active" href="../general/options.html">オプション</a>
+              </li>
+              <li><a href="../general/colors.html">カラー</a>
+              </li>
+              <li><a href="../general/fonts.html">フォント</a>
+              </li>
+              <li><a href="../general/performance.html">パフォーマンス</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="configuration" href="../configuration.html">Configuration</a>
+            <ul class="hidden" id="navi_configuration">
+              <li><a href="../configuration/animations.html">アニメーション</a></li>
+              <li><a href="../configuration/layout.html">レイアウト</a></li>
+              <li><a href="../configuration/legend.html">凡例</a></li>
+              <li><a href="../configuration/title.html">タイトル</a></li>
+              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+              <li><a href="../configuration/elements.html">要素</a></li>
+            </ul>
+          </li>
+          <li><a class="charts" href="../charts.html">Charts</a>
+            <ul class="hidden" id="navi_charts">
+              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+              <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+              <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+            </ul>
+          </li>
+          <li><a class="axis" href="../axis.html">Axes</a>
+            <ul class="hidden" id="navi_axis">
+              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                <ul>
+                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                <ul>
+                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/labeling.html">ラベル</a>
+              </li>
+              <li><a href="../axis/styling.html">スタイル</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="developers" href="../developers.html">Developers</a>
+            <ul class="hidden" id="navi_developers">
+              <li><a href="../developers/api.html">Chart.js API</a></li>
+              <li><a href="../developers/updates.html">チャートの更新</a></li>
+              <li><a href="../developers/plugins.html">プラグイン</a></li>
+              <li><a href="../developers/charts.html">新規チャート追加</a></li>
+              <li><a href="../developers/axes.html">新規軸追加</a></li>
+            </ul>
+          </li>
+          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+            <ul class="hidden" id="navi_additional-note">
+              <li><a href="../additional-note/comparison-table.html">比較</a></li>
+              <li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li>
+              <li><a href="../additional-note/license.html">ライセンス</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Options</h1>
+              <div id="update_date"><span>更新日: 2019.05.31
+</span>
+              </div>
+              <h2 id="scriptable-options">scriptableオプション</h2>
+              <p>
+                スクリプト可能(scriptable)オプションは
+                各データに対して呼び出される関数を適用します。
+                この関数は、一意なパラメータである<code>context</code>を受け取ります。
+                (<a href="#option-context">オプションコンテキスト</a>を参照)
+              </p>
+              <pre><code>color: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
     <span class="hljs-keyword">var</span> index = context.dataIndex;
     <span class="hljs-keyword">var</span> value = context.dataset.data[index];
     <span class="hljs-keyword">return</span> value &lt; <span class="hljs-number">0</span> ? <span class="hljs-string">'red'</span> :  <span class="hljs-comment">// マイナス値なら'red'</span>
         index % <span class="hljs-number">2</span> ? <span class="hljs-string">'blue'</span> :    <span class="hljs-comment">// それ以外は'blue'か'green'</span>
         <span class="hljs-string">'green'</span>;
-}</code></pre><blockquote>注意：スクリプト可能オプションは、バブルチャートのいくつかのオプションでのみ適用可能です。</blockquote><h3>デモ</h3><p>アイテムの色をfunctionで生成しています。<br><code>x</code>、<code>y</code>どちらもマイナス値の場合に赤で表示します。
-それ以外は、インデックスが奇数なら青、偶数なら緑で表示します。</p><canvas id="myChart1"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+}</code></pre>
+              <blockquote>注意：スクリプト可能オプションは、バブルチャートのいくつかのオプションでのみ適用可能です。</blockquote>
+              <h3>デモ</h3>
+              <p>アイテムの色をfunctionで生成しています。<br><code>x</code>、<code>y</code>どちらもマイナス値の場合に赤で表示します。
+                それ以外は、インデックスが奇数なら青、偶数なら緑で表示します。
+              </p>
+              <canvas id="myChart1"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setBorderColor</span>(<span class="hljs-params">context</span>) </span>{
     <span class="hljs-keyword">return</span> setColor(context, <span class="hljs-string">'border'</span>)
 }
@@ -55,16 +209,28 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2 id="indexable-options">indexableオプション</h2><p>インデックス可能(indexable)オプションは、
-各データと同じインデックスに対応する要素を持った配列も指定することができます。
-このメソッドは、データと同じ数の要素を持った配列を指定する必要があります。
-そのため、<a href="#scriptable-options">function</a>がサポートされているならば、functionを使った方が良いでしょう。</p><pre><code>color: [
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2 id="indexable-options">indexableオプション</h2>
+              <p>
+                インデックス可能(indexable)オプションは、
+                各データと同じインデックスに対応する要素を持った配列も指定することができます。
+                このメソッドは、データと同じ数の要素を持った配列を指定する必要があります。
+                そのため、<a href="#scriptable-options">function</a>がサポートされているならば、functionを使った方が良いでしょう。
+              </p>
+              <pre><code>color: [
     <span class="hljs-string">'red'</span>,    <span class="hljs-comment">// dataのindexが0の色</span>
     <span class="hljs-string">'blue'</span>,   <span class="hljs-comment">// dataのindexが1の色</span>
     <span class="hljs-string">'green'</span>,  <span class="hljs-comment">// dataのindexが2の色</span>
     <span class="hljs-string">'black'</span>,  <span class="hljs-comment">// dataのindexが3の色</span>
     <span class="hljs-comment">//...</span>
-]</code></pre><h3>デモ</h3><p>チャートを赤、青、黄色、緑、紫、オレンジの6色で表示しています。</p><canvas id="myChart2"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+]</code></pre>
+              <h3>デモ</h3>
+              <p>チャートを赤、青、黄色、緑、紫、オレンジの6色で表示しています。</p>
+              <canvas id="myChart2"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bubble'</span>,
     <span class="hljs-attr">data</span>: {
@@ -113,106 +279,146 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2 id="option-context">オプションコンテキスト</h2><p>オプションコンテキストは、
-オプション解決の際に、オプションのコンテキストを渡す為に使われます。
-今は<a href="#scriptable-options">スクリプト可能オプション</a>でのみ適用可能です。</p><p>コンテキストオブジェクトは以下のプロパティが含まれています。</p><ul><li><code>chart</code> : 関連するチャート。</li><li><code>dataIndex</code> : 現在のデータのindex。</li><li><code>dataset</code> : indexのデータセット。<code>datasetIndex</code></li><li><code>datasetIndex</code> : 現在のデータセットのindex。</li></ul><blockquote>重要：コンテキストは様々な種類のエンティティ(dataset、data等)が存在するため、
-一部のプロパティは<code>undefined</code>になる場合があります。
-そのため、コンテキストのプロパティを使う前には必ず中身を確認してください。</blockquote><script class="load">createObj = function() {
-  // scriptable
-  var ctx = document.getElementById("myChart1").getContext('2d');
-  function setBorderColor(context) {
-      return setColor(context, 'border')
-  }
-  function setBgColor(context) {
-      return setColor(context, 'bg')
-  }
-  function setColor(context, type) {
-      var index = context.dataIndex;
-      var value = context.dataset.data[index];
-      var opaque = type === 'bg' ? 0.2 : 1;
-      return value.x < 0 && value.y < 0 ? 'rgba(255, 99, 132, ' + opaque + ')' :  // マイナス値なら'red'
-          index % 2 ? 'rgba(54, 162, 235, ' + opaque + ')' :    // それ以外は'blue'か'green'
-          'rgba(75, 192, 192, ' + opaque + ')';
-  }
-  new Chart(ctx, {
-      type: 'bubble',
-      data: {
-          datasets:[{
-              data: [
-                  {x: -44, y:  87, r:  8},
-                  {x:  10, y:  10, r: 16},
-                  {x:  77, y:  29, r: 13},
-                  {x:  40, y: -62, r: 14},
-                  {x:  83, y:  21, r: 21},
-                  {x: -78, y:  51, r: 10},
-                  {x:  21, y:  46, r: 12},
-                  {x:  35, y: -43, r:  5},
-                  {x: -10, y: -59, r: 16},
-                  {x: -23, y: -32, r: 20},
-              ],
-              backgroundColor: setBgColor,
-              borderColor: setBorderColor,
-              borderWidth: 1
-          }]
-      },
-      options: {
-          legend: {
-              display: false
-          }
-      }
-  })
-
-  // indexable
-  var ctx = document.getElementById("myChart2").getContext('2d');
-  new Chart(ctx, {
-      type: 'bubble',
-      data: {
-          datasets:[{
-              data: [
-                  {x: -44, y:  87, r:  8},
-                  {x:  10, y:  10, r: 16},
-                  {x:  77, y:  29, r: 13},
-                  {x:  40, y: -62, r: 14},
-                  {x:  83, y:  21, r: 21},
-                  {x: -78, y:  51, r: 10},
-                  {x:  21, y:  46, r: 12},
-                  {x:  35, y: -43, r:  5},
-                  {x: -10, y: -59, r: 16},
-                  {x: -23, y: -32, r: 20},
-              ],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          legend: {
-              display: false
-          }
-      }
-  })
-
-};</script><br><div class="license"><p>&copy; 2013
- Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2 id="option-context">オプションコンテキスト</h2>
+              <p>
+                オプションコンテキストは、
+                オプション解決の際に、オプションのコンテキストを渡す為に使われます。
+                今は<a href="#scriptable-options">スクリプト可能オプション</a>でのみ適用可能です。
+              </p>
+              <p>コンテキストオブジェクトは以下のプロパティが含まれています。</p>
+              <ul>
+                <li><code>chart</code> : 関連するチャート。</li>
+                <li><code>dataIndex</code> : 現在のデータのindex。</li>
+                <li><code>dataset</code> : indexのデータセット。<code>datasetIndex</code></li>
+                <li><code>datasetIndex</code> : 現在のデータセットのindex。</li>
+              </ul>
+              <blockquote>
+                重要：コンテキストは様々な種類のエンティティ(dataset、data等)が存在するため、
+                一部のプロパティは<code>undefined</code>になる場合があります。
+                そのため、コンテキストのプロパティを使う前には必ず中身を確認してください。
+              </blockquote>
+              <script class="load">
+                createObj = function() {
+                  // scriptable
+                  var ctx = document.getElementById("myChart1").getContext('2d');
+                  function setBorderColor(context) {
+                      return setColor(context, 'border')
+                  }
+                  function setBgColor(context) {
+                      return setColor(context, 'bg')
+                  }
+                  function setColor(context, type) {
+                      var index = context.dataIndex;
+                      var value = context.dataset.data[index];
+                      var opaque = type === 'bg' ? 0.2 : 1;
+                      return value.x < 0 && value.y < 0 ? 'rgba(255, 99, 132, ' + opaque + ')' :  // マイナス値なら'red'
+                          index % 2 ? 'rgba(54, 162, 235, ' + opaque + ')' :    // それ以外は'blue'か'green'
+                          'rgba(75, 192, 192, ' + opaque + ')';
+                  }
+                  new Chart(ctx, {
+                      type: 'bubble',
+                      data: {
+                          datasets:[{
+                              data: [
+                                  {x: -44, y:  87, r:  8},
+                                  {x:  10, y:  10, r: 16},
+                                  {x:  77, y:  29, r: 13},
+                                  {x:  40, y: -62, r: 14},
+                                  {x:  83, y:  21, r: 21},
+                                  {x: -78, y:  51, r: 10},
+                                  {x:  21, y:  46, r: 12},
+                                  {x:  35, y: -43, r:  5},
+                                  {x: -10, y: -59, r: 16},
+                                  {x: -23, y: -32, r: 20},
+                              ],
+                              backgroundColor: setBgColor,
+                              borderColor: setBorderColor,
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          legend: {
+                              display: false
+                          }
+                      }
+                  })
+                
+                  // indexable
+                  var ctx = document.getElementById("myChart2").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bubble',
+                      data: {
+                          datasets:[{
+                              data: [
+                                  {x: -44, y:  87, r:  8},
+                                  {x:  10, y:  10, r: 16},
+                                  {x:  77, y:  29, r: 13},
+                                  {x:  40, y: -62, r: 14},
+                                  {x:  83, y:  21, r: 21},
+                                  {x: -78, y:  51, r: 10},
+                                  {x:  21, y:  46, r: 12},
+                                  {x:  35, y: -43, r:  5},
+                                  {x: -10, y: -59, r: 16},
+                                  {x: -23, y: -32, r: 20},
+                              ],
+                              backgroundColor: [
+                                  'rgba(255, 99, 132, 0.2)',
+                                  'rgba(54, 162, 235, 0.2)',
+                                  'rgba(255, 206, 86, 0.2)',
+                                  'rgba(75, 192, 192, 0.2)',
+                                  'rgba(153, 102, 255, 0.2)',
+                                  'rgba(255, 159, 64, 0.2)',
+                                  'rgba(255, 99, 132, 0.2)',
+                                  'rgba(54, 162, 235, 0.2)',
+                                  'rgba(255, 206, 86, 0.2)',
+                                  'rgba(75, 192, 192, 0.2)',
+                              ],
+                              borderColor: [
+                                  'rgba(255,99,132,1)',
+                                  'rgba(54, 162, 235, 1)',
+                                  'rgba(255, 206, 86, 1)',
+                                  'rgba(75, 192, 192, 1)',
+                                  'rgba(153, 102, 255, 1)',
+                                  'rgba(255, 159, 64, 1)',
+                                  'rgba(255,99,132,1)',
+                                  'rgba(54, 162, 235, 1)',
+                                  'rgba(255, 206, 86, 1)',
+                                  'rgba(75, 192, 192, 1)',
+                              ],
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          legend: {
+                              display: false
+                          }
+                      }
+                  })
+                
+                };
+              </script><br>
+              <div class="license">
+                <p>
+                  &copy; 2013
+                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

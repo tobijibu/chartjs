@@ -1,18 +1,336 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Legend Configuration | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Legend Configuration | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../index.html">Home</a></li><li><a class="chartjs" href="../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../gettingStarted/installation.html">インストール</a></li><li><a href="../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../general.html">General</a><ul class="hidden" id="navi_general"><li><a href="../general/accessibility.html">アクセシビリティ</a></li><li><a href="../general/responsive.html">レスポンシブ</a></li><li><a href="../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../general/interactions.html">インタラクション</a><ul><li><a href="../general/interactions/events.html">イベント</a></li><li><a href="../general/interactions/modes.html">モード</a></li></ul></li><li><a href="../general/options.html">オプション</a></li><li><a href="../general/colors.html">カラー</a></li><li><a href="../general/fonts.html">フォント</a></li><li><a href="../general/performance.html">パフォーマンス</a></li></ul></li><li><a class="configuration" href="../configuration.html">Configuration</a><ul id="navi_configuration"><li><a href="../configuration/animations.html">アニメーション</a></li><li><a href="../configuration/layout.html">レイアウト</a></li><li><a class="active" href="../configuration/legend.html">凡例</a></li><li><a href="../configuration/title.html">タイトル</a></li><li><a href="../configuration/tooltip.html">ツールチップ</a></li><li><a href="../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../charts.html">Charts</a><ul class="hidden" id="navi_charts"><li><a href="../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../charts/area.html">エリアチャート(Area)</a></li><li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../axis.html">Axes</a><ul class="hidden" id="navi_axis"><li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../axis/labeling.html">ラベル</a></li><li><a href="../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../developers/api.html">Chart.js API</a></li><li><a href="../developers/updates.html">チャートの更新</a></li><li><a href="../developers/plugins.html">プラグイン</a></li><li><a href="../developers/charts.html">新規チャート追加</a></li><li><a href="../developers/axes.html">新規軸追加</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../additional-note/comparison-table.html">比較</a></li><li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li><li><a href="../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Legend Configuration</h1><div id="update_date"><span>更新日: 2019.12.06
-</span></div><p>チャートの凡例は、チャートに表示されるデータのデータセットの情報を表示します。</p><h2>設定</h2><p>凡例設定は名前空間<code>options.legend</code>に渡されます。
-グローバルオプションは<code>Chart.defaults.global.legend</code>で定義されています。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th>初期値</th><th class="detail">説明</th></tr><tr><td><code>display</code></td><td><code>boolean</code></td><td><code>true</code></td><td>凡例を表示するかどうか。</td></tr><tr><td><code>position</code></td><td><code>string</code></td><td><code>top</code></td><td>凡例の表示位置。<a href="#position">詳細はこちら</a></td></tr><tr><td><code>align</code></td><td><code>string</code></td><td><code>center</code></td><td>凡例の配置。<a href="#align">詳細はこちら</a></td></tr><tr><td><code>fullWidth</code></td><td><code>boolean</code></td><td><code>true</code></td><td>凡例を横幅100%で指定するかどうか。(他のボックスは下に押し下げられます。)
-通常利用の場合、この設定は変更不要です。</td></tr><tr><td><code>onClick</code></td><td><code>function</code></td><td> </td><td>ラベルにクリックイベントが登録された時に呼び出されるコールバックです。</td></tr><tr><td><code>onHover</code></td><td><code>function</code></td><td> </td><td>'mousemove'イベントが登録された時に呼び出されるコールバックです。</td></tr><tr><td><code>onLeave</code></td><td><code>function</code></td><td> </td><td>'mousemove'イベントがラベルの外に移動した時呼び出されるコールバックです。</td></tr><tr><td><code>reverse</code></td><td><code>boolean</code></td><td><code>false</code></td><td>凡例を逆順で表示します。</td></tr><tr><td><code>labels</code></td><td><code>object</code></td><td> </td><td><a href="#legend-label-configuration">凡例ラベル設定</a>を確認してください。</td></tr><tr><td><code>rtl</code></td><td><code>boolean</code></td><td> </td><td>凡例を右から左の向きに表示する場合は<code>true</code>を指定します。</td></tr><tr><td><code>textDirection</code></td><td><code>string</code></td><td>キャンバスのデフォルト</td><td>キャンバスに指定されたCSSにかかわらず、
-凡例のテキストの方向が<code>rtl</code>または<code>ltr</code>に強制されます。</td></tr></table></div><h2 id="position">position</h2><p>凡例の表示位置を指定します。以下を指定することができます。</p><ul><li>top</li><li>left</li><li>bottom</li><li>right</li></ul><h2 id="align">align</h2><p>凡例の配置を指定します。以下を指定することができます。</p><ul><li>start</li><li>center</li><li>end</li></ul><p>デフォルト値は<code>center</code>です。</p><h2 id="legend-label-configuration">凡例ラベル設定</h2><p>凡例ラベル設定は<code>label</code>オプションのサブオプションです。</p><div class="table-box"><table class="my-table"><tr><th>名称</th><th>type</th><th>初期値</th><th class="detail">説明</th></tr><tr><td><code>boxWidth</code></td><td><code>number</code></td><td><code>40</code></td><td>カラーボックスの幅。</td></tr><tr><td><code>fontSize</code></td><td><code>number</code></td><td><code>12</code></td><td>フォントサイズ。</td></tr><tr><td><code>fontStyle</code></td><td><code>string</code></td><td><code>normal</code></td><td>フォントスタイル。</td></tr><tr><td><code>fontColor</code></td><td><code>color</code></td><td><code>#666</code></td><td>文字色。</td></tr><tr><td><code>fontFamily</code></td><td><code>string</code></td><td><code>"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"</code></td><td>凡例のフォント。</td></tr><tr><td><code>padding</code></td><td><code>number</code></td><td><code>10</code></td><td>カラーボックスの行間。</td></tr><tr><td><code>generateLabels</code></td><td><code>function</code></td><td> </td><td>各項目の凡例を生成します。
-デフォルトはカラーボックスのテキストとテキストスタイルを返します。
-詳細は<a href="#legend-item-interface">凡例項目</a>を確認してください。</td></tr><tr><td><code>filter</code></td><td><code>function</code></td><td><code>null</code></td><td>凡例項目をフィルタリングします。
-<a href="#legend-item-interface">凡例項目</a>と、チャートデータの2つのパラメータを受け取ります。</td></tr><tr><td><code>usePointStyle</code></td><td><code>boolean</code></td><td><code>false</code></td><td>ラベルスタイルをポイントスタイルに合わせます。
-(この場合、サイズは<code>fontoSize</code>に基いており、<code>boxWidth</code>は使用しません。)</td></tr></table></div><h2 id="legend-item-interface">凡例項目</h2><p>凡例の<code>onClick</code>に渡される項目は、<code>labels.generateLabels</code>から返される項目です。
-それらの項目は以下のように設定する必要があります。</p><pre><code>{
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Legend Configuration | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Legend Configuration | Chart.js - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="chartjs"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a class="index" href="../index.html">Home</a></li>
+          <li><a class="chartjs" href="../chartjs.html">Chart.js</a></li>
+          <li><a class="gettingStarted" href="../gettingStarted.html">Getting Started</a>
+            <ul class="hidden" id="navi_gettingStarted">
+              <li><a href="../gettingStarted/installation.html">インストール</a></li>
+              <li><a href="../gettingStarted/integration.html">インテグレーション</a></li>
+              <li><a href="../gettingStarted/usage.html">使い方</a></li>
+            </ul>
+          </li>
+          <li><a class="general" href="../general.html">General</a>
+            <ul class="hidden" id="navi_general">
+              <li><a href="../general/accessibility.html">アクセシビリティ</a>
+              </li>
+              <li><a href="../general/responsive.html">レスポンシブ</a>
+              </li>
+              <li><a href="../general/device-pixel-ratio.html">ピクセル比率</a>
+              </li>
+              <li><a href="../general/interactions.html">インタラクション</a>
+                <ul>
+                  <li><a href="../general/interactions/events.html">イベント</a></li>
+                  <li><a href="../general/interactions/modes.html">モード</a></li>
+                </ul>
+              </li>
+              <li><a href="../general/options.html">オプション</a>
+              </li>
+              <li><a href="../general/colors.html">カラー</a>
+              </li>
+              <li><a href="../general/fonts.html">フォント</a>
+              </li>
+              <li><a href="../general/performance.html">パフォーマンス</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="configuration" href="../configuration.html">Configuration</a>
+            <ul id="navi_configuration">
+              <li><a href="../configuration/animations.html">アニメーション</a></li>
+              <li><a href="../configuration/layout.html">レイアウト</a></li>
+              <li><a class="active" href="../configuration/legend.html">凡例</a></li>
+              <li><a href="../configuration/title.html">タイトル</a></li>
+              <li><a href="../configuration/tooltip.html">ツールチップ</a></li>
+              <li><a href="../configuration/elements.html">要素</a></li>
+            </ul>
+          </li>
+          <li><a class="charts" href="../charts.html">Charts</a>
+            <ul class="hidden" id="navi_charts">
+              <li><a href="../charts/line.html">折れ線グラフ(Line)</a></li>
+              <li><a href="../charts/bar.html">棒グラフ(Bar)</a></li>
+              <li><a href="../charts/radar.html">レーダーチャート(Radar)</a></li>
+              <li><a href="../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+              <li><a href="../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+              <li><a href="../charts/bubble.html">バブルチャート(Bubble)</a></li>
+              <li><a href="../charts/scatter.html">散布図(Scatter)</a></li>
+              <li><a href="../charts/area.html">エリアチャート(Area)</a></li>
+              <li><a href="../charts/mixed.html">複合グラフ(Mixed)</a></li>
+            </ul>
+          </li>
+          <li><a class="axis" href="../axis.html">Axes</a>
+            <ul class="hidden" id="navi_axis">
+              <li><a href="../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                <ul>
+                  <li><a href="../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                  <li><a href="../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                  <li><a href="../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                  <li><a href="../axis/cartesian/time.html">時間軸(time)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/radial.html">放射軸(RadialAxes)</a>
+                <ul>
+                  <li><a href="../axis/radial/linear.html">線形軸(linear)</a></li>
+                </ul>
+              </li>
+              <li><a href="../axis/labeling.html">ラベル</a>
+              </li>
+              <li><a href="../axis/styling.html">スタイル</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="developers" href="../developers.html">Developers</a>
+            <ul class="hidden" id="navi_developers">
+              <li><a href="../developers/api.html">Chart.js API</a></li>
+              <li><a href="../developers/updates.html">チャートの更新</a></li>
+              <li><a href="../developers/plugins.html">プラグイン</a></li>
+              <li><a href="../developers/charts.html">新規チャート追加</a></li>
+              <li><a href="../developers/axes.html">新規軸追加</a></li>
+            </ul>
+          </li>
+          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+            <ul class="hidden" id="navi_additional-note">
+              <li><a href="../additional-note/comparison-table.html">比較</a></li>
+              <li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li>
+              <li><a href="../additional-note/license.html">ライセンス</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Legend Configuration</h1>
+              <div id="update_date"><span>更新日: 2019.12.06
+</span>
+              </div>
+              <p>チャートの凡例は、チャートに表示されるデータのデータセットの情報を表示します。</p>
+              <h2>設定</h2>
+              <p>凡例設定は名前空間<code>options.legend</code>に渡されます。
+                グローバルオプションは<code>Chart.defaults.global.legend</code>で定義されています。
+              </p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th>type</th>
+                    <th>初期値</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>display</code></td>
+                    <td><code>boolean</code></td>
+                    <td><code>true</code></td>
+                    <td>凡例を表示するかどうか。</td>
+                  </tr>
+                  <tr>
+                    <td><code>position</code></td>
+                    <td><code>string</code></td>
+                    <td><code>top</code></td>
+                    <td>凡例の表示位置。<a href="#position">詳細はこちら</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>align</code></td>
+                    <td><code>string</code></td>
+                    <td><code>center</code></td>
+                    <td>凡例の配置。<a href="#align">詳細はこちら</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>fullWidth</code></td>
+                    <td><code>boolean</code></td>
+                    <td><code>true</code></td>
+                    <td>
+                      凡例を横幅100%で指定するかどうか。(他のボックスは下に押し下げられます。)
+                      通常利用の場合、この設定は変更不要です。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>onClick</code></td>
+                    <td><code>function</code></td>
+                    <td> </td>
+                    <td>ラベルにクリックイベントが登録された時に呼び出されるコールバックです。</td>
+                  </tr>
+                  <tr>
+                    <td><code>onHover</code></td>
+                    <td><code>function</code></td>
+                    <td> </td>
+                    <td>'mousemove'イベントが登録された時に呼び出されるコールバックです。</td>
+                  </tr>
+                  <tr>
+                    <td><code>onLeave</code></td>
+                    <td><code>function</code></td>
+                    <td> </td>
+                    <td>'mousemove'イベントがラベルの外に移動した時呼び出されるコールバックです。</td>
+                  </tr>
+                  <tr>
+                    <td><code>reverse</code></td>
+                    <td><code>boolean</code></td>
+                    <td><code>false</code></td>
+                    <td>凡例を逆順で表示します。</td>
+                  </tr>
+                  <tr>
+                    <td><code>labels</code></td>
+                    <td><code>object</code></td>
+                    <td> </td>
+                    <td><a href="#legend-label-configuration">凡例ラベル設定</a>を確認してください。</td>
+                  </tr>
+                  <tr>
+                    <td><code>rtl</code></td>
+                    <td><code>boolean</code></td>
+                    <td> </td>
+                    <td>凡例を右から左の向きに表示する場合は<code>true</code>を指定します。</td>
+                  </tr>
+                  <tr>
+                    <td><code>textDirection</code></td>
+                    <td><code>string</code></td>
+                    <td>キャンバスのデフォルト</td>
+                    <td>
+                      キャンバスに指定されたCSSにかかわらず、
+                      凡例のテキストの方向が<code>rtl</code>または<code>ltr</code>に強制されます。
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <h2 id="position">position</h2>
+              <p>凡例の表示位置を指定します。以下を指定することができます。</p>
+              <ul>
+                <li>top</li>
+                <li>left</li>
+                <li>bottom</li>
+                <li>right</li>
+              </ul>
+              <h2 id="align">align</h2>
+              <p>凡例の配置を指定します。以下を指定することができます。</p>
+              <ul>
+                <li>start</li>
+                <li>center</li>
+                <li>end</li>
+              </ul>
+              <p>デフォルト値は<code>center</code>です。</p>
+              <h2 id="legend-label-configuration">凡例ラベル設定</h2>
+              <p>凡例ラベル設定は<code>label</code>オプションのサブオプションです。</p>
+              <div class="table-box">
+                <table class="my-table">
+                  <tr>
+                    <th>名称</th>
+                    <th>type</th>
+                    <th>初期値</th>
+                    <th class="detail">説明</th>
+                  </tr>
+                  <tr>
+                    <td><code>boxWidth</code></td>
+                    <td><code>number</code></td>
+                    <td><code>40</code></td>
+                    <td>カラーボックスの幅。</td>
+                  </tr>
+                  <tr>
+                    <td><code>fontSize</code></td>
+                    <td><code>number</code></td>
+                    <td><code>12</code></td>
+                    <td>フォントサイズ。</td>
+                  </tr>
+                  <tr>
+                    <td><code>fontStyle</code></td>
+                    <td><code>string</code></td>
+                    <td><code>normal</code></td>
+                    <td>フォントスタイル。</td>
+                  </tr>
+                  <tr>
+                    <td><code>fontColor</code></td>
+                    <td><code>color</code></td>
+                    <td><code>#666</code></td>
+                    <td>文字色。</td>
+                  </tr>
+                  <tr>
+                    <td><code>fontFamily</code></td>
+                    <td><code>string</code></td>
+                    <td><code>"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"</code></td>
+                    <td>凡例のフォント。</td>
+                  </tr>
+                  <tr>
+                    <td><code>padding</code></td>
+                    <td><code>number</code></td>
+                    <td><code>10</code></td>
+                    <td>カラーボックスの行間。</td>
+                  </tr>
+                  <tr>
+                    <td><code>generateLabels</code></td>
+                    <td><code>function</code></td>
+                    <td> </td>
+                    <td>
+                      各項目の凡例を生成します。
+                      デフォルトはカラーボックスのテキストとテキストスタイルを返します。
+                      詳細は<a href="#legend-item-interface">凡例項目</a>を確認してください。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>filter</code></td>
+                    <td><code>function</code></td>
+                    <td><code>null</code></td>
+                    <td>
+                      凡例項目をフィルタリングします。
+                      <a href="#legend-item-interface">凡例項目</a>と、チャートデータの2つのパラメータを受け取ります。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>usePointStyle</code></td>
+                    <td><code>boolean</code></td>
+                    <td><code>false</code></td>
+                    <td>
+                      ラベルスタイルをポイントスタイルに合わせます。
+                      (この場合、サイズは<code>fontoSize</code>に基いており、<code>boxWidth</code>は使用しません。)
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <h2 id="legend-item-interface">凡例項目</h2>
+              <p>凡例の<code>onClick</code>に渡される項目は、<code>labels.generateLabels</code>から返される項目です。
+                それらの項目は以下のように設定する必要があります。
+              </p>
+              <pre><code>{
     <span class="hljs-comment">// 表示するラベル</span>
     <span class="hljs-attr">text</span>: string,
 
@@ -50,7 +368,10 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
     <span class="hljs-comment">// ポイントの角度 (usePointStyleをtrueにした場合のみ。)</span>
     <span class="hljs-attr">rotation</span>: number
 }
-</code></pre><h3>例</h3><p>以下は、凡例を有効化し、全ての文字色を赤にする例です。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+</code></pre>
+              <h3>例</h3>
+              <p>以下は、凡例を有効化し、全ての文字色を赤にする例です。</p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -62,8 +383,14 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
         }
     }
 });
-</code></pre><h2>クリックアクションをカスタマイズ</h2><p>凡例の項目をクリックした時に、別の動作を指定したい場合があります。
-設定オブジェクトにコールバックを設定するだけで、簡単に実現できます。</p><p>デフォルトの凡例クリック時の動作は以下のとおりです。</p><pre><code><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, legendItem</span>) </span>{
+</code></pre>
+              <h2>クリックアクションをカスタマイズ</h2>
+              <p>
+                凡例の項目をクリックした時に、別の動作を指定したい場合があります。
+                設定オブジェクトにコールバックを設定するだけで、簡単に実現できます。
+              </p>
+              <p>デフォルトの凡例クリック時の動作は以下のとおりです。</p>
+              <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, legendItem</span>) </span>{
     <span class="hljs-keyword">var</span> index = legendItem.datasetIndex;
     <span class="hljs-keyword">var</span> ci = <span class="hljs-keyword">this</span>.chart;
     <span class="hljs-keyword">var</span> meta = ci.getDatasetMeta(index);
@@ -73,8 +400,12 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
 
     <span class="hljs-comment">// データセットを非表示にしました。チャートを再表示してください。</span>
     ci.update();
-}</code></pre><p>代わりに最初の2つのデータの表示状態をリンクする必要があるとします。
-以下のようにクリックハンドラを変更することができます。</p><pre><code><span class="hljs-keyword">var</span> defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
+}</code></pre>
+              <p>
+                代わりに最初の2つのデータの表示状態をリンクする必要があるとします。
+                以下のようにクリックハンドラを変更することができます。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
 <span class="hljs-keyword">var</span> newLegendClickHandler = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, legendItem</span>) </span>{
     <span class="hljs-keyword">var</span> index = legendItem.datasetIndex;
 
@@ -102,9 +433,16 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
         }
     }
 });
-</code></pre><p>チャートの凡例をクリックすると、最初の2つのデータの表示状態がリンクされます。</p><h2>HTML凡例</h2><p>時々、複雑なデザインの凡例を生成する必要があるかもしれません。
-この場合、HTMLを使うのが合理的です。
-Chart.jsはプロトタイプにHTMLを返す<code>generateLegend()</code>メソッドを用意しています。</p><p>凡例の生成を変更するには<code>legendCallback</code>プロパティを使うことができます。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+</code></pre>
+              <p>チャートの凡例をクリックすると、最初の2つのデータの表示状態がリンクされます。</p>
+              <h2>HTML凡例</h2>
+              <p>
+                時々、複雑なデザインの凡例を生成する必要があるかもしれません。
+                この場合、HTMLを使うのが合理的です。
+                Chart.jsはプロトタイプにHTMLを返す<code>generateLegend()</code>メソッドを用意しています。
+              </p>
+              <p>凡例の生成を変更するには<code>legendCallback</code>プロパティを使うことができます。</p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -112,8 +450,15 @@ Chart.jsはプロトタイプにHTMLを返す<code>generateLegend()</code>メソ
             <span class="hljs-comment">// ここでHTML文字列を返します。</span>
         }
     }
-});</code></pre><p><code>legendCallback</code>は自動で呼び出されないため、
-この関数を使って凡例を生成する場合は手動で<code>generateLegend()</code>を呼び出す必要があります。</p><br><h3>デモ</h3><p>チャートのラベルとラインを変更しています。</p><canvas id="myChart1"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myChart'</span>).getContext(<span class="hljs-string">'2d'</span>);
+});</code></pre>
+              <p><code>legendCallback</code>は自動で呼び出されないため、
+                この関数を使って凡例を生成する場合は手動で<code>generateLegend()</code>を呼び出す必要があります。
+              </p><br>
+              <h3>デモ</h3>
+              <p>チャートのラベルとラインを変更しています。</p>
+              <canvas id="myChart1"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myChart'</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: {
@@ -188,5 +533,28 @@ Chart.jsはプロトタイプにHTMLを返す<code>generateLegend()</code>メソ
             }
         }
     }
-});</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><div class="license"><p>&copy; 2013
- Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div><span class="src" data-src="../js/configuration/legend.js" hidden></span></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>
+});</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <div class="license">
+                <p>
+                  &copy; 2013
+                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+              </div><span class="src" data-src="../js/configuration/legend.js" hidden></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

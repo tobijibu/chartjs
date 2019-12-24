@@ -1,12 +1,163 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Interaction Modes | Chart.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Interaction Modes | Chart.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico"><link rel="stylesheet" href="../../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="../../index.html">Home</a></li><li><a class="chartjs" href="../../chartjs.html">Chart.js</a></li><li><a class="gettingStarted" href="../../gettingStarted.html">Getting Started</a><ul class="hidden" id="navi_gettingStarted"><li><a href="../../gettingStarted/installation.html">インストール</a></li><li><a href="../../gettingStarted/integration.html">インテグレーション</a></li><li><a href="../../gettingStarted/usage.html">使い方</a></li></ul></li><li><a class="general" href="../../general.html">General</a><ul id="navi_general"><li><a href="../../general/accessibility.html">アクセシビリティ</a></li><li><a href="../../general/responsive.html">レスポンシブ</a></li><li><a href="../../general/device-pixel-ratio.html">ピクセル比率</a></li><li><a href="../../general/interactions.html">インタラクション</a><ul><li><a href="../../general/interactions/events.html">イベント</a></li><li><a class="active" href="../../general/interactions/modes.html">モード</a></li></ul></li><li><a href="../../general/options.html">オプション</a></li><li><a href="../../general/colors.html">カラー</a></li><li><a href="../../general/fonts.html">フォント</a></li><li><a href="../../general/performance.html">パフォーマンス</a></li></ul></li><li><a class="configuration" href="../../configuration.html">Configuration</a><ul class="hidden" id="navi_configuration"><li><a href="../../configuration/animations.html">アニメーション</a></li><li><a href="../../configuration/layout.html">レイアウト</a></li><li><a href="../../configuration/legend.html">凡例</a></li><li><a href="../../configuration/title.html">タイトル</a></li><li><a href="../../configuration/tooltip.html">ツールチップ</a></li><li><a href="../../configuration/elements.html">要素</a></li></ul></li><li><a class="charts" href="../../charts.html">Charts</a><ul class="hidden" id="navi_charts"><li><a href="../../charts/line.html">折れ線グラフ(Line)</a></li><li><a href="../../charts/bar.html">棒グラフ(Bar)</a></li><li><a href="../../charts/radar.html">レーダーチャート(Radar)</a></li><li><a href="../../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li><li><a href="../../charts/polar-area.html">鶏頭図(Polar Area)</a></li><li><a href="../../charts/bubble.html">バブルチャート(Bubble)</a></li><li><a href="../../charts/scatter.html">散布図(Scatter)</a></li><li><a href="../../charts/area.html">エリアチャート(Area)</a></li><li><a href="../../charts/mixed.html">複合グラフ(Mixed)</a></li></ul></li><li><a class="axis" href="../../axis.html">Axes</a><ul class="hidden" id="navi_axis"><li><a href="../../axis/cartesian.html">デカルト軸(CartesianAxes)</a><ul><li><a href="../../axis/cartesian/category.html">カテゴリ(category)</a></li><li><a href="../../axis/cartesian/linear.html">線形軸(linear)</a></li><li><a href="../../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li><li><a href="../../axis/cartesian/time.html">時間軸(time)</a></li></ul></li><li><a href="../../axis/radial.html">放射軸(RadialAxes)</a><ul><li><a href="../../axis/radial/linear.html">線形軸(linear)</a></li></ul></li><li><a href="../../axis/labeling.html">ラベル</a></li><li><a href="../../axis/styling.html">スタイル</a></li></ul></li><li><a class="developers" href="../../developers.html">Developers</a><ul class="hidden" id="navi_developers"><li><a href="../../developers/api.html">Chart.js API</a></li><li><a href="../../developers/updates.html">チャートの更新</a></li><li><a href="../../developers/plugins.html">プラグイン</a></li><li><a href="../../developers/charts.html">新規チャート追加</a></li><li><a href="../../developers/axes.html">新規軸追加</a></li></ul></li><li><span onclick="toggleAdditionalNote()">Additional Note</span><ul class="hidden" id="navi_additional-note"><li><a href="../../additional-note/comparison-table.html">比較</a></li><li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li><li><a href="../../additional-note/license.html">ライセンス</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Interaction Modes</h1><div id="update_date"><span>更新日: 2019.12.06
-</span></div><p>hoverやツールチップをグラフに適用し、インタラクションを定義した場合、
-いくつかのモードを設定することができます。</p><p>モードの詳細は下記で説明します。
-また、<code>intersect</code>との関係によって、どのように動作するかを記載します。</p><h2>point</h2><p>マウスカーソルが重なっている全てのアイテムを表示します。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interaction Modes | Chart.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Interaction Modes | Chart.js - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/chartjs/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../../js/toggleTheme.js" data-dir="chartjs"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Chart.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a class="index" href="../../index.html">Home</a></li>
+          <li><a class="chartjs" href="../../chartjs.html">Chart.js</a></li>
+          <li><a class="gettingStarted" href="../../gettingStarted.html">Getting Started</a>
+            <ul class="hidden" id="navi_gettingStarted">
+              <li><a href="../../gettingStarted/installation.html">インストール</a></li>
+              <li><a href="../../gettingStarted/integration.html">インテグレーション</a></li>
+              <li><a href="../../gettingStarted/usage.html">使い方</a></li>
+            </ul>
+          </li>
+          <li><a class="general" href="../../general.html">General</a>
+            <ul id="navi_general">
+              <li><a href="../../general/accessibility.html">アクセシビリティ</a>
+              </li>
+              <li><a href="../../general/responsive.html">レスポンシブ</a>
+              </li>
+              <li><a href="../../general/device-pixel-ratio.html">ピクセル比率</a>
+              </li>
+              <li><a href="../../general/interactions.html">インタラクション</a>
+                <ul>
+                  <li><a href="../../general/interactions/events.html">イベント</a></li>
+                  <li><a class="active" href="../../general/interactions/modes.html">モード</a></li>
+                </ul>
+              </li>
+              <li><a href="../../general/options.html">オプション</a>
+              </li>
+              <li><a href="../../general/colors.html">カラー</a>
+              </li>
+              <li><a href="../../general/fonts.html">フォント</a>
+              </li>
+              <li><a href="../../general/performance.html">パフォーマンス</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="configuration" href="../../configuration.html">Configuration</a>
+            <ul class="hidden" id="navi_configuration">
+              <li><a href="../../configuration/animations.html">アニメーション</a></li>
+              <li><a href="../../configuration/layout.html">レイアウト</a></li>
+              <li><a href="../../configuration/legend.html">凡例</a></li>
+              <li><a href="../../configuration/title.html">タイトル</a></li>
+              <li><a href="../../configuration/tooltip.html">ツールチップ</a></li>
+              <li><a href="../../configuration/elements.html">要素</a></li>
+            </ul>
+          </li>
+          <li><a class="charts" href="../../charts.html">Charts</a>
+            <ul class="hidden" id="navi_charts">
+              <li><a href="../../charts/line.html">折れ線グラフ(Line)</a></li>
+              <li><a href="../../charts/bar.html">棒グラフ(Bar)</a></li>
+              <li><a href="../../charts/radar.html">レーダーチャート(Radar)</a></li>
+              <li><a href="../../charts/doughnut-and-pie.html">円グラフ(Doughnut &amp; Pie)</a></li>
+              <li><a href="../../charts/polar-area.html">鶏頭図(Polar Area)</a></li>
+              <li><a href="../../charts/bubble.html">バブルチャート(Bubble)</a></li>
+              <li><a href="../../charts/scatter.html">散布図(Scatter)</a></li>
+              <li><a href="../../charts/area.html">エリアチャート(Area)</a></li>
+              <li><a href="../../charts/mixed.html">複合グラフ(Mixed)</a></li>
+            </ul>
+          </li>
+          <li><a class="axis" href="../../axis.html">Axes</a>
+            <ul class="hidden" id="navi_axis">
+              <li><a href="../../axis/cartesian.html">デカルト軸(CartesianAxes)</a>
+                <ul>
+                  <li><a href="../../axis/cartesian/category.html">カテゴリ(category)</a></li>
+                  <li><a href="../../axis/cartesian/linear.html">線形軸(linear)</a></li>
+                  <li><a href="../../axis/cartesian/logarithmic.html">対数軸(logarithmic)</a></li>
+                  <li><a href="../../axis/cartesian/time.html">時間軸(time)</a></li>
+                </ul>
+              </li>
+              <li><a href="../../axis/radial.html">放射軸(RadialAxes)</a>
+                <ul>
+                  <li><a href="../../axis/radial/linear.html">線形軸(linear)</a></li>
+                </ul>
+              </li>
+              <li><a href="../../axis/labeling.html">ラベル</a>
+              </li>
+              <li><a href="../../axis/styling.html">スタイル</a>
+              </li>
+            </ul>
+          </li>
+          <li><a class="developers" href="../../developers.html">Developers</a>
+            <ul class="hidden" id="navi_developers">
+              <li><a href="../../developers/api.html">Chart.js API</a></li>
+              <li><a href="../../developers/updates.html">チャートの更新</a></li>
+              <li><a href="../../developers/plugins.html">プラグイン</a></li>
+              <li><a href="../../developers/charts.html">新規チャート追加</a></li>
+              <li><a href="../../developers/axes.html">新規軸追加</a></li>
+            </ul>
+          </li>
+          <li><span onclick="toggleAdditionalNote()">Additional Note</span>
+            <ul class="hidden" id="navi_additional-note">
+              <li><a href="../../additional-note/comparison-table.html">比較</a></li>
+              <li><a class="external-link" href="https://github.com/chartjs/awesome" target="_blank" rel="noopener noreferrer">拡張機能</a></li>
+              <li><a href="../../additional-note/license.html">ライセンス</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Interaction Modes</h1>
+              <div id="update_date"><span>更新日: 2019.12.06
+</span>
+              </div>
+              <p>
+                hoverやツールチップをグラフに適用し、インタラクションを定義した場合、
+                いくつかのモードを設定することができます。
+              </p>
+              <p>
+                モードの詳細は下記で説明します。
+                また、<code>intersect</code>との関係によって、どのように動作するかを記載します。
+              </p>
+              <h2>point</h2>
+              <p>マウスカーソルが重なっている全てのアイテムを表示します。</p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -14,7 +165,12 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'point'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>"February"にカーソルを合わせると、AとBのツールチップが表示されます。</p><canvas id="myChart1"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>"February"にカーソルを合わせると、AとBのツールチップが表示されます。</p>
+              <canvas id="myChart1"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: {
@@ -39,13 +195,20 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'point'</span>
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2>nearest</h2><p>最も近いアイテムを表示します。
-"最も近いアイテム"は、アイテム(point、bar)の中心からの距離から算出します。
-もし同じ距離のアイテムが2つ以上ある場合、もっとも範囲が狭いエリアを使用します。
-<code>axis</code>設定を指定すると距離算出で利用する方向を指定することができます。
-<code>intersect</code>が<code>true</code>の場合、
-マウスがグラフの項目と重なっている場合のみトリガーされます。
-コンボチャートで、バーの後ろにポイントが隠れてしまっている場合に、とても便利です。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2>nearest</h2>
+              <p>
+                最も近いアイテムを表示します。
+                "最も近いアイテム"は、アイテム(point、bar)の中心からの距離から算出します。
+                もし同じ距離のアイテムが2つ以上ある場合、もっとも範囲が狭いエリアを使用します。
+                <code>axis</code>設定を指定すると距離算出で利用する方向を指定することができます。
+                <code>intersect</code>が<code>true</code>の場合、
+                マウスがグラフの項目と重なっている場合のみトリガーされます。
+                コンボチャートで、バーの後ろにポイントが隠れてしまっている場合に、とても便利です。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -53,7 +216,12 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'nearest'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>マウスカーソルに近いアイテムのツールチップを表示します。</p><canvas id="myChart2"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>マウスカーソルに近いアイテムのツールチップを表示します。</p>
+              <canvas id="myChart2"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
     <span class="hljs-attr">data</span>: {
@@ -81,12 +249,25 @@ ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"
             <span class="hljs-attr">intersect</span>: <span class="hljs-literal">false</span>,
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2>single(非推奨)</h2><p>マウスカーソルが重なっているポイントの最初のアイテムを表示します。
-<code>intersect</code>が<code>true</code>の場合、<code>nearest</code>と似た挙動になります。</p><br><h2>label(非推奨)</h2><p><code>index</code>を参照してください。</p><br><h2>index</h2><p>同じインデックスのアイテムを表示します。
-<code>intersect</code>が<code>true</code>の場合、
-マウスカーソルが重なったポイントの最初のアイテムを使ってインデックスを決定します。
-<code>intersect</code>が<code>false</code>の場合、
-X方向に一番近いアイテムを使ってインデックスを決定します。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2>single(非推奨)</h2>
+              <p>
+                マウスカーソルが重なっているポイントの最初のアイテムを表示します。
+                <code>intersect</code>が<code>true</code>の場合、<code>nearest</code>と似た挙動になります。
+              </p><br>
+              <h2>label(非推奨)</h2>
+              <p><code>index</code>を参照してください。</p><br>
+              <h2>index</h2>
+              <p>
+                同じインデックスのアイテムを表示します。
+                <code>intersect</code>が<code>true</code>の場合、
+                マウスカーソルが重なったポイントの最初のアイテムを使ってインデックスを決定します。
+                <code>intersect</code>が<code>false</code>の場合、
+                X方向に一番近いアイテムを使ってインデックスを決定します。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -94,8 +275,11 @@ X方向に一番近いアイテムを使ってインデックスを決定しま�
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'index'</span>
         }
     }
-})</code></pre><p>横棒グラフのようなチャートで<code>index</code>モードを使うには、Y方向に検索する必要があります。
-v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定することで、Y方向に検索することができます。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <p>横棒グラフのようなチャートで<code>index</code>モードを使うには、Y方向に検索する必要があります。
+                v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定することで、Y方向に検索することができます。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'horizontalBar'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -104,7 +288,12 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">axis</span>: <span class="hljs-string">'y'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>カーソルを併せた要素と同じ月の要素を表示します。</p><canvas id="myChart3"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>カーソルを併せた要素と同じ月の要素を表示します。</p>
+              <canvas id="myChart3"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'horizontalBar'</span>,
     <span class="hljs-attr">data</span>: {
@@ -132,11 +321,20 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">axis</span>: <span class="hljs-string">'y'</span>
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2>x-axis(非推奨)</h2><p><code>intersect</code>を<code>false</code>にした<code>index</code>と似た挙動になります。</p><br><h2>dataset</h2><p>同じデータセット内のアイテムを表示します。
-<code>intersect</code>が<code>true</code>の場合、
-マウスカーソルが重なったポイントの最初のアイテムを使ってインデックスを決めます。
-<code>intersect</code>が<code>false</code>の場合、
-一番近いアイテムを使ってインデックスを決定します。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2>x-axis(非推奨)</h2>
+              <p><code>intersect</code>を<code>false</code>にした<code>index</code>と似た挙動になります。</p><br>
+              <h2>dataset</h2>
+              <p>
+                同じデータセット内のアイテムを表示します。
+                <code>intersect</code>が<code>true</code>の場合、
+                マウスカーソルが重なったポイントの最初のアイテムを使ってインデックスを決めます。
+                <code>intersect</code>が<code>false</code>の場合、
+                一番近いアイテムを使ってインデックスを決定します。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -144,7 +342,12 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'dataset'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>カーソルを併せた要素とデータセットの情報を表示します。</p><canvas id="myChart4"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>カーソルを併せた要素とデータセットの情報を表示します。</p>
+              <canvas id="myChart4"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
     <span class="hljs-attr">data</span>: {
@@ -171,9 +374,15 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'dataset'</span>,
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2>x</h2><p>マウスカーソル位置を基準として、<code>X</code>座標上の全てのアイテムを表示します。
-垂直カーソルを実装する場合に便利です。
-このモードは<code>cartesian</code>チャートの場合のみ適用可能です。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2>x</h2>
+              <p>マウスカーソル位置を基準として、<code>X</code>座標上の全てのアイテムを表示します。
+                垂直カーソルを実装する場合に便利です。
+                このモードは<code>cartesian</code>チャートの場合のみ適用可能です。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -181,7 +390,12 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'x'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>カーソル合わせた要素のX座標に一致するアイテムの情報を表示します。</p><canvas id="myChart5"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>カーソル合わせた要素のX座標に一致するアイテムの情報を表示します。</p>
+              <canvas id="myChart5"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
     <span class="hljs-attr">data</span>: {
@@ -208,9 +422,15 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'x'</span>,
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><h2>y</h2><p>マウスカーソル位置を基準として、<code>Y</code>座標上の全てのアイテムを表示します。
-水平カーソルを実装する場合に便利です。
-このモードは<code>cartesian</code>チャートの場合のみ適用可能です。</p><pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <h2>y</h2>
+              <p>マウスカーソル位置を基準として、<code>Y</code>座標上の全てのアイテムを表示します。
+                水平カーソルを実装する場合に便利です。
+                このモードは<code>cartesian</code>チャートの場合のみ適用可能です。
+              </p>
+              <pre><code><span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'line'</span>,
     <span class="hljs-attr">data</span>: data,
     <span class="hljs-attr">options</span>: {
@@ -218,7 +438,12 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'y'</span>
         }
     }
-})</code></pre><h3>デモ</h3><p>カーソル合わせた要素のY座標に一致するアイテムの情報を表示します。<br>(例えば"March"の"B"と"July"の"B"等)</p><canvas id="myChart6"></canvas><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
+})</code></pre>
+              <h3>デモ</h3>
+              <p>カーソル合わせた要素のY座標に一致するアイテムの情報を表示します。<br>(例えば"March"の"B"と"July"の"B"等)</p>
+              <canvas id="myChart6"></canvas>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> ctx = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myChart"</span>).getContext(<span class="hljs-string">'2d'</span>);
 <span class="hljs-keyword">new</span> Chart(ctx, {
     <span class="hljs-attr">type</span>: <span class="hljs-string">'bar'</span>,
     <span class="hljs-attr">data</span>: {
@@ -245,186 +470,212 @@ v2.7.0.から導入された<code>axis</code>を使って<code>y</code>を指定
             <span class="hljs-attr">mode</span>: <span class="hljs-string">'x'</span>,
         }
     }
-})</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br><script class="load">createObj = function() {
-  // point
-  var ctx = document.getElementById("myChart1").getContext('2d');
-  new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'point'
-          }
-      }
-  })
-
-  // nearest
-  var ctx = document.getElementById("myChart2").getContext('2d');
-  new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              type: 'line',
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              type: 'bar',
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'nearest',
-              intersect: false,
-          }
-      }
-  })
-
-  // index
-  var ctx = document.getElementById("myChart3").getContext('2d');
-  new Chart(ctx, {
-      type: 'horizontalBar',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              type: 'horizontalBar',
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              type: 'horizontalBar',
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'index',
-              axis: 'y'
-          }
-      }
-  })
-
-  // dataset
-  var ctx = document.getElementById("myChart4").getContext('2d');
-  new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              type: 'line',
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              type: 'bar',
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'dataset',
-          }
-      }
-  })
-
-  // x
-  var ctx = document.getElementById("myChart5").getContext('2d');
-  new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              type: 'line',
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              type: 'line',
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'x',
-          }
-      }
-  })
-
-  // y
-  var ctx = document.getElementById("myChart6").getContext('2d');
-  new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
-          datasets:[{
-              type: 'line',
-              label: "A",
-              data: [65, 59, 80, 81, 56, 55, 40],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgb(54, 162, 235)",
-              borderWidth: 1
-          },
-          {
-              type: 'line',
-              label: "B",
-              data: [55, 59, 70, 91, 26, 25, 70],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 99, 132)",
-              borderWidth: 1
-          }]
-      },
-      options: {
-          tooltips: {
-              mode: 'y',
-          }
-      }
-  })
-
- };</script><br><div class="license"><p>&copy; 2013
- Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a></p><p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../../css/lazy.css" rel="stylesheet"></noscript><script src="../../js/main.js" defer></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script><script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script><div id="src" hidden></div></body></html>
+})</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myChart"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span></code></pre><br>
+              <script class="load">
+                createObj = function() {
+                  // point
+                  var ctx = document.getElementById("myChart1").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'line',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'point'
+                          }
+                      }
+                  })
+                
+                  // nearest
+                  var ctx = document.getElementById("myChart2").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              type: 'line',
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              type: 'bar',
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'nearest',
+                              intersect: false,
+                          }
+                      }
+                  })
+                
+                  // index
+                  var ctx = document.getElementById("myChart3").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'horizontalBar',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              type: 'horizontalBar',
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              type: 'horizontalBar',
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'index',
+                              axis: 'y'
+                          }
+                      }
+                  })
+                
+                  // dataset
+                  var ctx = document.getElementById("myChart4").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              type: 'line',
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              type: 'bar',
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'dataset',
+                          }
+                      }
+                  })
+                
+                  // x
+                  var ctx = document.getElementById("myChart5").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              type: 'line',
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              type: 'line',
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'x',
+                          }
+                      }
+                  })
+                
+                  // y
+                  var ctx = document.getElementById("myChart6").getContext('2d');
+                  new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                          labels: ["January", "February", "March", "April", "May", "June", "July"],
+                          datasets:[{
+                              type: 'line',
+                              label: "A",
+                              data: [65, 59, 80, 81, 56, 55, 40],
+                              backgroundColor: "rgba(54, 162, 235, 0.2)",
+                              borderColor: "rgb(54, 162, 235)",
+                              borderWidth: 1
+                          },
+                          {
+                              type: 'line',
+                              label: "B",
+                              data: [55, 59, 70, 91, 26, 25, 70],
+                              backgroundColor: "rgba(255, 99, 132, 0.2)",
+                              borderColor: "rgb(255, 99, 132)",
+                              borderWidth: 1
+                          }]
+                      },
+                      options: {
+                          tooltips: {
+                              mode: 'y',
+                          }
+                      }
+                  })
+                
+                 };
+              </script><br>
+              <div class="license">
+                <p>
+                  &copy; 2013
+                   Chart.js is available under the <a href="https://opensource.org/licenses/MIT">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="http://www.chartjs.org/docs/latest/">Chart.jsドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../../js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/patternomaly/dist/patternomaly.min.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>
